@@ -1,26 +1,31 @@
+# Project State
+
+Last updated: 2026-10-22 (Asia/Kolkata).
+
 ## Project
 
-The supplied faculty allocation image identifies Project 4 as “Multi-Agent Traffic Flow Control via Graph Attention Networks and LWR Models,” Team T072, Section C. See [PROJECT.md](PROJECT.md) for the rough overview and five-member roster. Earlier supplied notes use “Traffic Flow Prediction and Signal Control via Graph Attention Networks and Flow Models”; the wording and scope difference remains recorded for clarification.
+See [PROJECT.md](PROJECT.md) for the faculty allocation title, Team T072, Section C, roster, rough problem statement, and the recorded title discrepancy.
+
+## Current phase and milestone
+
+Phase 1 — Traditional ML/AML. Repository foundation only; full research documentation remains pending.
 
 ## Current authorized scope
 
-The owner authorized a rough PROJECT.md containing the project heading, team description, and a two-line problem statement. This overview has been added; full documentation initialization has not yet been performed. Implementation and project decisions are deferred until further direction.
+Create the complete requested directory scaffold with short Markdown placeholders and `.gitkeep` files, and push this initial scaffold to the configured GitHub repository. This is a narrow exception to the prior local-only instruction. Future pushes and implementation require further direction.
 
-All work must stay local. Do not push anything to GitHub or publish project contents.
+## Completed work
 
-## Verified state
+The requested directories, documentation placeholders, research registers, repository hygiene files, and reserved pyproject.toml have been created. Existing project overview and team details are preserved. This is a scaffold, not completed research documentation or an implemented pipeline.
 
-- The repository initially contained only a one-line README and Git metadata.
-- The current branch was `main`, and `git status --short` was empty before saving these instructions.
-- The attached master instruction has been read.
-- AGENTS.md and this state file record the owner's current constraints.
-- No dataset has been selected, downloaded, or inspected in this session.
-- No models, experiments, accepted decisions, or implementation have been created in this session.
+## Decisions, data, models, and experiments
 
-## Future documentation needs
+No accepted ADRs. ADR-001 is a proposed draft. Dataset selection, methodology, member assignments, and runtime dependencies remain open. No data downloaded, models trained, or experiments conducted.
 
-Prepare the research foundation described in the supplied master instruction when directed. Include clear, reviewable instructions for exactly five student members: responsibilities, theory to understand, inputs, outputs, dependencies, acceptance criteria, and verification. Member identities are recorded from the supplied faculty image in PROJECT.md; ownership remains unconfirmed and experimental choices remain proposals.
+## Verification and publication
 
-## Next step
+See [worklog](logs/worklog.md) for scaffold verification and publication status. Commit and push status will be recorded after they are checked.
 
-Wait for the owner's direction to begin the initial documentation. Read AGENTS.md and the attached master instruction first, preserving the documentation-only scope and local-only constraint.
+## Next task
+
+Wait for direction to expand initial documentation and define precise member tasks. Do not begin dataset evaluation or implementation based on placeholder text.

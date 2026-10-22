@@ -1,0 +1,58 @@
+# Local credentials and environments
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.venv/
+venv/
+env/
+.aws/
+
+# Python, notebook, editor and OS caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.DS_Store
+.idea/
+.vscode/
+*.egg-info/
+build/
+dist/
+
+# Data: retain documentation and placeholders recursively
+/data/**
+!/data/**/
+!/data/**/README.md
+!/data/**/.gitkeep
+
+# Generated experiment outputs: retain guidance and placeholders
+/experiments/**
+!/experiments/**/
+!/experiments/**/README.md
+!/experiments/**/.gitkeep
+
+# Model and large binary artifacts
+*.pkl
+*.pickle
+*.joblib
+*.pt
+*.pth
+*.ckpt
+*.h5
+*.hdf5
+*.npy
+*.npz
+
+# Generated report and presentation outputs
+/reports/**/*.pdf
+/reports/**/*.aux
+/reports/**/*.log
+/reports/**/*.out
+/reports/**/*.toc
+/reports/**/*.bbl
+/reports/**/*.blg
+/presentations/**/*.pdf

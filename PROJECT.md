@@ -30,7 +30,7 @@ The project aims to forecast traffic conditions and, in a later phase, investiga
 
 ## Current status
 
-Initial documentation only. Dataset, model choices, methodology, and member assignments are not finalized. No implementation, training, or experiments have been conducted. All project work stays local; nothing is to be pushed to GitHub.
+Initial documentation only. Dataset, model choices, methodology, and member assignments are not finalized. No implementation, training, or experiments have been conducted. The owner authorized pushing this initial repository scaffold only. Further publication requires direction.
 
 ## Source and title clarification
 
