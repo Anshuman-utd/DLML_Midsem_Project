@@ -1,66 +1,38 @@
-# Five-member handoff: LOCAL COMMIT ONLY
+# One team workflow - 2026-10-27
 
-Updated 2026-10-27. This replaces the earlier push/PR workflow. The owner will
-push; each member's agent prepares only its assigned local commit. No remote
-integration branch is required to exist for the agent to work from an agreed
-local base. Preserve existing history and use codex/<package-id>-review.
+This replaces the previous integration-branch, sandbox-only and commit-only handoff workflows, including old instructions inside ZIPs.
 
-## What to send and paste
+## Fixed coordination contract
 
-Send each member their individual ZIP. They extract it OUTSIDE their Git clone,
-open their intended checkout with their agent, and paste AGENT_PROMPT.txt.
-If the agent cannot identify the checkout/package, supply those paths.
+| Item | Required value |
+| --- | --- |
+| Team repository | https://github.com/KatalKavya96/DLML_Midsem_Project.git |
+| Base and PR target | main |
+| Integration branch prerequisite | None; do not wait for integration/phase1-handoff |
+| Destination | Repository root; no AML/ prefix or ZIP wrapper |
+| Personal branch | codex/<member>-<module> |
+| Publication | Owner authorizes members to push personal branches and open PRs |
+| Main/merges | Only coordinator integrates; no member direct-main/force pushes or merges |
 
-- payload/: only these files are candidates for copying/committing.
-- COMMIT_PATHS.txt: exact per-person allowlist, including one pending review log.
-- MANIFEST.json: original payload SHA-256 values, name, role and commit scope.
-- repo-context/: common read-only background snapshots; DO NOT copy/commit these.
-- CONTEXT_MANIFEST.json: SHA-256 values for context and instruction files.
-- README.md / AGENT_PROMPT.txt / HANDOFF.md: instructions outside commit scope.
+A coordination-only baseline establishes instructions and root directories. Module implementation arrives through reviewed member PRs. Empty module directories before those PRs are expected; packages create their own assigned files. The owner's complete local reference and its past test results do not imply the remote baseline already contains the implementation.
 
-Each agent must inspect live instructions, existing changes and staged files;
-validate hashes; use the agreed personal local branch; review and record only
-actual agent activity; stage only the allowlist; inspect every staged path; and
-create a truthful local commit. Stop on identity/base/conflict ambiguity. Never
-commit other people's staged work or manufacture author/date/activity history.
+## Per-member execution
 
-Do not use git add . or git add -A. Do not commit snapshots/inventories from
-outside payload/. Shared files are committed by one owner only. Bineet owns
-shared models/trees.py; Kavya reviews its XGBoost portion using context and
-assembled source, without copying a competing version.
+1. Extract the personal ZIP outside the Git clone. Read its inventory/manifests and current repository instructions. Current live instructions override older ZIP snapshots.
+2. Verify repository/fork remotes. Fetch main and branch from the canonical main tip (upstream/main for a fork, origin/main for a canonical clone). Preserve unrelated work and staged changes. If a previously created branch has actual work, preserve it and reconcile its base deliberately.
+3. Verify payload SHA-256 values before changes. Copy only assigned payload contents into the root. Restrict staging to COMMIT_PATHS.txt. Never copy repo-context/ or delivery instructions/manifests into the tree.
+4. Preserve updated shared coordinator files: AGENTS.md, PROJECT_STATE.md, README.md, CONTRIBUTING.md, .gitignore and docs/handoffs/*. If the assigned package includes an older version, review/merge required information instead of clobbering current rules.
+5. Review/reproduce the module and complete the unique review log with actual agent activity, dates, checks, assistance and limitations. Student understanding stays unverified unless actually demonstrated. Explain prepared source as imported owner/AI-assisted work, not newly independent authorship.
+6. Use meaningful scoped commits. Stage explicit paths, inspect every staged path/diff and check identity. Do not include data, models, environment/dependency trees, ZIPs or unrelated work. Already-present identical files do not need artificial commits.
+7. Run supported checks. Record cross-package dependencies/skips honestly; no full pass is expected from one incomplete package. Push only the personal branch and open a PR to canonical main. A fork PR is valid if collaborator access is absent. Do not merge.
+8. PR description: role, exact changes, original prepared-source provenance, personal/agent follow-up work, checks passed/failed/skipped and remaining dependencies. Coordinator reviews and tests the combined tree before accepting it.
 
-Prepared implementation remains owner/AI-assisted work based on the teammate
-prototype. Each review log distinguishes actual agent work from pending human
-understanding. Receiving or importing prepared files does not establish original
-student authorship. Preserve docs/CONTRIBUTIONS.md and historical evidence.
+## Ownership and exclusions
 
-## Coordinator after receiving local commit details
+FILE_OWNERSHIP.json maps original payload paths. Bineet owns shared models/trees.py; Kavya reviews its XGBoost part and owns orchestration/configuration/evaluation. Do not import competing copies. Protected shared-file merging is a deliberate exception to blind package replacement, not permission to stage other modules.
 
-All five commits must be available on one integration branch for combined
-checks. Separate local clones do not exchange commits automatically: the owner
-must explicitly arrange branch publication or transfer later. The package does
-not automate that step or authorize agents to publish. Preserve commits/history
-when integrating and inspect conflicts rather than assuming the final tree.
+Original code, datasets and historical results remain preserved. Raw data, fitted estimators, prediction arrays and environments are not included in delivery ZIPs. Prior full-local-run evidence is exploratory and distinct from new member checks. No final faculty acceptance or individual contribution is fabricated.
 
-The five source payloads have disjoint paths and reconstruct the curated 113-file
-snapshot, plus five review logs. Partial assemblies may not import or pass tests.
-Once all parts are present, follow the assembled README for Python 3.12 setup,
-platform OpenMP, raw-data placement and these checks:
+## Coordinator verification after assembly
 
-```bash
-python -m pip check
-pytest -q -ra
-ruff check .
-ruff format --check .
-python scripts/check_data.py
-```
-
-Run installation/setup only where authorized. Datasets, trained models, prediction
-arrays and environments are excluded. Missing-data skips do not validate real-data
-integration. Saved prediction requires trusted model artifacts or a new run.
-Historical results are exploratory because test outputs were already inspected;
-56 passing tests describe the prior full run, not a fresh check by this package.
-Final report, faculty scope, metadata/rights and individual viva review remain.
-
-The original combined ZIP is preserved. No commits, pushes, PRs or merges were
-performed when preparing these packages.
+Follow the assembled README for Python 3.12 setup, OpenMP and data placement; then check dependency consistency, pytest, Ruff lint/format, real-data loading, saved-model prediction/run provenance and report/package completeness. Do not claim missing-data skips prove real-data integration. Main may remain incomplete until all dependent PRs are integrated; review dependencies together.

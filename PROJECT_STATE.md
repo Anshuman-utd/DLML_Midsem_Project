@@ -1,43 +1,35 @@
-# Project State
+# Project state
 
-Last updated: 2026-10-27 (Asia/Kolkata).
+Updated: 2026-10-27, Asia/Kolkata. Team T072, Section C.
 
-## Current phase and authorization
+## Canonical project and current scope
 
-Team T072, Section C; Phase 1 traditional ML/AML. The owner requested an end-to-end, simple, viva-defensible local implementation after the earlier scaffold/review/planning work. Phase 2 and another GitHub push remain outside scope. Preserve actual authorship and assistance; no member-specific contribution history is fabricated.
+The one canonical working project is `/Users/kavyakatal/Desktop/DLML_Midsem_Project`. Its Phase 1 implementation now lives directly at the repository root: `src/trafficml/`, `scripts/`, `tests/`, `configs/`, `report/`, `slides/` and `verification/`. The nested `AML/` working folder no longer exists. The owner requested this consolidation so the prepared ZIP payload paths match the main repository root. Original `/Users/kavyakatal/Downloads/AML` is unchanged.
 
-## Completed local implementation
+The local Phase 1 study includes persistence, historical average, RF, XGBoost, 38 causal features, budgeted validation tuning, chronological purged splits, common target masks, EDA/error plots, saved-model prediction, literature/methods/viva notes, compiling IEEE source and an 11-slide presentation. No GAT, calibrated LWR, UI or traffic-signal simulation is implemented. Phase 2 remains deferred. Implementation is not a certificate of final faculty acceptance or individual understanding.
 
-The workspace AML copy and separate Desktop/DLML-sandbox now contain persistence, historical average, a per-sensor multi-output Random Forest, direct per-sensor/horizon XGBoost, 38 causal features, bounded validation-only tuning, purged splits, masked metrics, saved-model prediction, EDA/error plots, literature/methods/viva notes, an IEEE report source and an editable 11-slide presentation.
+## Existing measured evidence
 
-The all-207-sensor run completed at AML/results/runs/phase1-full-v1. Model fitting and prediction-artifact generation took 922.34 seconds; evaluation/plots/report generation followed. Source/data/config identity, parameters, timings, label counts and actual results are in its manifest and [small verification evidence](AML/verification/full-phase1-20261026/README.md).
+The recorded all-207-sensor run is now `results/runs/phase1-full-v1`; its relative-path source/data/config fingerprints are preserved. Model fitting and artifact generation took 922.34 seconds. See [verification evidence](verification/full-phase1-20261026/README.md). The earlier full run recorded 56 passing tests, lint/dependency checks and saved-model reload equality. After root consolidation, all 56 tests passed again in 2.36 seconds, Ruff lint and formatting checks passed for 37 files, the real-data loader/graph checks passed and latest-origin saved-model prediction succeeded with manifest validation. Checks used the existing isolated environment and explicit PYTHONPATH=src; no retraining or environment reinstall was needed. The IEEE source previously compiled; rendered slides were inspected. Native PowerPoint and updated remote CI were not tested.
 
-56 local tests passed. Saved estimator reloads reproduced stored forecasts. Lint/format/dependency checks passed. The IEEE source compiled with the desktop compiler after a first dependency-download timeout. The PPTX passed package/layout/font/chart-workbook checks; all 11 rendered slides were inspected. Native PowerPoint was not tested. No updated remote-CI result is claimed.
+Exploratory test XGBoost MAE: 2.9205 / 3.3764 / 3.8737 at 15/30/60 minutes, 16.1% / 19.1% / 27.2% below persistence. RF has lower headline RMSE. These are regression errors, not classification accuracy. Raw test contains 24 negative XGBoost outputs among 17,015,400; no silent clipping.
 
-## Observed exploratory test results
+## Preserved separate archive
 
-XGBoost MAE at 15/30/60 minutes: 2.9205 / 3.3764 / 3.8737 (rounded here; CSV is authoritative). Persistence is approximately 3.48 / 4.17 / 5.32. Relative XGBoost MAE reductions are 16.1%, 19.1%, 27.2%. RF has lower headline RMSE. These are regression errors, not classification accuracy percentages.
+`/Users/kavyakatal/Desktop/DLML_Project_Archive_2026-10-27/` contains delivery ZIPs/extractions, pre-consolidation root-document snapshots, obsolete placeholder scaffolding, historical result layouts/runs, unused PEMS-BAY data and private presentation authoring files. MOVE_MANIFEST.json records relocation. No work was deleted. Frozen manifests retain historical command paths as provenance, not current execution instructions.
 
-## Limits and uncompleted human requirements
+The separate Desktop/DLML-sandbox checkout was not merged into this repository. Its existing shared-run symlink was updated to the new root saved-run location so it remains usable.
 
-The test interval was previously inspected; test comparisons remain exploratory. Timezone/DST, raw-data redistribution terms and faculty clarification of the broader title/LWR scope remain unresolved. RF complete-label exclusion and training stride 2 are disclosed. There are 24 negative raw XGBoost test forecasts among 17,015,400 predictions, retained in the reported scores. Individual understanding, actual participation, assistance compliance and faculty acceptance cannot be certified by the implementation.
+## Team workflow and Git status
 
-## Locations and publication
+The local shared-documentation commit is 6e611d6; it preceded consolidation. The layout changes and member-assigned implementation remain uncommitted after this move, pending deliberate review/member integration. No push or PR was performed. Data, saved runs/models, environments, caches, node_modules and delivery bundles are excluded from Git; small measured evidence, report source and slides remain eligible.
 
-- Five non-overlapping prepared module ZIPs are available under [deliverables/member-handoffs](deliverables/member-handoffs/HANDOFF.md), registered 2026-10-27. Their union reconstructs 113 curated source files exactly and adds five pending review templates. Existing private slide scratch files were omitted. These are integration/review handoffs, not individual authorship evidence. No team commits or pushes were performed.
+[Handoff workflow](docs/handoffs/HANDOFF.md) and [agent prompt](docs/handoffs/AGENT_PROMPT.txt) now describe this root layout. Payload paths need NO AML/ prefix. Preserve newer root instructions/state/ignore rules when reviewing prepared package versions. Member ownership is in [the path map](docs/handoffs/FILE_OWNERSHIP.json); existing owner/AI-assisted implementation must retain truthful provenance. Each member records actual agent review separately from their own learning or participation. The owner's group workflow permits members to publish personal branches and open PRs; it does not authorize direct-main writes/merges or publication by this cleanup operation. The fixed canonical remote is KatalKavya96/DLML_Midsem_Project and the base/PR target is main. No integration branch is required.
 
-- Latest handoff direction: each ZIP now includes 24 read-only context files, an exact commit allowlist, payload/context SHA-256 manifests and a common AGENT_PROMPT.txt. Agents are directed to create only their assigned local commit on a personal codex/ branch. The owner will handle publication; the earlier push/PR workflow is superseded. No remote integration branch is assumed to exist. All five updated ZIPs passed integrity, allowlist, disjoint-path and exact source-reconstruction checks; no new model run is claimed.
+## Remaining final-submission review
 
-- Original Downloads/AML preserved unchanged.
-- Working implementation: [AML/README.md](AML/README.md).
-- Separate Desktop/DLML-sandbox updated locally; its completed-run link points to the workspace run to avoid duplicating 1.2 GB of models/outputs.
-- [Source/report/presentation ZIP](deliverables/phase1-implementation.zip) excludes datasets, environments and trained-model/prediction binaries. Raw sources are still needed to reproduce training elsewhere.
-- Only the earlier baseline correction commit a020778 was pushed to DLML-sandbox. This full extension is local and uncommitted. The original project remote was not pushed.
+Clarify speed-only versus broader faculty title/LWR scope, timezone/DST and raw-data redistribution terms. The previously inspected test remains exploratory. Export/inspect the final PDF, reproduce the final assembled package and verify individual understanding and accurate contribution/assistance disclosures. Initial planning placeholders were archived; requirements mapping is not thereby completed.
 
-## Next task
+## Coordination repair prepared 2026-10-27
 
-The owner authorized a local shared-documentation commit on 2026-10-27. The tracked handoff guide, common agent prompt and standalone file-ownership map are under docs/handoffs/. They require inventory-only local member commits with truthful review/assistance records; the owner handles pushing. Delivery archives/extractions and private chart scratch files are ignored without deleting them. Member-assigned AML source remains uncommitted in this parent repository. Links to AML evidence and delivery archives describe local artifacts, which will not be available from this shared-documents commit alone. No member commit, remote publication or implementation-repository migration is performed by this coordination commit.
-
-On 2026-10-27, added a [retrospective technical log and revised proposed five-member allocation](docs/13_phase1_log_report.md), covering 21-27 October with actual registration on 27 October. Unknown historical dates and individual contributions remain unverified. Suggested roles: Rudraksh/Vridhi data, Anshuman/Bineet EDA, Bineet/Kavya models. These are pending handoff responsibilities, not historical authorship. No implementation or publication change; the earlier ZIP/sandbox do not include this new report.
-
-Review the measured results, report, methodology and actual contribution disclosure with the owner. Use the prediction CLI for a manual demonstration. Do not tune on the exposed test results, claim individual contributions from file redistribution, or push without further direction.
+Rudraksh and Anshuman correctly reported that the remote 6e611d6 instructions conflicted with the owner group workflow. Replaced active instructions and prompt rather than layering another contradictory override. Canonical repository/base are now explicit; members are authorized to push personal branches and open PRs into main. Shared files must preserve these newer directives when importing old package copies. The repair commit includes root-layout placeholders and shared coordination/scaffold cleanup only, leaving member runtime source/configuration, estimator code, tests and deliverables uncommitted. It needs owner-authorized publication before teammates can fetch these updated rules. No integration branch is needed.

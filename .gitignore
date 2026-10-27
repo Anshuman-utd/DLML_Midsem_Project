@@ -66,3 +66,28 @@ dist/
 # Local delivery archives/extractions and presentation scratch files
 /deliverables/
 /AML/.chart-data-*/
+
+# Canonical root implementation: local data, fitted models and generated runs
+/results/runs/
+/results/preds/
+/legacy_results/
+/.chart-data-*/
+/slides/build/
+*.ubj
+/report/ieee/*.aux
+/report/ieee/*.log
+/report/ieee/*.out
+
+# Dependency trees, delivery bundles and local verification caches
+node_modules/
+.npm/
+.pnpm-store/
+.yarn/
+*.zip
+*.tar.gz
+*.tgz
+*.7z
+*.onnx
+*.safetensors
+.coverage
+htmlcov/

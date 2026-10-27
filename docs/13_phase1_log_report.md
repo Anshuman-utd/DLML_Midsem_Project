@@ -3,7 +3,7 @@
 Team T072, Section C. Registered: **2026-10-27**, Asia/Kolkata.
 Retrospective reporting window: **2026-10-21 through 2026-10-27** (seven calendar dates).
 
-This report summarizes existing project records. Event dates and registration dates are separate: this report was registered on 27 October, not backdated. Proposed owners below are responsible for subsequent study, reproduction, review and actual improvements; they are not claimed as the original authors of existing implementation. The integrated extension was prepared by the owner with substantial AI assistance, building on the teammate prototype. See [contribution disclosure](../AML/docs/CONTRIBUTIONS.md).
+This report summarizes existing project records. Event dates and registration dates are separate: this report was registered on 27 October, not backdated. Proposed owners below are responsible for subsequent study, reproduction, review and actual improvements; they are not claimed as the original authors of existing implementation. The integrated extension was prepared by the owner with substantial AI assistance, building on the teammate prototype. See [contribution disclosure](../docs/CONTRIBUTIONS.md).
 
 ## 1. Requirements and scope
 
@@ -11,7 +11,7 @@ The supplied faculty instructions require Phase 1 ML literature review, dataset 
 
 The implemented Phase 1 objective is future traffic **speed regression**. No GAT, calibrated LWR model or traffic-signal simulation has been implemented. The broader allocated title's flow/control expectations still need faculty clarification. Any future signal control is simulated only.
 
-Source: [faculty instructions](../AML/CSAI_Project_Instructions_Phase_1_and_Phase_2.pdf).
+Source: [faculty instructions](../CSAI_Project_Instructions_Phase_1_and_Phase_2.pdf).
 
 ## 2. Retrospective event register
 
@@ -23,8 +23,8 @@ All entries below were registered in this report on **2026-10-27**. Dates descri
 | W02 | 2026-10-22 | Initial scaffold and documentation placeholders | Existing [worklog](../logs/worklog.md); no implementation at this stage |
 | W03 | 2026-10-23 | No dated activity verified in available records | Individual activity unconfirmed |
 | W04 | 2026-10-24 | No dated activity verified in available records | Individual activity unconfirmed |
-| W05 | 2026-10-25 | Prototype review and corrections: split boundaries, artifacts, reproducibility and baseline checks | Existing worklog and [correction evidence](../AML/verification/correction-20261025/README.md) |
-| W06 | 2026-10-26 | Integrated Phase 1 implementation, full-sensor experiment, EDA, evaluation, report source and slides | Existing worklog and [full-run evidence](../AML/verification/full-phase1-20261026/README.md); 56 tests recorded as passing |
+| W05 | 2026-10-25 | Prototype review and corrections: split boundaries, artifacts, reproducibility and baseline checks | Existing worklog and [correction evidence](../verification/correction-20261025/README.md) |
+| W06 | 2026-10-26 | Integrated Phase 1 implementation, full-sensor experiment, EDA, evaluation, report source and slides | Existing worklog and [full-run evidence](../verification/full-phase1-20261026/README.md); 56 tests recorded as passing |
 | W07 | 2026-10-27 | Readiness review, technical explanation and this retrospective log/team handoff proposal | This report; no new training or member completion claimed |
 
 Exact individual work dates should be added only when supported by a member's real work and evidence. Unknown dates remain unknown; historical team events do not establish which member performed them.
@@ -55,7 +55,7 @@ Registered 2026-10-27. Implementation statuses below come from the recorded full
 
 EDA helps justify handling and feature choices; no experiment isolates the performance gain from each individual preprocessing or feature group. No scaling was used for tree models. No synthetic data, future-value interpolation or target imputation is claimed.
 
-Sources: [dataset audit](../AML/verification/full-phase1-20261026/analysis/dataset_audit.json), [methods](../AML/docs/METHODS_AND_VIVA.md), [analysis artifacts](../AML/verification/full-phase1-20261026/analysis/), [training records](../AML/verification/full-phase1-20261026/training_records.json).
+Sources: [dataset audit](../verification/full-phase1-20261026/analysis/dataset_audit.json), [methods](../docs/METHODS_AND_VIVA.md), [analysis artifacts](../verification/full-phase1-20261026/analysis/), [training records](../verification/full-phase1-20261026/training_records.json).
 
 ## 4. Recorded exploratory test results
 
@@ -68,7 +68,7 @@ Each cell is **MAE / RMSE / MAPE%**. MAE and RMSE are speed errors, reported in 
 | Random Forest | 2.97 / 5.44 / 8.07 | 3.42 / 6.37 / 9.81 | 3.90 / 7.25 / 11.71 |
 | XGBoost | 2.92 / 5.78 / 8.04 | 3.38 / 6.91 / 10.06 | 3.87 / 7.99 / 12.59 |
 
-XGBoost has the lowest pooled headline MAE, improving over persistence by 16.1%, 19.1% and 27.2%. RF has lower headline RMSE and better MAPE at 30/60 minutes. No universal winner is claimed. Source: [metric CSV](../AML/verification/full-phase1-20261026/tables/metrics_test.csv).
+XGBoost has the lowest pooled headline MAE, improving over persistence by 16.1%, 19.1% and 27.2%. RF has lower headline RMSE and better MAPE at 30/60 minutes. No universal winner is claimed. Source: [metric CSV](../verification/full-phase1-20261026/tables/metrics_test.csv).
 
 ## 5. Suggested five-member allocation
 
@@ -94,7 +94,7 @@ Two data owners + two EDA owners + two model owners = six responsibility slots a
 | Bineet | Validated features/splits, training config and saved RF/baseline evidence | Reproduce saved RF/baseline predictions or a bounded rerun; explain masks, bagging, peak errors and why RF RMSE can beat XGB despite higher MAE |
 | Kavya | Common targets/config plus both model owners' reviewed evidence | Reproduce XGB inference and metric table, explain MAE/RMSE tradeoff and exposed-test limitation; verify final report/package checklist without claiming unresolved items complete |
 
-Relevant implementation locations: [data](../AML/src/trafficml/data/), [features](../AML/src/trafficml/features/temporal.py), [trees](../AML/src/trafficml/models/trees.py), [baselines](../AML/src/trafficml/models/baselines.py), [analysis script](../AML/scripts/build_analysis.py), [evaluation](../AML/src/trafficml/eval/), [tests](../AML/tests/).
+Relevant implementation locations: [data](../src/trafficml/data/), [features](../src/trafficml/features/temporal.py), [trees](../src/trafficml/models/trees.py), [baselines](../src/trafficml/models/baselines.py), [analysis script](../scripts/build_analysis.py), [evaluation](../src/trafficml/eval/), [tests](../tests/).
 
 Every member also supplies verified literature notes, their own report subsection, a short presentation explanation and a cross-review. All five must understand the complete pipeline. Scope is reproduction/review and genuine improvements, not repartitioning existing files to imply authorship.
 

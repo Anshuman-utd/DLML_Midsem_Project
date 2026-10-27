@@ -1,27 +1,91 @@
-# Traffic Flow Research — Team T072
+# Phase 1 traffic speed forecasting — Team T072
 
-Project 4: **Multi-Agent Traffic Flow Control via Graph Attention Networks and LWR Models**, Section C.
+> Team coordination: use this repository's **main** as base and PR target, personal `codex/` branches, and payload files directly at the root. No `integration/phase1-handoff` branch is needed. Members are authorized to push their own branches and raise PRs. See [current handoff rules](docs/handoffs/HANDOFF.md). A coordination-only commit does not include all module source: files described below may still be arriving through member PRs. The owner's full local reference is distinct from the published baseline.
 
-See [PROJECT.md](PROJECT.md) for the rough problem statement and team roster, [PROJECT_STATE.md](PROJECT_STATE.md) for current status, and [docs/README.md](docs/README.md) for documentation navigation.
+Canonical repository: `DLML_Midsem_Project`. The implementation lives directly at this repository root (`src/trafficml`, `scripts`, `tests`, `configs`). There is no nested `AML/` project. Delivery ZIPs, old scaffolding and private build files were moved to the separate sibling `DLML_Project_Archive_2026-10-27` folder. Read [current state](PROJECT_STATE.md), [team roster](PROJECT.md) and [handoff instructions](docs/handoffs/HANDOFF.md).
 
-## Status
+A local, end-to-end forecasting study using **Persistence, Historical Average, Random Forest and XGBoost** on the existing METR-LA files. No neural networks, graph-neighbour features, UI or traffic-signal controller are included. The broader faculty title/LWR scope remains to be reconciled; do not present forecasting results as traffic-control benefits.
 
-Repository scaffold and initial documentation only. Dataset selection, methodology, member assignments, and model choices remain open. No implementation or experiments have been performed. Phase 1 concerns traditional ML/AML; graph models and simulated control are future scope.
+Read [the methods/viva guide](docs/METHODS_AND_VIVA.md), [literature synthesis](docs/LITERATURE.md), and [contribution disclosure](docs/CONTRIBUTIONS.md). The integrated implementation was prepared with substantial AI assistance; names/commits are not evidence of individual implementation.
 
-## Repository map
+## Setup
 
-- `docs/`: research documentation drafts and session handoffs.
-- `logs/`: work history, findings, questions, issues, decisions, and experiments.
-- `data/`: raw, interim, and processed data locations; datasets excluded from Git.
-- `notebooks/`: future exploratory notebooks.
-- `src/traffic/`: future data, feature, model, evaluation, and visualization modules.
-- `configs/`, `experiments/`, `tests/`: future configuration, run records, and checks.
-- `reports/`, `presentations/`: future academic deliverables.
+Use a fresh Python **3.12** environment (tested with 3.12.14). On macOS, XGBoost requires the OpenMP runtime:
 
-## Setup and reproducibility
+```bash
+brew install libomp
+python3.12 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+python -m pip install --no-deps --no-build-isolation -e .
+python -m pip check
+```
 
-No runtime setup is required for this documentation scaffold. No Python version or dependencies have been selected. The `pyproject.toml` file reserves space for future metadata and is not an installable package configuration.
+Homebrew is a macOS-only prerequisite; Linux uses the platform OpenMP runtime, typically libgomp. Do not copy someone else's virtual environment. Direct/transitive Python package versions are pinned. Native dependencies/platform differences still matter; the runtime manifest records the measured environment.
 
-The proposed workflow is dataset validation → EDA → chronological partitioning → leakage-safe features → training → validation → final testing → reporting. This is not implemented. See [CONTRIBUTING.md](CONTRIBUTING.md) before contributing.
+## Data
 
-The owner authorized publishing this initial scaffold only. Further pushes require direction.
+Place the existing files here (not distributed in the source package):
+
+```text
+data/raw/metr-la.h5
+data/raw/sensor_graph/adj_mx.pkl
+data/raw/sensor_graph/distances_la_2012.csv
+data/raw/sensor_graph/graph_sensor_ids.txt
+data/raw/sensor_graph/graph_sensor_locations.csv
+```
+
+Source: [DCRNN](https://github.com/liyaguang/DCRNN). The original download helper is retained but was not executed during this work; it separately requires gdown and also downloads PEMS-BAY. Prefer verified local files and compare checksums with the run manifest. Upstream code is MIT; separate raw-data redistribution rights remain unresolved, so no datasets are bundled. No additional flow/occupancy channels are invented.
+
+## Check
+
+```bash
+pytest -q -ra
+ruff check .
+ruff format --check .
+python scripts/check_data.py
+```
+
+Two real-data tests skip if datasets are missing; a skip is not a passed integration check. Other tests cover causal features, masks, split purging, artifacts, model label rules and saved-model reuse.
+
+## Run the full pipeline
+
+```bash
+python scripts/run_all.py --run-dir results/runs/my-phase1-run
+```
+
+This trains/tunes the models, evaluates tuning/second-validation/test partitions, generates data/error figures and writes report result tables. Use a **fresh directory per run**. The second validation interval is reported separately; no hybrid stacker is trained. The default training stride is 2 to bound compute. Full evaluation includes all sensors/anchors. A development check can use `--max-sensors 2`; it must never be described as a 207-sensor result.
+
+The two learned methods share 38 causal features. A small, predeclared search uses only val_tune and six evenly spaced pilot sensors. Parameters freeze before full comparisons. Test data were inspected in the earlier prototype; test results are exploratory, not an untouched final holdout. Do not tune against the test tables or promise a particular error/accuracy.
+
+Outputs within the run:
+
+- `manifest.json`: source/data/config hashes, environment, exact command, partitions, feature names and selected parameters.
+- `tuning.json`: every budgeted candidate and its pilot validation score.
+- `models/`, `preprocessing.joblib`: locally fitted estimators/transforms for later prediction; load only trusted local artifacts.
+- `preds/`: immutable targets and aligned predictions for all methods/partitions.
+- `tables/`, `leaderboard_*.csv`: MAE/RMSE/MAPE, valid counts and exploratory significance results.
+- `training_records.json`, `timing.json`: actual valid training counts, fallback horizons and timings.
+- `analysis/`: EDA, horizon/period comparisons, sensor errors and a fixed-index forecast example.
+
+Evaluation rejects stale source/config/data or misaligned artifacts. Changing runtime code requires a new run; do not mix an old result file with a new code snapshot. Full twelve-horizon tensors are retained, with 15/30/60 minutes highlighted. A three-column tensor cannot silently replace them.
+
+## Make a forecast without retraining
+
+Choose a sensor ID from the run manifest, for example the first listed ID:
+
+```bash
+python scripts/predict.py --run-dir results/runs/my-phase1-run --sensor 773869 --at latest
+```
+
+This prints forecasts 15, 30 and 60 minutes after the dataset's last observation. It is a historical-data demonstration, not live traffic service. Use `--at '2012-06-05 08:00:00'` for another observed origin with adequate history. Earlier origins inside the training interval are in-sample demonstrations, not held-out results. For an alternative sensor, use its exact recorded ID.
+
+## Explain and report
+
+`report/phase1/results.md` and `metrics.tex` are generated from actual completed outputs. `report/ieee/main.tex` is the IEEE-style report source. Copy the generated metrics table and selected run images into its project directory before recompiling, as documented in `report/ieee/README.md`. Presentation material is under `slides/`.
+
+Key limitations: prior test exposure; provisional clock timezone/DST and peak windows; missing-target selection bias in multi-output RF; strided training; a small pilot search; a single region/period; low-speed MAPE instability. The graph is verified but not a prediction input. Multi-seed stability, graph learning, calibrated LWR physics and signal simulation remain future work.
+
+## Integrity and ownership
+
+Original teammate code/plan and correction records are retained as history. Report actual contributions and assistance honestly. Team members need to understand the full pipeline for viva; a completed code package cannot certify that understanding. Nothing in this local extension authorizes another GitHub push.

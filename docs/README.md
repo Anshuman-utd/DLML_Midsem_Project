@@ -1,19 +1,17 @@
 # Documentation index
 
-Most numbered documents remain initial placeholders. The Phase 1 completion plan contains a detailed remaining-work proposal and named work allocation; it is not an accepted methodology or a completion claim.
+The implemented Phase 1 project lives at the repository root. Initial placeholder research documents are preserved in the separate sibling archive, not presented as completed requirements mapping.
 
-- [Project charter](00_project_charter.md)
-- [Problem understanding](01_problem_understanding.md)
-- [Requirements traceability](02_requirements_traceability.md)
-- [Research questions](03_research_questions.md)
-- [Dataset selection](04_dataset_selection.md)
-- [Methodology plan](05_methodology_plan.md)
-- [Literature review](06_literature_review.md)
-- [Glossary](07_glossary.md)
-- [Learning roadmap](08_learning_roadmap.md)
-- [Architecture](09_architecture.md)
-- [Reproducibility](10_reproducibility.md)
-- [Team contributions](11_team_contributions.md)
-- [Phase 1 completion plan and assignments](12_phase1_completion_plan.md)
-- [Phase 1 retrospective technical log and proposed team handoff](13_phase1_log_report.md)
-- [Handoffs](handoffs/README.md)
+- [Current project state](../PROJECT_STATE.md)
+- [Dataset card](DATASET_CARD.md)
+- [Methods and viva guide](METHODS_AND_VIVA.md)
+- [Literature synthesis](LITERATURE.md)
+- [Implementation checklist](PHASE1_CHECKLIST.md)
+- [Contribution disclosure](CONTRIBUTIONS.md)
+- [Team contribution proposals](11_team_contributions.md)
+- [Historical Phase 1 completion plan](12_phase1_completion_plan.md)
+- [Retrospective technical log and revised roles](13_phase1_log_report.md)
+- [Agent handoffs](handoffs/README.md)
+- [Measured full-run evidence](../verification/full-phase1-20261026/README.md)
+
+Faculty scope clarification and final-submission checks remain pending.

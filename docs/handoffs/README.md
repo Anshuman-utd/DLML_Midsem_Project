@@ -1,11 +1,9 @@
-# Session handoffs
+# Team agent handoffs
 
-Use `YYYY-MM-DD-short-topic.md` for substantial transitions. Record starting and ending state, actual work, verification, unresolved issues, next steps, and required reading. Keep the latest snapshot in [PROJECT_STATE.md](../../PROJECT_STATE.md); avoid duplicating the entire journal.
-
-## Phase 1 member commits
-
-- [Commit-only workflow](HANDOFF.md)
+- [Current workflow and PR authorization](HANDOFF.md)
 - [Common agent prompt](AGENT_PROMPT.txt)
-- [Exact standalone payload ownership map](FILE_OWNERSHIP.json)
+- [Assigned payload ownership map](FILE_OWNERSHIP.json)
 
-These shared documents coordinate the five prepared module packages. ZIPs and their read-only snapshots are local delivery files, not part of this repository commit. Member implementation paths in the ownership map are relative to the standalone sandbox repository root, not this parent scaffold. Existing member code under AML/ remains uncommitted here. The owner must select the actual implementation repository/base before package integration. No push, PR, merge or member-authorship claim is authorized by these documents.
+Canonical repository: KatalKavya96/DLML_Midsem_Project. Base/PR target: main. No integration branch prerequisite. Payloads belong at the ROOT with no AML/ prefix. Owner authorizes members to push personal branches and open PRs, including fork PRs; no direct-main/force pushes or merges.
+
+Current live rules supersede older commit-only or sandbox-only ZIP snapshots. Merge/preserve newer shared instruction/state/ignore files. Actual source review, checks and assistance are recorded honestly; imported files do not establish independent authorship or student understanding. Partial-package checks can be blocked by other modules; describe dependencies in PRs.

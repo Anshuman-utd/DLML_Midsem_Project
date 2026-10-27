@@ -24,7 +24,7 @@ The project-ideas PDF itself is not available in the reviewed materials. Reconci
 
 ### What already exists
 
-The corrected [prototype](../AML/README.md) contains data loaders, graph construction/verification, missing-value handling, purged chronological partitions, two forecasting baselines (M0 persistence and M1 historical average), evaluation utilities, manifests, and regression tests. The verified local-data suite passed 51 tests. Sandbox source was published at commit `a020778`; GitHub CI subsequently passed. Existing baseline test results have already been inspected and must not be called an untouched final holdout.
+The corrected [prototype](../README.md) contains data loaders, graph construction/verification, missing-value handling, purged chronological partitions, two forecasting baselines (M0 persistence and M1 historical average), evaluation utilities, manifests, and regression tests. The verified local-data suite passed 51 tests. Sandbox source was published at commit `a020778`; GitHub CI subsequently passed. Existing baseline test results have already been inspected and must not be called an untouched final holdout.
 
 ### Recommended completion scope
 

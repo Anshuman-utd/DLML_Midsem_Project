@@ -6,7 +6,7 @@ An academic team project exploring traffic forecasting and simulated traffic-flo
 
 ## Team description
 
-Team **T072**, Section **C**, consists of five students collaborating on research, documentation, and later implementation. Individual responsibilities will be defined before implementation so every member can understand and explain the full project.
+Team **T072**, Section **C**, consists of five students collaborating on research, documentation, and later implementation. Proposed handoff roles are recorded in docs/13_phase1_log_report.md; actual participation and individual understanding require evidence.
 
 | Member | Enrollment number |
 | --- | --- |
@@ -30,7 +30,7 @@ The project aims to forecast traffic conditions and, in a later phase, investiga
 
 ## Current status
 
-Initial documentation only. Dataset, model choices, methodology, and member assignments are not finalized. No implementation, training, or experiments have been conducted. The owner authorized pushing this initial repository scaffold only. Further publication requires direction.
+The local Phase 1 speed-forecasting implementation, full-sensor experiment, EDA, report source and slides now exist directly at the repository root. Final faculty scope confirmation, report/package review and individual viva readiness remain pending. See PROJECT_STATE.md for verification and limitations. Original implementation and substantial AI assistance are disclosed; proposed roles do not establish historical authorship.
 
 ## Source and title clarification
 
