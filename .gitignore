@@ -56,3 +56,13 @@ dist/
 /reports/**/*.bbl
 /reports/**/*.blg
 /presentations/**/*.pdf
+
+# Local teammate-prototype data and generated predictions
+/AML/data/raw/
+/AML/data/processed/
+/AML/legacy_results/
+/AML/results/runs/
+
+# Local delivery archives/extractions and presentation scratch files
+/deliverables/
+/AML/.chart-data-*/

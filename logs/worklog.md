@@ -1,5 +1,21 @@
 # Worklog
 
+## 2026-10-27 — Shared documentation commit preparation
+
+The owner requested committing changes needed to coordinate the other agents. Prepared an explicit shared-documentation/configuration allowlist: root instructions/state/ignore policy, team plans/log report, documentation index, experiment/finding/issue/work registers and handoff workflow/prompt/ownership map. Excluded member-assigned AML source, delivery packages, datasets, models and temporary chart files. Added ignore rules for local delivery archives/extractions and private chart scratch files without deleting them. Verified the configured Git identity is Kavya Katal, the index initially has no staged changes, the source ownership map covers all 118 distinct payload/review paths, and the shared prompt matches the packaged commit-only prompt. This entry records preparation; the actual commit result is verified separately. No push or member-authorship reassignment is authorized.
+
+## 2026-10-27 — Self-contained context and commit-only instructions
+
+Updated all five member ZIPs at the owner's request: added 24 read-only context files per ZIP (standalone instructions/state/setup/plan/corrections, methods/dataset/literature/contribution/checklist/evidence/config context, owner roster/role context and full file-ownership map). Added AGENT_PROMPT.txt and context/instruction SHA-256 manifests. Replaced earlier push/PR instructions with assigned local commits only; owner handles pushing. Instructions require existing staged-work protection, explicit inventory staging, personal codex/ branches, true identity/dates, actual agent review versus pending human understanding and no remote writes. Source payloads and original per-person allowlists are unchanged. Verified all five ZIP CRCs, all payload/context/instruction hashes, exact inventory agreement, no overlapping payload paths and byte-exact reconstruction of 113 source files plus five pending logs. No implementation edits, training, Git commits, pushes or PRs performed.
+
+## 2026-10-27 — Five prepared module handoff ZIPs
+
+Created deliverables/member-handoffs with separate Rudraksh data, Vridhi preprocessing/features, Anshuman EDA, Bineet shared estimators/error-analysis and Kavya configuration/evaluation/integration ZIPs. Used the existing curated source archive whitelist and current AML source, omitting four private .chart-data-* scratch files from the old archive. Original archive preserved. Each package contains unique payload paths, an exact staging inventory, SHA-256 manifest, shared integration instructions, provenance disclosure and a pending member review log. Shared trees.py is owned once by Bineet and requires Kavya's XGBoost review; no conflicting duplicated model code. Dataset/model/environment files excluded as in the source archive. ZIP CRC, every payload SHA-256, absence of overlapping paths and exact reconstruction of all 113 source files passed; five new pending review templates are additional. No model tests/training rerun or member participation claimed, no fabricated commit authors/dates, and no commits/pushes performed. Target layout is the standalone sandbox-style repository root; owner confirms destination before team publication.
+
+## 2026-10-27 — Retrospective technical report and proposed handoff
+
+At the owner's request, created docs/13_phase1_log_report.md with Phase 1/2 scope, dataset/loading/EDA/preprocessing/features, recorded model metrics and a proposed five-member allocation. The seven-date reporting window is 21-27 October; all entries in the new report were registered on 27 October. Existing dated project events are referenced; unverified dates and individual work are not invented. Proposed allocation is two data owners, two EDA owners and two model owners, with Bineet spanning error analysis and RF. Added inputs, dependencies, outputs, acceptance/review criteria and a truthful individual activity template. Updated the documentation index, contribution proposal and state. Checked all new report links, five-member coverage, whitespace and git diff --check successfully. No code, training, commit or push; existing ZIP and standalone sandbox were not updated.
+
 ## 2026-10-22 — Initial scaffold
 
 ### Objective and authorization
@@ -21,3 +37,67 @@ Ran a Python scaffold check: 35 internal Markdown links resolved, all 8 `.gitkee
 ### Remaining work
 
 Expand substantive initial documentation when directed. Clarify the project title/LWR scope and define member responsibilities before implementation. Full documentation is not marked complete.
+
+
+## 2026-10-25 — Teammate review and sandbox corrections
+
+Reviewed the Downloads AML prototype against the supplied master instructions and generic faculty PDF. Identified split-boundary leakage, stale prediction acceptance, non-finite forecast acceptance, environment reproducibility gaps, and unconfirmed decisions presented as settled. Preserved the Downloads original and legacy results; made corrections in the workspace AML copy.
+
+Added purged splits, regression tests, finite/alignment/fingerprint validation, immutable targets, run manifests, dependency pins, setup instructions, historical plan preservation, and proposal/status corrections. Explained that a UI was not required by the available rubric, and authorized publication to DLML-sandbox. A basic CI workflow is included but its remote result is not pre-claimed.
+
+Verified 51 tests with the actual supplied local data, Ruff checks, dependency compatibility, data shape/frequency/sensor order/adjacency, and all existing baseline split generation plus validation/test evaluation. See AML/CORRECTIONS.md and AML/verification/ for exact commands and evidence. No additional models, EDA, or Phase 2 work was implemented. No project decisions were accepted. The original project remote is unchanged; sandbox push status follows actual execution.
+
+Publication result: successfully pushed standalone sandbox commit `a020778` to `KatalKavya96/DLML-sandbox/main`. Export checks: 49 passed, 2 real-data skips; lint/format passed. Source/data/environment separation verified before staging. No raw data, environments, generated prediction arrays, or legacy results were published.
+
+
+## 2026-10-26 — Phase 1 completion plan and work allocation
+
+### Objective
+
+Respond to the owner's request for exactly what remains for Phase 1 and divide that work among all five members.
+
+### Work performed
+
+Inspected current instructions/state, prototype plan/configuration, prediction contract and baseline runner, and the supplied master instruction's requirements. Wrote docs/12_phase1_completion_plan.md with completion evidence, scope boundaries, shared interfaces, five task cards, review responsibilities, dependency gates and readiness checklist. Updated docs/11_team_contributions.md and docs/README.md. Refreshed PROJECT_STATE.md as a current snapshot and recorded planning-only authorization in AGENTS.md.
+
+### Reasoning and limits
+
+Recommended Random Forest and XGBoost alongside the two existing baselines; did not turn those suggestions into faculty requirements or accepted choices. Explicitly covered the existing 12-horizon artifact contract, per-sensor compute pilot, identical evaluation masks, already-inspected test set and source-manifest compatibility. No new implementation, EDA, model training, installation or push was performed. Member availability/acceptance and methodological approval remain open.
+
+### Verification
+
+Python document checks passed: 24 internal links resolved, all five member task cards are present, and checked documents are nonempty with no trailing whitespace. `git diff --check` also passed. No implementation tests are needed for this documentation-only change.
+
+### Next action
+
+Owner/team review of Gate A before further implementation; see the completion plan and contribution framework.
+
+
+## 2026-10-26 — Integrated-first delivery preference
+
+The owner proposed completing the integrated Phase 1 work together before distributing parts to members for their commits. Updated the completion plan, contribution framework, state and agent instructions to record this sequence. Module handoffs must include explanation, reproduction and real follow-up work; commit attribution must reflect actual contributions, not retroactive or impersonated authorship. This session changed planning documents only; no implementation, experiment, commit or push was performed. Verified modified document links and whitespace.
+
+
+## 2026-10-26 — End-to-end Phase 1 implementation
+
+### Authorization and scope
+
+The owner explicitly requested completing the local Phase 1 project with simple methods and improved measured forecasting performance. Implemented a real independent-sensor study while preserving honest results/assistance attribution. Did not fabricate member commits or contributions, start Phase 2, or push any repository.
+
+### Work performed
+
+Added causal per-sensor features; RF/XGBoost training with explicit target masks/fallbacks; a two-candidate, six-sensor validation pilot; all-207-sensor fitting with training stride 2; saved estimator inference; run-all orchestration; EDA/error figures; factual result-table generation; dataset/literature/methods/viva/contribution notes; IEEE LaTeX source; editable native-chart slides; and a source/report ZIP. Preserved the Downloads original and old baseline artifacts. Updated the clean Desktop sandbox source/environment locally and linked its completed run to avoid duplicating 1.2 GB.
+
+### Actual commands and results
+
+Installed pinned sklearn 1.7.2, XGBoost 3.1.1 and Matplotlib 3.10.7 in the isolated environment. XGBoost initially failed because macOS OpenMP was missing; installed Homebrew libomp 23.1.3 (1.8 MB), then tests passed. Some initial checks used an incorrect working directory; reran them from AML. A two-sensor run exercised the complete pipeline before the full run.
+
+Ran `python scripts/run_all.py --run-dir results/runs/phase1-full-v1`. The complete run used all 207 sensors and 12 horizons; training/artifact generation took 922.34 seconds. Evaluated all three partitions, produced EDA/forecast/error figures and generated actual result tables. No test-driven parameter changes were made. Full local test suite: 56 passed. Lint, formatting, dependency consistency, saved-model reload equality and latest-origin inference passed. The IEEE compiler initially timed out downloading packages; retry succeeded. The 11-slide presentation passed finalization checks after correcting its font property; each rendered slide was visually inspected. No native PowerPoint test is claimed.
+
+### Scientific findings and limitations
+
+XGBoost reduced exploratory test MAE relative to persistence by 16.1%, 19.1%, 27.2% at headline horizons. RF has lower RMSE; no universal winner or classification accuracy is claimed. Mean valid training fractions: RF 89.65%, direct XGBoost 92.87%; no sparse-label model fallbacks. Found 24 negative raw XGBoost outputs among 17,015,400 test forecasts; disclosed them without silent score clipping. Existing test exposure, timezone/licensing/title ambiguities and individual viva readiness remain limitations.
+
+### Deliverables and verification
+
+See AML/verification/full-phase1-20261026, AML/report/ieee, AML/slides/output/phase1-study.pptx and deliverables/phase1-implementation.zip. ZIP integrity checked; raw data, environments, private build directories and trained-model/prediction binaries excluded. Main and sandbox remotes were not pushed. Current source identity is the run's hash manifest, not the old baseline commit.
