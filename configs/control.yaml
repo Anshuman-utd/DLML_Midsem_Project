@@ -1,0 +1,15 @@
+# Frozen 2026-11-16 before synthetic policy comparisons. Not METR-LA calibration.
+cell_km: 0.25
+dt_seconds: 5.0
+free_speed_kmh: 60.0
+wave_speed_kmh: 20.0
+jam_density_veh_km: 150.0
+demand_minutes: 60
+drain_minutes: 20
+fixed_green_seconds: 40
+clearance_seconds: 5
+min_green_seconds: 20
+max_green_seconds: 60
+switch_margin_vehicles: 2.0
+seeds: [101, 102, 103, 104, 105]
+scenarios: [balanced, arterial_peak, side_peak, downstream_restriction]
