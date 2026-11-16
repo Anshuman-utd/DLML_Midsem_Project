@@ -1,0 +1,42 @@
+{
+  "source_sha256": {
+    "scripts/run_control.py": "a3ec5f06598d851a5764452fc54e2d3aab22c1d015e3ed9bae0af78062021ab2",
+    "configs/control.yaml": "47ccc032f51ee3dbdc75cfe0a9e3d760ca6c12e090e4251845a518ff3a71ac8f",
+    "docs/PHASE2_CONTROL_PROTOCOL.md": "09fa01f530ac47a31c132c44852db0d657adbdb469fa2ee0bec8cc968c6408d4",
+    "src/trafficml/simulation/__init__.py": "7adf74a15109b7c3de0152dfc357bf081104a79bd67fd88774fea2ed25a5c66d",
+    "src/trafficml/simulation/agents.py": "683013539f88c22808a4b06534494c8dd2196712c38cc4de4196969991414c70",
+    "src/trafficml/simulation/experiment.py": "d933523ac3cd522633c52303559365a42b7e3f0ad71795ba4d9d2c9279d958ed",
+    "src/trafficml/simulation/lwr.py": "b0238cdf4e0d1a1ad4ec97845681af727c2a0439ab295074b04f165c8b3e267e"
+  },
+  "settings": {
+    "cell_km": 0.25,
+    "dt_seconds": 5.0,
+    "free_speed_kmh": 60.0,
+    "wave_speed_kmh": 20.0,
+    "jam_density_veh_km": 150.0,
+    "demand_minutes": 60,
+    "drain_minutes": 20,
+    "fixed_green_seconds": 40,
+    "clearance_seconds": 5,
+    "min_green_seconds": 20,
+    "max_green_seconds": 60,
+    "switch_margin_vehicles": 2.0,
+    "seeds": [
+      101,
+      102,
+      103,
+      104,
+      105
+    ],
+    "scenarios": [
+      "balanced",
+      "arterial_peak",
+      "side_peak",
+      "downstream_restriction"
+    ]
+  },
+  "python": "3.12.13",
+  "numpy": "2.3.5",
+  "scope": "Synthetic illustration; not calibrated METR-LA, MARL or GAT-driven control",
+  "pairing": "Identical arrivals/state/physics/exit constraints per scenario and seed"
+}
