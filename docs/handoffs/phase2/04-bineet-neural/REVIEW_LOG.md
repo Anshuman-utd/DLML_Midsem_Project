@@ -22,7 +22,7 @@ The source, experiments and academic materials were prepared under Kavya Katal's
 
 ### Files imported
 
-All 6 assigned files copied from payload/ to repo root:
+All 6 assigned files copied from payload/ to repo root, plus 1 genuine formatting correction:
 
 | Repo path | Status |
 |-----------|--------|
@@ -32,6 +32,7 @@ All 6 assigned files copied from payload/ to repo root:
 | `docs/PHASE2_PROTOCOL.md` | New — prospective experiment protocol |
 | `docs/PHASE2_COMPLETION_PLAN.md` | New — completion plan and rubric mapping |
 | `docs/handoffs/phase2/04-bineet-neural/REVIEW_LOG.md` | New — this review log |
+| `tests/test_neural.py` | Corrected — separated third-party and first-party imports to satisfy ruff I001 |
 
 ### Checks executed
 
