@@ -113,6 +113,7 @@ def test_masked_loss_ignores_missing_and_empty(torch):
 
 def test_csv_history_inference_matches_window_pipeline(torch):
     from predict_phase2 import predict_history
+
     from trafficml.models.neural import TrafficGRU
 
     torch.set_num_threads(1)
