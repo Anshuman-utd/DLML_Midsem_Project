@@ -1,0 +1,83 @@
+{
+  "date": "2026-11-17",
+  "python": "3.12.13",
+  "branch": "kavya",
+  "canonical_main_base": "4dc98e2ca969dd69f281d9f7e307919e1c298d9f",
+  "merged_prs": [
+    9,
+    10,
+    11,
+    12
+  ],
+  "pytest": {
+    "passed": 76,
+    "failed": 0,
+    "skipped": 0,
+    "seconds": 3.41,
+    "command": "OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 .venv/bin/pytest -q -ra"
+  },
+  "ruff_lint": "passed",
+  "ruff_format": {
+    "passed": true,
+    "files": 51
+  },
+  "git_diff_check": "passed",
+  "dependency_check": {
+    "compatible_packages": 59,
+    "command": "uv --cache-dir /tmp/t072-uv-cache pip check --python .venv/bin/python"
+  },
+  "real_data_check": {
+    "shape": [
+      34272,
+      207
+    ],
+    "adjacency_matches_dcrnn": true,
+    "directed_nonself_edges": 1515,
+    "retained_origins": [
+      23963,
+      1701,
+      1702,
+      6850
+    ]
+  },
+  "observed_history_cli_inference": {
+    "graph": "passed",
+    "temporal": "passed",
+    "horizons": 12,
+    "sensors": 207,
+    "future_data_required": false
+  },
+  "control_reproduction": {
+    "runs": 40,
+    "metrics_summary_paired_comparisons_byte_identical": true,
+    "trajectory_hashes_verified": 40,
+    "run_dir": "results/runs/control-integration-20261117"
+  },
+  "identity": {
+    "phase1_source_files_unchanged": 31,
+    "raw_data_files_unchanged": 5,
+    "neural_training_source_files_unchanged": 5,
+    "control_source_files_matching": 7,
+    "evaluated_checkpoints_unchanged": 11,
+    "forecast_metrics_sha256": "52fc1d4f0d037d9c17cad8b8baf7413f8614bb0230a0bbf8f173effada001d1c"
+  },
+  "neural_retraining": false,
+  "new_test_tuning": false,
+  "latex_editor_compile": "success",
+  "submission_artifacts": {
+    "report/phase2/T072_Phase2_Report.pdf": {
+      "bytes": 684851,
+      "sha256": "5bcb05be94ad6bf738e83b46c982a01c799e3261e558372f0ac27457d2d06717",
+      "unchanged_from_visually_reviewed_final": true
+    },
+    "slides/phase2/T072_Phase2.pptx": {
+      "bytes": 100621,
+      "sha256": "bd980a52f25e47155be8e9939dbe07645dca8a8abbaa6f5faf9c4aa4293b33db",
+      "unchanged_from_visually_reviewed_final": true
+    }
+  },
+  "native_powerpoint_opened": false,
+  "remote_ci_rerun": false,
+  "publication_performed": false,
+  "preserved_remote_review_logs_and_test_changes": true
+}

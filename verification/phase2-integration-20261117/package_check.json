@@ -1,0 +1,8 @@
+{
+  "wheel_build_passed": true,
+  "command": "uv --cache-dir /tmp/t072-uv-cache build --wheel --offline --no-build-isolation --python .venv/bin/python --out-dir /tmp/t072-phase2-wheel20261117",
+  "wheel_sha256": "9952960cec78c23518c303957fd890bed52371d437ea29e5134821901d0e871a",
+  "outside_checkout_import_from_wheel": true,
+  "neural_and_control_imports": true,
+  "physical_step_conservation": true
+}

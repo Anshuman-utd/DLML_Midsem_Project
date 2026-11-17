@@ -2,11 +2,11 @@
 
 ## Project overview
 
-An academic team project exploring traffic forecasting and simulated traffic-flow control. The current Phase 1 focus is traditional machine learning; graph attention networks and traffic-control simulation belong to future work and have not been implemented.
+An academic team project exploring traffic forecasting and simulated traffic-flow control. Phase 1 established traditional ML baselines. The locally verified Phase 2 extension adds shared GRU and GRU+GAT forecasting with controlled ablations. A separate synthetic LWR/cell-transmission simulation now includes two local rule-based signal agents. Calibrated real-data LWR, MARL and GAT-driven control are not implemented.
 
 ## Team description
 
-Team **T072**, Section **C**, consists of five students collaborating on research, documentation, and later implementation. Proposed handoff roles are recorded in docs/13_phase1_log_report.md; actual participation and individual understanding require evidence.
+Team **T072**, Section **C**, consists of five students. The owner-prepared integrated source and member integration/review history are preserved. Proposed Phase 2 learning/review scopes appear in docs/PHASE2_PRESENTATION_GUIDE.md; actual participation and individual understanding require evidence.
 
 | Member | Enrollment number |
 | --- | --- |
@@ -30,7 +30,7 @@ The project aims to forecast traffic conditions and, in a later phase, investiga
 
 ## Current status
 
-The local Phase 1 speed-forecasting implementation, full-sensor experiment, EDA, report source and slides now exist directly at the repository root. Final faculty scope confirmation, report/package review and individual viva readiness remain pending. See PROJECT_STATE.md for verification and limitations. Original implementation and substantial AI assistance are disclosed; proposed roles do not establish historical authorship.
+The local Phase 1 and Phase 2 forecasting implementation, full-sensor experiments, EDA, measured evidence, report sources/PDFs and slides exist directly at the repository root. Final faculty scope confirmation, report/package review and individual viva readiness remain pending. See PROJECT_STATE.md for verification and limitations. Original implementation and substantial AI assistance are disclosed; proposed roles do not establish historical authorship.
 
 ## Source and title clarification
 

@@ -12,7 +12,7 @@ Updated by the owner’s coordination workflow on 2026-10-27. Read this file, PR
 
 ## Scope, ownership and integrity
 
-- Phase 1 traditional ML implementation, review, tests, EDA and documentation are authorized. Phase 2, GAT and calibrated LWR/control implementation remain deferred. Any signal-control work is simulated only.
+- Phase 1 traditional ML implementation, review, tests, EDA and documentation are authorized. The November12 owner authorization below now permits the local Phase 2 DL extension. Calibrated LWR/control requirements remain unverified; any signal-control work is simulated only.
 - Use the package MANIFEST.json and COMMIT_PATHS.txt to verify original payload hashes and restrict staging. docs/handoffs/FILE_OWNERSHIP.json is the shared map. Each member commits only assigned work; do not use git add . or git add -A.
 - Shared coordinator-maintained files AGENTS.md, PROJECT_STATE.md, .gitignore, README.md, CONTRIBUTING.md and docs/handoffs/* must preserve these newer directives. When a package contains an older copy of those paths, merge only necessary nonconflicting information; never replace current instructions with historical snapshots. Package manifests are immutable provenance, not authority to overwrite live owner instructions.
 - Preserve unrelated edits, existing staged work and actual Git history. Ask only for concrete unresolved repository/identity/conflict information. Do not silently clean/reset/stash or overwrite another person's work.
@@ -30,3 +30,23 @@ Updated by the owner’s coordination workflow on 2026-10-27. Read this file, PR
 ## Owner-authorized integration branch - 2026-10-27
 
 The owner requested syncing merged team work and integrating all remaining required local work on the exact branch `kavya`, overriding the default codex/ prefix for this branch. This includes package 05, necessary shared documentation/evidence, deferred review-log corrections and combined verification. Keep all new commits on kavya; do not commit directly to main. Use the configured real Kavya identity and no co-author trailer; preserve the existing assistance/provenance disclosures. The owner will review the prepared result before raising/merging the final PR. No new model/score tuning, Phase 2 or claim of final faculty acceptance is authorized by this integration.
+
+## Owner-authorized Phase 2 work — 2026-11-12
+
+The owner explicitly authorized implementing and completing the proposed Phase 2 study and submission artifacts, with member ZIP handoffs to follow later. This supersedes the earlier deferral for local DL implementation, dependencies, training, validation-only tuning, ablations, optional hybrid, testing and academic artifact preparation. Follow docs/PHASE2_COMPLETION_PLAN.md and the prospectively recorded protocol. Preserve Phase 1 evidence, truthful authorship and assistance. The original project-specific brief remains unlocated; do not invent mandatory control/LWR requirements or faculty acceptance. No form submission or new GitHub publication is implied. Remain on kavya and preserve unrelated work.
+
+## Owner-authorized final completion — 2026-11-16
+
+The owner requested completing remaining Phase 2 submission work, checking LWR/multi-agent requirements first, keeping viva explanations simple and performing no pushes. The original technical brief remains unlocated after renewed local/connected search. A small, separately labelled synthetic LWR/cell-transmission demonstration with two rule-based signal agents is authorized under this completion request; record its assumptions/protocol before outcomes. Do not call it calibrated METR-LA physics, MARL, a mandatory faculty requirement or GAT-driven control. Preserve frozen forecasting runs/scores. Update report, slides, tests, evidence and learning instructions locally on kavya. No push, PR, merge, form submission or fabricated student activity.
+
+## Owner-authorized Phase 2 handoff preparation — 2026-11-16
+
+The owner requested five individual Phase 2 ZIPs and a common recipient-agent prompt for scoped commits and PRs, with no push during preparation. Preserve the exact current branch kavya, staging and history; do not publish from this preparation workflow. The owner confirmed that no more specific technical brief is available; use the allocated title and generic rubric without inventing additional faculty requirements.
+
+The new inventory is docs/handoffs/phase2/FILE_OWNERSHIP.json, separate from the immutable Phase 1 package map. Package payloads are prepared owner/AI-assisted work. Members integrate, inspect, test and document genuine review using their configured identity and actual dates; prepared files do not establish independent authorship or student understanding. Use the common prompt only when the recipient requests execution. That recipient workflow permits only the recipient's personal branch push and a PR to canonical main, never direct-main/force pushes or merging. The coordinator's kavya package uses the exact branch kavya, reconciling existing local work rather than resetting it.
+
+All packages target canonical main directly, with no integration branch prerequisite. Base hashes identify the prepared snapshot, not permission to overwrite newer changes. Already-identical paths require no artificial commits. Preserve current instructions; resolve changed assigned paths using base/current/prepared comparisons and stop only for concrete unresolved conflicts. Keep all other members' paths unstaged. No raw data, fitted models, prediction arrays, environments, ZIPs or private build sources belong in Git. Frozen evidence retains its original dates and run identities; member checks belong in their unique Phase 2 review log.
+
+## Owner-authorized combined Phase 2 integration — 2026-11-17
+
+The owner reports all four teammate PRs merged and requests fetching/syncing them, integrating Kavya's remaining package and verifying the assembled tree. Fast-forward and preserve member logs/genuine fixes plus the local final reference. Prepare meaningful local commits on exactly kavya with the configured Kavya identity and no co-author trailer. Keep historical evidence, source/data identities and provenance; add fresh combined verification separately. No push, PR, direct-main commit, score tuning or form submission is authorized by this pass.
