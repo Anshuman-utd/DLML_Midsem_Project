@@ -1,0 +1,7 @@
+{
+  "wheel_build_passed": true,
+  "outside_checkout_import": true,
+  "simulation_and_neural_modules_imported_from_wheel": true,
+  "physical_step_passed": true,
+  "wheel_sha256": "304eb4f49a62c672a24745dfc19640394f18922dbe498147fb618af13970d005"
+}

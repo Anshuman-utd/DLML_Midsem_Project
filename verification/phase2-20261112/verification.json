@@ -1,0 +1,26 @@
+{
+  "baseline_targets_exact": true,
+  "historical_baseline_metrics_match": true,
+  "baseline_bundle_sha256": {
+    "M0_persistence_test.npz": "45421cfd1e986a34c141c7de81b38df2c8142958ff6d8edae448af7b4861a196",
+    "M0_persistence_val_stack.npz": "641369919120c5e40b2d932b25d5a47c6a1255eac34c990c7d8109c1b4bb5f0e",
+    "M0_persistence_val_tune.npz": "68ee52cdd630ecf771cf8da2de31df6ff362c8acd49c60dd9b210d3001efcdfa",
+    "M1_ha_test.npz": "2a06e9da1019083ea2371af0a1244589d613ebc6f3a9ba93695c3b32aa95d943",
+    "M1_ha_val_stack.npz": "137f40a6ebae7770ed1fa6755ad1c84c4f2152ac836d53c41ef3e8e004f91aaf",
+    "M1_ha_val_tune.npz": "dfe21b66ab5cd236ca4b9f56847068c3e8d699f70fb958c2f016e9a197f7be05",
+    "M3_rf_test.npz": "557bf69ea79ae57c029759dc17cb5b7297952fa3941cbd0f3f7aca50457d8a8e",
+    "M3_rf_val_stack.npz": "84c15ebcf28bcde731530c4f7a47d6b74a9df045b665a33fd7760f75300d2008",
+    "M3_rf_val_tune.npz": "987a2a7dd80952ef2f3f72d9512bc93a0b58c6c4eeb145252fcb5068be399446",
+    "M4_xgb_test.npz": "cd28914a519f84b08289b041a2982b6c5a7ab878be7c934f84c8f5e722cc2d6c",
+    "M4_xgb_val_stack.npz": "6a9592500202d6ba7a0cb8a4b25157a8c006dc012991ce578ea12d628582955d",
+    "M4_xgb_val_tune.npz": "754eaebad01c44a2fc91a1e1087607fb4224b7a4ddd25e85bdcd43698c83aa70",
+    "targets_test.npz": "c8c0ec4e06cf09d50164bfe39358ac300265ce582357425d1e14bdff1bf3de19",
+    "targets_val_stack.npz": "9311b1b493e428fb114a279dbc633a0d5fa75e88464e3128b13302c3b0dbaeb0",
+    "targets_val_tune.npz": "6a338a2e7b3495c366a9ccbbfaa9b639c648d2ea5d451a9f7981e1a5539017c6"
+  },
+  "checkpoint_reload_exact": true,
+  "experiments_evaluated": 11,
+  "test_status": "Previously exposed; exploratory comparisons only",
+  "metrics_sha256": "52fc1d4f0d037d9c17cad8b8baf7413f8614bb0230a0bbf8f173effada001d1c",
+  "effective_hybrid": "pure endpoint; no blend benefit selected"
+}

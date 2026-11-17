@@ -1,0 +1,16 @@
+{
+  "tests_passed": 69,
+  "pytest_command": "OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 pytest -q -ra",
+  "lint_passed": true,
+  "format_passed": true,
+  "remote_ci_claimed": false,
+  "checkpoint_reload_exact": true,
+  "observed_history_inference_executed": true,
+  "installed_packages_compatible": 59,
+  "dependency_check_command": "UV_CACHE_DIR=/tmp/t072-uv-cache uv pip check --python .venv/bin/python",
+  "wheel_import_outside_checkout": true,
+  "historical_source_files_unchanged": 31,
+  "historical_data_files_unchanged": 5,
+  "historical_baseline_metric_rows_reproduced": 720,
+  "report_only_changes_after_suite": "Regenerated/rendered/compiled and linted; training/evaluation/inference source unchanged."
+}

@@ -1,0 +1,46 @@
+[
+  {
+    "mode": "temporal",
+    "seed": 42,
+    "learning_rate": 0.001,
+    "validation_mae": 3.334609547581808,
+    "epochs": 42,
+    "parameters": 3912,
+    "seconds": 710.6162872500136,
+    "checkpoint_sha256": "48a922eac5cda4258a955e4914acc12b3e023229b36c8d6266f94f4dc298a4bc",
+    "folder": "tune_temporal_0"
+  },
+  {
+    "mode": "temporal",
+    "seed": 42,
+    "learning_rate": 0.0003,
+    "validation_mae": 3.341202855927808,
+    "epochs": 50,
+    "parameters": 3912,
+    "seconds": 781.7641956669977,
+    "checkpoint_sha256": "d4606ccc83bb7669fd38f59a3e30127ea52e04535817c6e66a09e6a97327549c",
+    "folder": "tune_temporal_1"
+  },
+  {
+    "mode": "graph",
+    "seed": 42,
+    "learning_rate": 0.001,
+    "validation_mae": 3.305745911503113,
+    "epochs": 48,
+    "parameters": 5384,
+    "seconds": 1681.1372128750081,
+    "checkpoint_sha256": "a939480f4970cb87519233fa4c24a2f939d5f7c88cf986e11d7529dc164a5aff",
+    "folder": "tune_graph_0"
+  },
+  {
+    "mode": "graph",
+    "seed": 42,
+    "learning_rate": 0.0003,
+    "validation_mae": 3.320303167625714,
+    "epochs": 48,
+    "parameters": 5384,
+    "seconds": 1569.5035924999975,
+    "checkpoint_sha256": "7f3a9dbfaae0a75a370f6af366d77de269ba848463057eb9c71da91681c286ad",
+    "folder": "tune_graph_1"
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "mode": "uniform",
+  "seed": 42,
+  "learning_rate": 0.001,
+  "validation_mae": 3.312135811567432,
+  "epochs": 48,
+  "parameters": 5384,
+  "seconds": 1665.5577173749916,
+  "checkpoint_sha256": "b96eff7e742ee6c0d52e4754aee9fa4ae205332258d291814be4c4c0077b1ea4"
+}

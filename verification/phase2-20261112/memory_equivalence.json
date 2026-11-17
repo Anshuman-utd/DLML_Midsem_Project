@@ -1,0 +1,11 @@
+{
+  "windows_compared": 34249,
+  "features_bitwise_equal": true,
+  "normalization_exact": true,
+  "previous_history_cache_bytes": 680596128,
+  "batch32_feature_bytes": 635904,
+  "old_preprocessor_sha256": "51b6dad10cdc23b2a72d30876f0df18f9bd2c8cde39efb592defb5aa45d07d67",
+  "new_preprocessor_sha256": "3bf847acf1ae27d18d36934761d3c781be52d5efc02d43ce738c561dcfc9deec",
+  "restarted_first_epoch_train_mae_delta": 0.0,
+  "restarted_first_epoch_validation_mae_delta": 0.0
+}

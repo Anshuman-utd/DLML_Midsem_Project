@@ -1,0 +1,24 @@
+{
+  "report": {
+    "built_in_compile": "success",
+    "tectonic": "0.15.0",
+    "pages": 5,
+    "all_pages_rendered_and_agent_inspected": true,
+    "overfull_boxes": 0,
+    "remaining_warnings": "Two minor underfull text lines; no missing fonts or compiler errors."
+  },
+  "presentation": {
+    "sha256": "ef5ee0fdbab1c38fb28794f6e3ea82aab9934787c52b99d26fba66582798c6ac",
+    "slides": 6,
+    "native_tables": 1,
+    "native_charts": 1,
+    "package_integrity_passed": true,
+    "layout_findings": 0,
+    "font_policy_passed": true,
+    "first_party_import_passed": true,
+    "native_chart_data_and_embedded_workbook_passed": true,
+    "all_exact_final_file_slides_rendered_and_agent_inspected": true,
+    "native_powerpoint_open_verified": false
+  },
+  "private_build_artifacts_in_git": false
+}

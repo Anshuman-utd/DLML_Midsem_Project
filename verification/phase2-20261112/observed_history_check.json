@@ -1,0 +1,8 @@
+{
+  "model": "temporal selected seed42",
+  "history": "first12 actual observations, all207 sensors",
+  "max_abs_difference_mph": 0.0,
+  "passed": true,
+  "future_rows_passed_to_inference": false,
+  "demo_status": "Training-interval interface example, not a prospective holdout. Checkpoint/statistics were fitted on the full training interval; future labels are not inference inputs."
+}

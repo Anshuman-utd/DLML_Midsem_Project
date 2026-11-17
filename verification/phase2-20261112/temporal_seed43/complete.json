@@ -1,0 +1,10 @@
+{
+  "mode": "temporal",
+  "seed": 43,
+  "learning_rate": 0.001,
+  "validation_mae": 3.334229604743556,
+  "epochs": 50,
+  "parameters": 3912,
+  "seconds": 1323.288172999979,
+  "checkpoint_sha256": "267fa73e01e942b5e771020a0a0dd0e9b864aef83b3f6fbb640717e8c78084fa"
+}

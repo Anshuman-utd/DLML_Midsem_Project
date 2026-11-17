@@ -1,0 +1,37 @@
+{
+  "reason": "Severe host memory pressure; change eager all-window caching to bounded batch construction. No features/model/search changes. Unfinished candidate restarts.",
+  "eligible_windows_compared": 34249,
+  "normalization_exact": true,
+  "inherited_fits": {
+    "tune_temporal_0": {
+      "parent_run": "phase2-v1",
+      "parent_manifest_sha256": "40c468496527bab78e6dcbe20f9af63e21fc6add06f355a9779309daf4fee7d2",
+      "checkpoint_sha256": "48a922eac5cda4258a955e4914acc12b3e023229b36c8d6266f94f4dc298a4bc",
+      "feature_equivalence": "bitwise on every eligible raw-data history"
+    },
+    "tune_temporal_1": {
+      "parent_run": "phase2-v1",
+      "parent_manifest_sha256": "40c468496527bab78e6dcbe20f9af63e21fc6add06f355a9779309daf4fee7d2",
+      "checkpoint_sha256": "d4606ccc83bb7669fd38f59a3e30127ea52e04535817c6e66a09e6a97327549c",
+      "feature_equivalence": "bitwise on every eligible raw-data history"
+    },
+    "temporal_seed43": {
+      "parent_run": "phase2-v1",
+      "parent_manifest_sha256": "40c468496527bab78e6dcbe20f9af63e21fc6add06f355a9779309daf4fee7d2",
+      "checkpoint_sha256": "267fa73e01e942b5e771020a0a0dd0e9b864aef83b3f6fbb640717e8c78084fa",
+      "feature_equivalence": "bitwise on every eligible raw-data history"
+    },
+    "temporal_seed44": {
+      "parent_run": "phase2-v1",
+      "parent_manifest_sha256": "40c468496527bab78e6dcbe20f9af63e21fc6add06f355a9779309daf4fee7d2",
+      "checkpoint_sha256": "44564930b77ed51a9c98bdf2e56277494e715be6e92838867bdd96bbae4a947f",
+      "feature_equivalence": "bitwise on every eligible raw-data history"
+    },
+    "tune_graph_0": {
+      "parent_run": "phase2-v1",
+      "parent_manifest_sha256": "40c468496527bab78e6dcbe20f9af63e21fc6add06f355a9779309daf4fee7d2",
+      "checkpoint_sha256": "a939480f4970cb87519233fa4c24a2f939d5f7c88cf986e11d7529dc164a5aff",
+      "feature_equivalence": "bitwise on every eligible raw-data history"
+    }
+  }
+}

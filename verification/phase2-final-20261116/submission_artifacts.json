@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-16",
+  "artifacts": {
+    "report/phase2/T072_Phase2_Report.pdf": {
+      "bytes": 684851,
+      "sha256": "5bcb05be94ad6bf738e83b46c982a01c799e3261e558372f0ac27457d2d06717",
+      "pages": 7,
+      "below_10_MB": true,
+      "all_pages_or_slides_rendered_and_agent_reviewed": true
+    },
+    "slides/phase2/T072_Phase2.pptx": {
+      "bytes": 100621,
+      "sha256": "bd980a52f25e47155be8e9939dbe07645dca8a8abbaa6f5faf9c4aa4293b33db",
+      "slides": 6,
+      "below_10_MB": true,
+      "all_pages_or_slides_rendered_and_agent_reviewed": true
+    }
+  },
+  "owner_review_complete": false,
+  "published": false,
+  "form_submitted": false
+}
