@@ -1,0 +1,11 @@
+{
+  "model": "graph selected seed42",
+  "history": "first12 actual observations, all207 sensors",
+  "max_abs_difference_mph": 1.09448242255894e-05,
+  "passed": true,
+  "absolute_tolerance_mph": 1e-05,
+  "relative_tolerance": 1e-06,
+  "note": "CSV round-trip/window preparation agrees within float32-scale tolerance; not claimed bitwise identical. Checkpoint reload uses a separate exact test.",
+  "future_rows_passed_to_inference": false,
+  "demo_status": "Training-interval interface example, not a prospective holdout. Checkpoint/statistics were fitted on the full training interval; future labels are not inference inputs."
+}

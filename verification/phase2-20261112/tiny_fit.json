@@ -1,0 +1,7 @@
+{
+  "purpose": "synthetic learnability diagnostic, not traffic performance",
+  "initial_mae_normalized": 0.20000001788139343,
+  "final_mae_normalized": 0.003369445214048028,
+  "updates": 150,
+  "passed": true
+}

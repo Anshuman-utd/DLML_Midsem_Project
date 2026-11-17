@@ -1,0 +1,10 @@
+{
+  "mode": "self",
+  "seed": 42,
+  "learning_rate": 0.001,
+  "validation_mae": 3.3274698179229416,
+  "epochs": 48,
+  "parameters": 5384,
+  "seconds": 2142.321526374988,
+  "checkpoint_sha256": "ecc462d2626554bdbe56939ce6199a578b7026336571e0b72f8f52ec73a0999e"
+}

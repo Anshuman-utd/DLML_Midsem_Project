@@ -1,0 +1,5 @@
+{
+  "reason": "Sequence final fits to prevent duplicate self44 fitting and reduce host contention. Live self42 state suspended/resumed; no model/search/split/metric changes.",
+  "driver_pid": 60734,
+  "pause_seconds": 581.0474517345428
+}

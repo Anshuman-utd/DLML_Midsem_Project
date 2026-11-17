@@ -1,0 +1,16 @@
+# Frozen before training; test remains exploratory. See docs/PHASE2_PROTOCOL.md.
+seeds: [42, 43, 44]
+learning_rates: [0.001, 0.0003]
+hidden: 32
+heads: 2
+history: 12
+horizon: 12
+train_stride: 2
+batch_size: 32
+max_epochs: 50
+patience: 7
+weight_decay: 0.0001
+dropout: 0.1
+gradient_clip: 5.0
+threads: 4
+hybrid_weights: [0.0, 0.25, 0.5, 0.75, 1.0]

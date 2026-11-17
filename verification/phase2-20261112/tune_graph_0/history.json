@@ -1,0 +1,290 @@
+[
+  {
+    "epoch": 1,
+    "train_all_horizon_mae": 3.8090512500227445,
+    "validation_headline_mae": 3.3726673088164074,
+    "elapsed_seconds": 34.44175287502003
+  },
+  {
+    "epoch": 2,
+    "train_all_horizon_mae": 3.6625735004057582,
+    "validation_headline_mae": 3.350231326617622,
+    "elapsed_seconds": 69.91622370900586
+  },
+  {
+    "epoch": 3,
+    "train_all_horizon_mae": 3.6495680292180004,
+    "validation_headline_mae": 3.3470279144189803,
+    "elapsed_seconds": 105.46631733400864
+  },
+  {
+    "epoch": 4,
+    "train_all_horizon_mae": 3.6443704090489235,
+    "validation_headline_mae": 3.3388664845633964,
+    "elapsed_seconds": 139.84075337499962
+  },
+  {
+    "epoch": 5,
+    "train_all_horizon_mae": 3.641616991202148,
+    "validation_headline_mae": 3.334864917583586,
+    "elapsed_seconds": 174.51073150002048
+  },
+  {
+    "epoch": 6,
+    "train_all_horizon_mae": 3.6386953708366905,
+    "validation_headline_mae": 3.3301487089727555,
+    "elapsed_seconds": 208.8814767920121
+  },
+  {
+    "epoch": 7,
+    "train_all_horizon_mae": 3.637755337838336,
+    "validation_headline_mae": 3.3346872540823753,
+    "elapsed_seconds": 243.17809233401204
+  },
+  {
+    "epoch": 8,
+    "train_all_horizon_mae": 3.6363019761440345,
+    "validation_headline_mae": 3.3274743495914776,
+    "elapsed_seconds": 278.3107572500012
+  },
+  {
+    "epoch": 9,
+    "train_all_horizon_mae": 3.6351957624806484,
+    "validation_headline_mae": 3.3296770121424752,
+    "elapsed_seconds": 312.5435198750056
+  },
+  {
+    "epoch": 10,
+    "train_all_horizon_mae": 3.6347309133315853,
+    "validation_headline_mae": 3.3256341039968453,
+    "elapsed_seconds": 346.8386335420073
+  },
+  {
+    "epoch": 11,
+    "train_all_horizon_mae": 3.63368956297451,
+    "validation_headline_mae": 3.323115050926894,
+    "elapsed_seconds": 381.2142291670025
+  },
+  {
+    "epoch": 12,
+    "train_all_horizon_mae": 3.6327599096405234,
+    "validation_headline_mae": 3.3250356952372635,
+    "elapsed_seconds": 415.89423975002137
+  },
+  {
+    "epoch": 13,
+    "train_all_horizon_mae": 3.6313255891533545,
+    "validation_headline_mae": 3.3265956341681955,
+    "elapsed_seconds": 450.6069115840073
+  },
+  {
+    "epoch": 14,
+    "train_all_horizon_mae": 3.630547060765634,
+    "validation_headline_mae": 3.3209554312819956,
+    "elapsed_seconds": 485.0226282090007
+  },
+  {
+    "epoch": 15,
+    "train_all_horizon_mae": 3.630441135799061,
+    "validation_headline_mae": 3.32357288791871,
+    "elapsed_seconds": 522.5881614170212
+  },
+  {
+    "epoch": 16,
+    "train_all_horizon_mae": 3.6295962538187827,
+    "validation_headline_mae": 3.323735719266535,
+    "elapsed_seconds": 557.7218364170112
+  },
+  {
+    "epoch": 17,
+    "train_all_horizon_mae": 3.628282869367537,
+    "validation_headline_mae": 3.318985204207262,
+    "elapsed_seconds": 592.9232020000054
+  },
+  {
+    "epoch": 18,
+    "train_all_horizon_mae": 3.6284959541308877,
+    "validation_headline_mae": 3.3173555960746732,
+    "elapsed_seconds": 628.2779495420109
+  },
+  {
+    "epoch": 19,
+    "train_all_horizon_mae": 3.626443363525019,
+    "validation_headline_mae": 3.31563109454569,
+    "elapsed_seconds": 663.302707084018
+  },
+  {
+    "epoch": 20,
+    "train_all_horizon_mae": 3.6263436855629743,
+    "validation_headline_mae": 3.3222370096924023,
+    "elapsed_seconds": 698.3100980420131
+  },
+  {
+    "epoch": 21,
+    "train_all_horizon_mae": 3.6250335601838173,
+    "validation_headline_mae": 3.313526787891541,
+    "elapsed_seconds": 733.5055967090011
+  },
+  {
+    "epoch": 22,
+    "train_all_horizon_mae": 3.6251653747644257,
+    "validation_headline_mae": 3.311377274268509,
+    "elapsed_seconds": 768.7757359590032
+  },
+  {
+    "epoch": 23,
+    "train_all_horizon_mae": 3.624325032278621,
+    "validation_headline_mae": 3.310759091574408,
+    "elapsed_seconds": 804.225578417012
+  },
+  {
+    "epoch": 24,
+    "train_all_horizon_mae": 3.624018717113208,
+    "validation_headline_mae": 3.318340857540108,
+    "elapsed_seconds": 839.3128205840185
+  },
+  {
+    "epoch": 25,
+    "train_all_horizon_mae": 3.624010696141036,
+    "validation_headline_mae": 3.3136482190536514,
+    "elapsed_seconds": 874.9346411669976
+  },
+  {
+    "epoch": 26,
+    "train_all_horizon_mae": 3.6231309723584717,
+    "validation_headline_mae": 3.31454928637016,
+    "elapsed_seconds": 910.6578720840043
+  },
+  {
+    "epoch": 27,
+    "train_all_horizon_mae": 3.6231133937627193,
+    "validation_headline_mae": 3.317429517735366,
+    "elapsed_seconds": 945.5494973339955
+  },
+  {
+    "epoch": 28,
+    "train_all_horizon_mae": 3.6230780421101207,
+    "validation_headline_mae": 3.3102101407294153,
+    "elapsed_seconds": 980.2583818340208
+  },
+  {
+    "epoch": 29,
+    "train_all_horizon_mae": 3.622222958729281,
+    "validation_headline_mae": 3.310624634419004,
+    "elapsed_seconds": 1015.1550701670058
+  },
+  {
+    "epoch": 30,
+    "train_all_horizon_mae": 3.6220842700592124,
+    "validation_headline_mae": 3.3111130028560356,
+    "elapsed_seconds": 1050.2324565000017
+  },
+  {
+    "epoch": 31,
+    "train_all_horizon_mae": 3.6219356079710345,
+    "validation_headline_mae": 3.3104353954518966,
+    "elapsed_seconds": 1085.2126077919966
+  },
+  {
+    "epoch": 32,
+    "train_all_horizon_mae": 3.621696280079608,
+    "validation_headline_mae": 3.308519921435584,
+    "elapsed_seconds": 1121.2509195840103
+  },
+  {
+    "epoch": 33,
+    "train_all_horizon_mae": 3.622061035070732,
+    "validation_headline_mae": 3.3200501856596514,
+    "elapsed_seconds": 1156.2679547920125
+  },
+  {
+    "epoch": 34,
+    "train_all_horizon_mae": 3.6203682227524667,
+    "validation_headline_mae": 3.3072318243535404,
+    "elapsed_seconds": 1192.0062883339997
+  },
+  {
+    "epoch": 35,
+    "train_all_horizon_mae": 3.621534193272386,
+    "validation_headline_mae": 3.3123821825486903,
+    "elapsed_seconds": 1226.7026780839951
+  },
+  {
+    "epoch": 36,
+    "train_all_horizon_mae": 3.6210003636777492,
+    "validation_headline_mae": 3.310722615009859,
+    "elapsed_seconds": 1261.5579060419986
+  },
+  {
+    "epoch": 37,
+    "train_all_horizon_mae": 3.6202446732677664,
+    "validation_headline_mae": 3.3102243168539784,
+    "elapsed_seconds": 1296.915540875023
+  },
+  {
+    "epoch": 38,
+    "train_all_horizon_mae": 3.6207341052384545,
+    "validation_headline_mae": 3.306922890014542,
+    "elapsed_seconds": 1331.6325422500086
+  },
+  {
+    "epoch": 39,
+    "train_all_horizon_mae": 3.62068385503405,
+    "validation_headline_mae": 3.3068583880802804,
+    "elapsed_seconds": 1366.5589407500229
+  },
+  {
+    "epoch": 40,
+    "train_all_horizon_mae": 3.6204873270184033,
+    "validation_headline_mae": 3.307759439506817,
+    "elapsed_seconds": 1401.6578947500093
+  },
+  {
+    "epoch": 41,
+    "train_all_horizon_mae": 3.6199335386566633,
+    "validation_headline_mae": 3.305745911503113,
+    "elapsed_seconds": 1436.8617309590045
+  },
+  {
+    "epoch": 42,
+    "train_all_horizon_mae": 3.620119872877357,
+    "validation_headline_mae": 3.3081148414191035,
+    "elapsed_seconds": 1472.1596490000084
+  },
+  {
+    "epoch": 43,
+    "train_all_horizon_mae": 3.620094398910739,
+    "validation_headline_mae": 3.308137887931083,
+    "elapsed_seconds": 1507.2342746250215
+  },
+  {
+    "epoch": 44,
+    "train_all_horizon_mae": 3.6195867179708188,
+    "validation_headline_mae": 3.31157137405356,
+    "elapsed_seconds": 1542.2817157090176
+  },
+  {
+    "epoch": 45,
+    "train_all_horizon_mae": 3.6188349720376953,
+    "validation_headline_mae": 3.3073367813985444,
+    "elapsed_seconds": 1577.242085167003
+  },
+  {
+    "epoch": 46,
+    "train_all_horizon_mae": 3.6188725850084253,
+    "validation_headline_mae": 3.30898508143426,
+    "elapsed_seconds": 1611.8509862920037
+  },
+  {
+    "epoch": 47,
+    "train_all_horizon_mae": 3.6189872119531716,
+    "validation_headline_mae": 3.3067471302832487,
+    "elapsed_seconds": 1646.339928625006
+  },
+  {
+    "epoch": 48,
+    "train_all_horizon_mae": 3.620058198463513,
+    "validation_headline_mae": 3.308334501358291,
+    "elapsed_seconds": 1681.1360856250103
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "mode": "no_dropout",
+  "seed": 42,
+  "learning_rate": 0.001,
+  "validation_mae": 3.2873566919030415,
+  "epochs": 50,
+  "parameters": 5384,
+  "seconds": 1479.9476684160181,
+  "checkpoint_sha256": "63e163743b33a76c02495f9d51b890ab2636f7c6362560d44a708034a30b7bbf"
+}

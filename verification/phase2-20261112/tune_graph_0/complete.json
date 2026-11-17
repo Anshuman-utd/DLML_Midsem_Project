@@ -1,0 +1,10 @@
+{
+  "mode": "graph",
+  "seed": 42,
+  "learning_rate": 0.001,
+  "validation_mae": 3.305745911503113,
+  "epochs": 48,
+  "parameters": 5384,
+  "seconds": 1681.1372128750081,
+  "checkpoint_sha256": "a939480f4970cb87519233fa4c24a2f939d5f7c88cf986e11d7529dc164a5aff"
+}

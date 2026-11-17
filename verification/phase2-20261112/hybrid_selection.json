@@ -1,0 +1,28 @@
+{
+  "candidates": [
+    {
+      "alpha_xgb": 0.0,
+      "val_stack_headline_mae": 3.7785964012145996
+    },
+    {
+      "alpha_xgb": 0.25,
+      "val_stack_headline_mae": 3.585031509399414
+    },
+    {
+      "alpha_xgb": 0.5,
+      "val_stack_headline_mae": 3.4378907680511475
+    },
+    {
+      "alpha_xgb": 0.75,
+      "val_stack_headline_mae": 3.3357980251312256
+    },
+    {
+      "alpha_xgb": 1.0,
+      "val_stack_headline_mae": 3.2876884937286377
+    }
+  ],
+  "selected": {
+    "alpha_xgb": 1.0,
+    "val_stack_headline_mae": 3.2876884937286377
+  }
+}

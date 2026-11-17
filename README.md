@@ -1,14 +1,38 @@
-# Phase 1 traffic speed forecasting — Team T072
+# Traffic speed forecasting — Team T072
+
+## Phase 2 combined integration — verified 2026-11-17
+
+Two separate studies are implemented and verified locally:
+
+1. **Real-data forecasting:** shared GRU, GRU+GAT, self/uniform/dropout controls, three-seed comparisons, validation-only optional blend and observed-history inference on METR-LA.
+2. **Synthetic LWR/control:** an eight-cell conservative CTM corridor, two decentralized rule-based signal agents, a fixed-time baseline and 40 matched runs across four scenarios/five paired seeds.
+
+The simulation is not calibrated from METR-LA, not MARL and not GAT-driven control. The studies do not demonstrate real-world signal benefits. The original faculty technical brief remains unlocated; the [requirements audit](docs/PHASE2_REQUIREMENTS_FINAL_AUDIT.md) distinguishes verified requirements from this conservative completion choice.
+
+- [Final report PDF — seven pages](report/phase2/T072_Phase2_Report.pdf), [LaTeX source](report/phase2/main.tex) and [six-slide editable PPTX](slides/phase2/T072_Phase2.pptx)
+- [Forecast results](docs/PHASE2_RESULTS.md), [synthetic control results](docs/PHASE2_CONTROL_RESULTS.md) and [final verification](verification/phase2-final-20261116/README.md)
+- [Simple forecasting notes](docs/PHASE2_LEARNING_NOTES.md), [LWR/agent notes](docs/PHASE2_CONTROL_NOTES.md), [speaking/viva guide](docs/PHASE2_PRESENTATION_GUIDE.md) and [runbook](docs/PHASE2_RUNBOOK.md)
+- [Forecast protocol](docs/PHASE2_PROTOCOL.md), [control protocol](docs/PHASE2_CONTROL_PROTOCOL.md) and [literature](docs/PHASE2_LITERATURE.md)
+
+Forecast results are unchanged: 60-minute MAE is 4.881 mph for graph GRU versus 4.931 for self-only (three-seed means), and 3.874 for frozen XGBoost. Trees remain stronger; RF has the best main-method RMSE. Blend validation selected pure XGBoost. These are exploratory errors on a previously exposed interval, not accuracy.
+
+In the separate synthetic experiment, responsive signals lower total system vehicle-time against the chosen equal-green baseline in all four scenarios. That baseline is not demand-optimized; results do not establish optimality, calibrated city delay savings or neural-control gains. Boundary waiting and end-of-horizon residuals are separately reported.
+
+Local checks: **76 tests passed with real data available and no skips**, Ruff lint/format passed for 51 Python files, rebuilt wheel imports neural/control modules outside the checkout, saved-model CSV inference works, and all synthetic runs pass per-step conservation/bounds/flow checks. Prior forecasting checkpoints/scores and original Phase 1 source/data are unchanged. Report pages and exact-final-file slides were rendered/inspected; both artifacts are below 10 MB. Native PowerPoint opening and remote CI are not claimed.
+
+Teammate PRs #9–#12 are merged into canonical main. Their completed review logs and neural test corrections are preserved. Kavya’s remaining evaluation/inference, CI, evidence and shared docs are integrated locally on `kavya`; see [fresh combined verification](verification/phase2-integration-20261117/README.md). No push, PR, merge or form submission was performed. Five local Phase 2 member handoffs and their common prompt are documented in [the handoff guide](docs/handoffs/phase2/README.md). Owner/faculty-scope review, genuine individual understanding/rehearsal and later handoffs/publication remain owner-managed. Prepared source/analysis preserves substantial AI-assistance and teammate-prototype provenance.
+
+## Preserved Phase 1 study
 
 > Integration status: member PRs #2–#6 are merged into `main`. The owner-authorized `kavya` branch adds the selected report and presentation for review. No direct-main commit or push is used. See [current state](PROJECT_STATE.md).
 
 Canonical repository: `KatalKavya96/DLML_Midsem_Project`. The implementation lives directly at this repository root (`src/trafficml`, `scripts`, `tests`, `configs`). There is no nested `AML/` project. Delivery ZIPs, old scaffolding and private build files were moved to the separate sibling `DLML_Project_Archive_2026-10-27` folder. Read [current state](PROJECT_STATE.md), [team roster](PROJECT.md) and [handoff instructions](docs/handoffs/HANDOFF.md).
 
-A local, end-to-end forecasting study using **Persistence, Historical Average, Random Forest and XGBoost** on the existing METR-LA files. No neural networks, graph-neighbour features, UI or traffic-signal controller are included. The broader faculty title/LWR scope remains to be reconciled; do not present forecasting results as traffic-control benefits.
+A local, end-to-end Phase 1 forecasting study using **Persistence, Historical Average, Random Forest and XGBoost** on the existing METR-LA files. Those frozen runs contain no neural networks, graph-neighbour features, UI or traffic-signal controller. The newer Phase 2 extension is described above. Do not present forecasting results as traffic-control benefits.
 
 Read [the methods/viva guide](docs/METHODS_AND_VIVA.md), [literature synthesis](docs/LITERATURE.md), and [contribution disclosure](docs/CONTRIBUTIONS.md). The integrated implementation was prepared with substantial AI assistance; names/commits are not evidence of individual implementation.
 
-## Report and presentation
+## Preserved Phase 1 report and presentation
 
 - [Report PDF](report/final/Traffic_Speed_Forecasting_T072.pdf)
 - [PowerPoint](slides/final/Traffic_Speed_Forecasting_T072.pptx)

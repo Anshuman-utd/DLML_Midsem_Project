@@ -91,3 +91,9 @@ node_modules/
 *.safetensors
 .coverage
 htmlcov/
+
+# Phase 2 LaTeX compiler intermediates (retain sources and submission PDF)
+/report/phase2/*.aux
+/report/phase2/*.log
+/report/phase2/*.out
+/report/phase2/*.synctex.gz

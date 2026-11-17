@@ -1,0 +1,7 @@
+{
+  "wheel_build": "passed",
+  "outside_checkout_import": true,
+  "neural_data_module": "/Users/kavyakatal/Desktop/DLML_Midsem_Project/dist/trafficml-0.1.0-py3-none-any.whl/trafficml/data/neural.py",
+  "neural_model_module": "/Users/kavyakatal/Desktop/DLML_Midsem_Project/dist/trafficml-0.1.0-py3-none-any.whl/trafficml/models/neural.py",
+  "wheel_sha256": "dd5dd861d3e83c7800273415deda6af42eb4f010a6cf13e1a6cf4ceb0aefec40"
+}

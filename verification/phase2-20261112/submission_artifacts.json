@@ -1,0 +1,26 @@
+{
+  "verified_at": "2026-11-13T03:00:39.635408+05:30",
+  "limit_bytes_each": 10000000,
+  "artifacts": [
+    {
+      "path": "report/phase2/T072_Phase2_Report.pdf",
+      "kind": "report_pdf",
+      "bytes": 421704,
+      "sha256": "221ce615db228aa367147f0862fadf001324879841302a2ce3ec67858b15612c",
+      "pages_or_slides": 5,
+      "all_rendered_and_agent_visually_inspected": true,
+      "owner_approval_claimed": false
+    },
+    {
+      "path": "slides/phase2/T072_Phase2.pptx",
+      "kind": "presentation_pptx",
+      "bytes": 98803,
+      "sha256": "ef5ee0fdbab1c38fb28794f6e3ea82aab9934787c52b99d26fba66582798c6ac",
+      "pages_or_slides": 6,
+      "all_rendered_and_agent_visually_inspected": true,
+      "owner_approval_claimed": false
+    }
+  ],
+  "publication_performed": false,
+  "form_submitted": false
+}
