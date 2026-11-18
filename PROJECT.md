@@ -6,7 +6,7 @@ An academic team project exploring traffic forecasting and simulated traffic-flo
 
 ## Team description
 
-Team **T072**, Section **C**, consists of five students. The owner-prepared integrated source and member integration/review history are preserved. Proposed Phase 2 learning/review scopes appear in docs/PHASE2_PRESENTATION_GUIDE.md; actual participation and individual understanding require evidence.
+Team **T072**, Section **C**, consists of five students. The owner-prepared integrated source and member integration/review history are preserved. Proposed Phase 2 learning/review scopes appear in docs/PHASE2_VIVA_GUIDE.md; actual participation and individual understanding require evidence.
 
 | Member | Enrollment number |
 | --- | --- |
