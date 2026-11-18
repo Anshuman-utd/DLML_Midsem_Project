@@ -9,7 +9,7 @@ Two separate studies are implemented and verified locally:
 
 The simulation is not calibrated from METR-LA, not MARL and not GAT-driven control. The studies do not demonstrate real-world signal benefits. The original faculty technical brief remains unlocated; the [requirements audit](docs/PHASE2_REQUIREMENTS_FINAL_AUDIT.md) distinguishes verified requirements from this conservative completion choice.
 
-- [Final report PDF — seven pages](report/phase2/T072_Phase2_Report.pdf), [LaTeX source](report/phase2/main.tex) and [six-slide editable PPTX](slides/phase2/T072_Phase2.pptx)
+- [Final report PDF — seven pages](report/phase2/T072_Phase2_Report.pdf), [LaTeX source](report/phase2/main.tex), [13-slide editable PPTX](slides/phase2/T072_Phase2.pptx) and the [team viva guide](docs/PHASE2_VIVA_GUIDE.md)
 - [Forecast results](docs/PHASE2_RESULTS.md), [synthetic control results](docs/PHASE2_CONTROL_RESULTS.md) and [final verification](verification/phase2-final-20261116/README.md)
 - [Simple forecasting notes](docs/PHASE2_LEARNING_NOTES.md), [LWR/agent notes](docs/PHASE2_CONTROL_NOTES.md), [speaking/viva guide](docs/PHASE2_PRESENTATION_GUIDE.md) and [runbook](docs/PHASE2_RUNBOOK.md)
 - [Forecast protocol](docs/PHASE2_PROTOCOL.md), [control protocol](docs/PHASE2_CONTROL_PROTOCOL.md) and [literature](docs/PHASE2_LITERATURE.md)
