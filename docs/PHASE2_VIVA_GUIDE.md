@@ -1,6 +1,6 @@
 # Phase 2 viva guide for Team T072
 
-This guide goes with the final Phase 2 report (`report/phase2/T072_Phase2_Report.pdf`) and the 13-slide deck (`slides/phase2/T072_Phase2.pptx`). It explains the whole project, each member's module, the results, and every reference, in plain language.
+This guide goes with the final Phase 2 report (`report/phase2/T072_Phase2_Report.pdf`) and the 14-slide deck (`slides/phase2/T072_Phase2.pptx`). It explains the whole project, each member's module, the results, and every reference, in plain language.
 
 Read sections 1 to 4 and 8 to 10 whatever your module is. The viva is individual, and anyone can be asked about any part.
 
@@ -32,11 +32,27 @@ Phase 2 asks one deep-learning question: **does a neural network forecast better
 | 8 | Literature review and reading the results | Anshuman |
 | 9 | LWR simulation with two signal agents | Rudraksh |
 | 10 | Result 1: networks against the Phase 1 models | Anshuman |
-| 11 | Result 2: ablations and hybrid | Bineet and Kavya |
-| 12 | Result 3: simulation | Rudraksh |
-| 13 | What we learned and what we do not claim | anyone |
+| 11 | Result 2: ablations | Bineet |
+| 12 | Hybrid approach: XGBoost blended with GRU + GAT | Kavya |
+| 13 | Result 3: simulation | Rudraksh |
+| 14 | What we learned and what we do not claim | anyone |
 
 Every slide has speaker notes in simple English. Open the deck in PowerPoint and read the notes under each slide.
+
+### How the Phase 2 rubric is covered
+
+| Rubric item | Where we show it | What we can honestly say |
+| --- | --- | --- |
+| Architecture logic | Slide 4, report section IV | GRU for time, graph attention for neighbours, output as a correction to the last speed |
+| Hybrid innovation | Slide 12, report sections VI and VII-C | A weighted blend of XGBoost and GRU + GAT was built and tested fairly. It gave no gain, so we do not claim extra value |
+| Ablation studies | Slide 11, report section VII-B | Three ablations; the self-loop one shows the gain comes from neighbours |
+| Deep learning literature review | Slide 8, report section II | Nine sources, each tied to one part of the work |
+| DL dataset and regularisation | Slides 5 and 6, report sections III and V | Leak-free preparation; dropout, weight decay, gradient clipping, early stopping |
+| Technical validation | Slide 7, report section IX | 76 automated tests, same answers for every method, repeatable results |
+| Theoretical rigour | Report sections IV and VIII | GRU, attention, loss, error and LWR equations, each explained in words |
+| GitHub repository and code quality | The repository | Tests and lint run on every pull request |
+
+The rubric gives extra marks for a hybrid only when it shows value. Ours did not, so present it as a fair test with a negative result, not as an achievement.
 
 ## 3. Words everyone must be able to explain
 
@@ -143,8 +159,12 @@ The two attention heads are **not** the two signal agents of the simulation. Hea
 
 **Likely questions.**
 
-- *Why did the hybrid fail?* A blend helps when both models are about equally good and make different mistakes. Here GRU + GAT is about 1 mph worse, so adding it only pulls XGBoost down.
-- *Then why report it?* Phase 2 asks for a hybrid to be tested. We tested it properly and report the true outcome.
+- *What exactly is your hybrid?* A weighted average: `w x XGBoost forecast + (1 - w) x GRU+GAT forecast`. XGBoost is the ML part, GRU + GAT is the DL part.
+- *Why is that a meaningful combination?* The two models are very different. XGBoost has one model per sensor and never sees a neighbour. The network shares its weights and does see neighbours. Different models often make different mistakes, and averaging can cancel some.
+- *Why did the hybrid fail?* A blend helps when both models are about equally good. Here GRU + GAT is about 1 mph worse, so adding it only pulls XGBoost down.
+- *Then why report it?* Phase 2 allows a hybrid, and we tested one properly. Reporting a negative result is more honest than leaving it out.
+- *Do you claim the extra hybrid marks?* We claim that we implemented and tested a justified hybrid. We do not claim that it showed value.
+- *What would be a better hybrid?* Let the two models work together instead of averaging: train the network to predict XGBoost's errors, or feed XGBoost's forecast into the network. We did not build that.
 - *Why choose the blend weight on separate data?* If we chose it on the test data, the test score would be biased in our favour.
 - *MAE or RMSE, which matters more?* They answer different questions. XGBoost has the lowest MAE. Random Forest has the lowest RMSE, so it makes fewer very large errors.
 - *Is this accuracy?* No. This is regression. We report errors in mph, not classification accuracy.
@@ -224,7 +244,7 @@ Three-seed means at 60 minutes: GRU + GAT 4.881, self-loop only 4.931, temporal 
 
 ## 7. The literature review, reference by reference
 
-The numbers match the reference list in the report. For each one: what it is, why we cite it, and one sentence to say.
+The report has nine references. The numbers below match its reference list. For each one: what it is, why we cite it, and one sentence to say.
 
 1. **Cho et al., 2014, "Learning phrase representations using RNN encoder-decoder".** The paper that introduced the GRU, for machine translation. We use a GRU to read each sensor's history. *Say:* "The GRU comes from Cho and colleagues; it is a recurrent unit with a reset gate and an update gate."
 2. **Velickovic et al., 2018, "Graph attention networks".** Introduced attention on graphs: a node weighs its neighbours with learned weights. Our neighbour layer follows this design. *Say:* "Our graph layer is a graph attention layer in the style of Velickovic and colleagues."
@@ -232,18 +252,15 @@ The numbers match the reference list in the report. For each one: what it is, wh
 4. **Lighthill and Whitham, 1955, "On kinematic waves II".** The first half of the LWR theory: traffic as a fluid with conserved vehicles. *Say:* "This is the L and W of LWR."
 5. **Richards, 1956, "Shock waves on the highway".** The same idea, found independently. *Say:* "This is the R of LWR."
 6. **Daganzo, 1994, "The cell transmission model".** Turns the LWR theory into a simple computation on road cells with sending and receiving limits. *Say:* "Our simulation is a cell transmission model, which is LWR computed cell by cell."
-7. **Patire et al., 2015, "Technical overview of the cell transmission model" (Berkeley PATH).** A short practical description of the update rule. We implemented the update from this document. *Say:* "This is the description we actually coded from."
+7. **Patire et al., 2015, "Technical overview of the cell transmission model" (Berkeley PATH).** A short practical description of the update rule. The simulation was coded from this document. *Say:* "This is the description the code follows."
 8. **Lioris and Varaiya, 2013, "Variants of max pressure control".** Max-pressure control: each junction serves the approach with the largest pressure, using local measurements only. Our responsive agent uses a simplified version. *Say:* "Our responsive rule is inspired by max pressure, but it is a simple heuristic and we claim none of the paper's guarantees."
-9. **Kingma and Ba, 2015, "Adam".** The optimiser that updates the network's weights. *Say:* "Adam adapts the step size for each weight."
-10. **Srivastava et al., 2014, "Dropout".** Randomly switching off values during training to reduce over-fitting. *Say:* "We use dropout of 0.1."
-11. **Pascanu, Mikolov and Bengio, 2013, "On the difficulty of training recurrent neural networks".** Explains exploding gradients and proposes gradient clipping. *Say:* "This is why we clip the gradient norm at 5."
-12. **Breiman, 2001, "Random forests".** The Random Forest method, one of our Phase 1 baselines.
-13. **Chen and Guestrin, 2016, "XGBoost".** The gradient-boosted tree method, our best Phase 1 model and the one the networks are compared with.
-14. **PyTorch documentation for `torch.nn.GRU`.** The exact form of the GRU equations in the library we used.
+9. **Chen and Guestrin, 2016, "XGBoost".** Gradient-boosted decision trees. Our best Phase 1 model, the one the networks are compared with, and the ML half of the hybrid. *Say:* "XGBoost builds many small trees, each correcting the errors of the ones before."
+
+Adam, dropout, gradient clipping and Random Forest are standard tools. We use them and can explain them (section 3 and section 5.2), but the report does not cite a paper for each.
 
 How to summarise the review in two sentences: "We took the time model from the GRU paper, the neighbour layer from the graph attention paper, and the dataset and graph from the DCRNN paper. For the simulation we took the theory from Lighthill, Whitham and Richards, the computation from Daganzo's cell transmission model, and the signal idea from max-pressure control."
 
-All 14 references were checked against arXiv, Crossref or the publisher pages. That confirms they are real and correctly cited. It does not mean each of us has read each paper, so read at least the abstract of the ones in your module.
+All nine references were checked against arXiv, Crossref or the publisher pages. That confirms they are real and correctly cited. It does not mean each of us has read each paper, so read at least the abstract of the ones in your module.
 
 ## 8. Questions any of us may get
 
@@ -260,7 +277,7 @@ All 14 references were checked against arXiv, Crossref or the publisher pages. T
 ## 9. What we must not claim
 
 - That deep learning beat the Phase 1 models. It did not.
-- A hybrid improvement. The best blend is XGBoost alone.
+- A hybrid improvement, or the extra hybrid marks for demonstrated value. The best blend is XGBoost alone.
 - A clean final test score. The test period was inspected in Phase 1.
 - That the simulation is calibrated to Los Angeles, or that it shows real-world savings.
 - That the agents are trained, or that this is multi-agent reinforcement learning.
@@ -288,5 +305,3 @@ python report/phase2/make_assets.py
 ```
 
 Forecasting with a saved network needs the trained model files, which are not in Git. The steps are in `docs/PHASE2_RUNBOOK.md`.
-
-`docs/PHASE2_PRESENTATION_GUIDE.md` describes the earlier six-slide deck. Use this guide for the current 13-slide deck.

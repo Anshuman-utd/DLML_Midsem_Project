@@ -8,7 +8,7 @@
 | `generated/` | Table bodies and `numbers.json` written by the script |
 | `figures/` | Figures written by the script |
 
-The matching 13-slide deck is `slides/phase2/T072_Phase2.pptx`, and the team's viva guide is `docs/PHASE2_VIVA_GUIDE.md`.
+The matching 14-slide deck is `slides/phase2/T072_Phase2.pptx`, and the team's viva guide is `docs/PHASE2_VIVA_GUIDE.md`.
 
 ## Where the numbers come from
 
