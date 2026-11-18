@@ -1,0 +1,395 @@
+{
+  "date": "2026-11-18",
+  "reason": "Owner requested phase-specific organization and PPT preview",
+  "moves": [
+    {
+      "old": "report/final/Traffic_Speed_Forecasting_T072.pdf",
+      "new": "report/phase1/Phase1_Report.pdf",
+      "sha256_before_and_after_move": "95530e99dc21e75b911c23173b73b640cbcd02557ae15127f654daec65419315",
+      "current_sha256": "95530e99dc21e75b911c23173b73b640cbcd02557ae15127f654daec65419315",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/ieee/README.md",
+      "new": "report/phase1/source/README.md",
+      "sha256_before_and_after_move": "e3dbcc333fc501f4febeeb59b0c43715e49bb2584deec4b1c5f8503a56428baa",
+      "current_sha256": "4b48c00e13d4fd8ceab4d8331ea315cefed2f8b59eefb287745125a227587d40",
+      "modified_after_move": true
+    },
+    {
+      "old": "report/ieee/images/daily_profile.png",
+      "new": "report/phase1/source/images/daily_profile.png",
+      "sha256_before_and_after_move": "73c643147c23455de4aebe3c9d16b3195dbed3fdbf75b37ee54c9ca87b496361",
+      "current_sha256": "73c643147c23455de4aebe3c9d16b3195dbed3fdbf75b37ee54c9ca87b496361",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/ieee/images/forecast_example.png",
+      "new": "report/phase1/source/images/forecast_example.png",
+      "sha256_before_and_after_move": "e23580fe6ab90a684a6cb8bc188e0c4d3b74d3fd7d08086fc9339e3d5ed7b560",
+      "current_sha256": "e23580fe6ab90a684a6cb8bc188e0c4d3b74d3fd7d08086fc9339e3d5ed7b560",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/ieee/images/mae_horizons_test.png",
+      "new": "report/phase1/source/images/mae_horizons_test.png",
+      "sha256_before_and_after_move": "97da98128a5d1bd41dc85d8f300852e118e5b35eae6a33ec3b87eede5a470b68",
+      "current_sha256": "97da98128a5d1bd41dc85d8f300852e118e5b35eae6a33ec3b87eede5a470b68",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/ieee/main.tex",
+      "new": "report/phase1/source/main.tex",
+      "sha256_before_and_after_move": "1f1976acb6da88f2b6a7916d8d380f56d1184f352bd04f9700badb349ec1c9f8",
+      "current_sha256": "1f1976acb6da88f2b6a7916d8d380f56d1184f352bd04f9700badb349ec1c9f8",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/ieee/metrics.tex",
+      "new": "report/phase1/source/metrics.tex",
+      "sha256_before_and_after_move": "0daba83c831686ad8de796b9799c228cbbb956465f2efe39a7f0dd85ee636beb",
+      "current_sha256": "0daba83c831686ad8de796b9799c228cbbb956465f2efe39a7f0dd85ee636beb",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/phase2/T072_Phase2_Report.pdf",
+      "new": "report/phase2/archive/coordinator-20261116/T072_Phase2_Report.pdf",
+      "sha256_before_and_after_move": "5bcb05be94ad6bf738e83b46c982a01c799e3261e558372f0ac27457d2d06717",
+      "current_sha256": "5bcb05be94ad6bf738e83b46c982a01c799e3261e558372f0ac27457d2d06717",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/phase2/generated/abstract_results.tex",
+      "new": "report/phase2/archive/coordinator-20261116/generated/abstract_results.tex",
+      "sha256_before_and_after_move": "e5502f7b5056f42c747073639de78dace94ac28168f1990a99554fd82ce249f1",
+      "current_sha256": "e5502f7b5056f42c747073639de78dace94ac28168f1990a99554fd82ce249f1",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/phase2/generated/conclusion.tex",
+      "new": "report/phase2/archive/coordinator-20261116/generated/conclusion.tex",
+      "sha256_before_and_after_move": "e15a010ff7bba83a160fd30bf8f089a236f36a626e51a4f0c6e9bbf0abfeff57",
+      "current_sha256": "e15a010ff7bba83a160fd30bf8f089a236f36a626e51a4f0c6e9bbf0abfeff57",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/phase2/generated/control_results.tex",
+      "new": "report/phase2/archive/coordinator-20261116/generated/control_results.tex",
+      "sha256_before_and_after_move": "0a03e3a6f2e23d43b38452dfcd47a6c01c2c721b4054cbd4be1d08b6741eeb4f",
+      "current_sha256": "0a03e3a6f2e23d43b38452dfcd47a6c01c2c721b4054cbd4be1d08b6741eeb4f",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/phase2/generated/final_verification.tex",
+      "new": "report/phase2/archive/coordinator-20261116/generated/final_verification.tex",
+      "sha256_before_and_after_move": "659fef1bb0cff815ab52e7edbd6061641c49f960e7c0802980bc1a24115d4cb7",
+      "current_sha256": "659fef1bb0cff815ab52e7edbd6061641c49f960e7c0802980bc1a24115d4cb7",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/phase2/generated/results.tex",
+      "new": "report/phase2/archive/coordinator-20261116/generated/results.tex",
+      "sha256_before_and_after_move": "91cbe6ce0a9078a463c4843c8c45f419d2d547075b2b644110c75678e6068e84",
+      "current_sha256": "91cbe6ce0a9078a463c4843c8c45f419d2d547075b2b644110c75678e6068e84",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/phase2/generated/verification.tex",
+      "new": "report/phase2/archive/coordinator-20261116/generated/verification.tex",
+      "sha256_before_and_after_move": "c11a6aea25b09f0dc8bdac4ade2f54ce806fd1992223b19d8040eabc1526ae47",
+      "current_sha256": "c11a6aea25b09f0dc8bdac4ade2f54ce806fd1992223b19d8040eabc1526ae47",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/phase2/images/attention.png",
+      "new": "report/phase2/archive/coordinator-20261116/images/attention.png",
+      "sha256_before_and_after_move": "8892be25ace370239b6dec65adf8cb9b2a1b25f5f52f2fe361661c24e2febbfc",
+      "current_sha256": "8892be25ace370239b6dec65adf8cb9b2a1b25f5f52f2fe361661c24e2febbfc",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/phase2/images/control_comparison.png",
+      "new": "report/phase2/archive/coordinator-20261116/images/control_comparison.png",
+      "sha256_before_and_after_move": "d1aed63b9130601b1c2850e21d76b7d79632b6b5ee9b1dc34688d18dcc643bb4",
+      "current_sha256": "d1aed63b9130601b1c2850e21d76b7d79632b6b5ee9b1dc34688d18dcc643bb4",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/phase2/images/control_density.png",
+      "new": "report/phase2/archive/coordinator-20261116/images/control_density.png",
+      "sha256_before_and_after_move": "acb5909870df5bf282ea94dc5e00e0be598630cfcdcdcf676e3e2b86dd02f3db",
+      "current_sha256": "acb5909870df5bf282ea94dc5e00e0be598630cfcdcdcf676e3e2b86dd02f3db",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/phase2/images/control_occupancy.png",
+      "new": "report/phase2/archive/coordinator-20261116/images/control_occupancy.png",
+      "sha256_before_and_after_move": "2f0419353be0c1bea944d5a38d24d0e490019a4e2161dbf9446087a73d84ff5b",
+      "current_sha256": "2f0419353be0c1bea944d5a38d24d0e490019a4e2161dbf9446087a73d84ff5b",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/phase2/images/forecast.png",
+      "new": "report/phase2/archive/coordinator-20261116/images/forecast.png",
+      "sha256_before_and_after_move": "7800144b5b1aee93bb19b086eb61887eaff14509fb8eb8577d8e0a1b94b85425",
+      "current_sha256": "7800144b5b1aee93bb19b086eb61887eaff14509fb8eb8577d8e0a1b94b85425",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/phase2/images/horizons.png",
+      "new": "report/phase2/archive/coordinator-20261116/images/horizons.png",
+      "sha256_before_and_after_move": "89b4da8d5bfa052cce247542346828e2e24a7af0655e13193e7b5ed5e552c07e",
+      "current_sha256": "89b4da8d5bfa052cce247542346828e2e24a7af0655e13193e7b5ed5e552c07e",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/phase2/images/learning.png",
+      "new": "report/phase2/archive/coordinator-20261116/images/learning.png",
+      "sha256_before_and_after_move": "3649401c216f82a998ac331b52bdc7713b06c5a197d7c15cf175dc6c2ca63932",
+      "current_sha256": "3649401c216f82a998ac331b52bdc7713b06c5a197d7c15cf175dc6c2ca63932",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/phase2/images/sensor_gain.png",
+      "new": "report/phase2/archive/coordinator-20261116/images/sensor_gain.png",
+      "sha256_before_and_after_move": "aa1ac8faf5cdd6fd3592b2cf7c949f4f2af8fe8e81b272308669e95c9c39d0c9",
+      "current_sha256": "aa1ac8faf5cdd6fd3592b2cf7c949f4f2af8fe8e81b272308669e95c9c39d0c9",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/phase2/images/spatial_attention.png",
+      "new": "report/phase2/archive/coordinator-20261116/images/spatial_attention.png",
+      "sha256_before_and_after_move": "7b221180f01c8032c29615407844bfc2ea792079f66c87bb7ce5715eb6691b1b",
+      "current_sha256": "7b221180f01c8032c29615407844bfc2ea792079f66c87bb7ce5715eb6691b1b",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/phase2/main.tex",
+      "new": "report/phase2/archive/coordinator-20261116/main.tex",
+      "sha256_before_and_after_move": "88a4b79610c477c209f8661f1748a9a047254e0f3f598ab92fec61993ebca636",
+      "current_sha256": "88a4b79610c477c209f8661f1748a9a047254e0f3f598ab92fec61993ebca636",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/phase2_report/README.md",
+      "new": "report/phase2/source/README.md",
+      "sha256_before_and_after_move": "0378e0ae674acdfa183cfad7690a04de2cbd7c615bc8101273f95aa60e2b3fa8",
+      "current_sha256": "6971d96a2051341aacaf6b3922456ba012c1716b48605914485459db9d0e2ba7",
+      "modified_after_move": true
+    },
+    {
+      "old": "report/phase2_report/figures/ablation.pdf",
+      "new": "report/phase2/source/figures/ablation.pdf",
+      "sha256_before_and_after_move": "dee91e217ee560fcf46beffa9372408fd20b3c122087b6ddb0f9c3fb7a211764",
+      "current_sha256": "dee91e217ee560fcf46beffa9372408fd20b3c122087b6ddb0f9c3fb7a211764",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/phase2_report/figures/ablation.png",
+      "new": "report/phase2/source/figures/ablation.png",
+      "sha256_before_and_after_move": "4109d9bd2ca2caf2328d3d0a297d3022cfbbb52b5c53f2cb53f8974af00a1e65",
+      "current_sha256": "4109d9bd2ca2caf2328d3d0a297d3022cfbbb52b5c53f2cb53f8974af00a1e65",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/phase2_report/figures/control_bars.pdf",
+      "new": "report/phase2/source/figures/control_bars.pdf",
+      "sha256_before_and_after_move": "3d17e627cd62eeac5d92e448a10e76d109c13b80f8e2a37fb47b1b641d4c95e9",
+      "current_sha256": "3d17e627cd62eeac5d92e448a10e76d109c13b80f8e2a37fb47b1b641d4c95e9",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/phase2_report/figures/control_bars.png",
+      "new": "report/phase2/source/figures/control_bars.png",
+      "sha256_before_and_after_move": "f9e6058778e91dd2ecfcfc5a92c6a163bef3243636429a8a66a62c25b401e827",
+      "current_sha256": "f9e6058778e91dd2ecfcfc5a92c6a163bef3243636429a8a66a62c25b401e827",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/phase2_report/figures/control_density.pdf",
+      "new": "report/phase2/source/figures/control_density.pdf",
+      "sha256_before_and_after_move": "b31e4a4a58ff08a807856b27e29e7c586e989231102fcde511ab2f09d6a0809c",
+      "current_sha256": "b31e4a4a58ff08a807856b27e29e7c586e989231102fcde511ab2f09d6a0809c",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/phase2_report/figures/control_density.png",
+      "new": "report/phase2/source/figures/control_density.png",
+      "sha256_before_and_after_move": "8a775f8e1aba3cb42e6efcc38679c8052297df5f7ca3a60a2b054cbefec04d90",
+      "current_sha256": "8a775f8e1aba3cb42e6efcc38679c8052297df5f7ca3a60a2b054cbefec04d90",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/phase2_report/figures/horizons.pdf",
+      "new": "report/phase2/source/figures/horizons.pdf",
+      "sha256_before_and_after_move": "f46a123e103776f999e8086f79fa2ff177b3db4eb784bb1ebec2a1f597b8517a",
+      "current_sha256": "f46a123e103776f999e8086f79fa2ff177b3db4eb784bb1ebec2a1f597b8517a",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/phase2_report/figures/horizons.png",
+      "new": "report/phase2/source/figures/horizons.png",
+      "sha256_before_and_after_move": "4b79916a2a2396d2d917b5edd31ffce5d537d1e6669646aae8c158db37c00c15",
+      "current_sha256": "4b79916a2a2396d2d917b5edd31ffce5d537d1e6669646aae8c158db37c00c15",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/phase2_report/figures/hybrid.pdf",
+      "new": "report/phase2/source/figures/hybrid.pdf",
+      "sha256_before_and_after_move": "dcd0baa56ace3b4805b22f6d7717d2105ff10671b5cf25c3538efb9461f550e9",
+      "current_sha256": "dcd0baa56ace3b4805b22f6d7717d2105ff10671b5cf25c3538efb9461f550e9",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/phase2_report/figures/hybrid.png",
+      "new": "report/phase2/source/figures/hybrid.png",
+      "sha256_before_and_after_move": "4e0c4e11fb7efbb58724b77a7e720d00a79a12aaa61539d7aafdfcdf21c7ff04",
+      "current_sha256": "4e0c4e11fb7efbb58724b77a7e720d00a79a12aaa61539d7aafdfcdf21c7ff04",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/phase2_report/figures/learning.pdf",
+      "new": "report/phase2/source/figures/learning.pdf",
+      "sha256_before_and_after_move": "2f12cdbdd932241a09ccdf3680186048d7a9c293594b43eea60d3e7d73b52534",
+      "current_sha256": "2f12cdbdd932241a09ccdf3680186048d7a9c293594b43eea60d3e7d73b52534",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/phase2_report/figures/learning.png",
+      "new": "report/phase2/source/figures/learning.png",
+      "sha256_before_and_after_move": "4b036f466004003c1de7528492f452ccfafdf0369fa202bc15f5d102e7f355cf",
+      "current_sha256": "4b036f466004003c1de7528492f452ccfafdf0369fa202bc15f5d102e7f355cf",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/phase2_report/figures/sensor_map.pdf",
+      "new": "report/phase2/source/figures/sensor_map.pdf",
+      "sha256_before_and_after_move": "bdad57b4794031e9dba382b543e6017713ddd9bd06af84ba2f0741e42c096bd0",
+      "current_sha256": "bdad57b4794031e9dba382b543e6017713ddd9bd06af84ba2f0741e42c096bd0",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/phase2_report/figures/sensor_map.png",
+      "new": "report/phase2/source/figures/sensor_map.png",
+      "sha256_before_and_after_move": "24be7d4538c09f5638126ca5866c835176ad847cf0b12b9527199c723c21b7af",
+      "current_sha256": "24be7d4538c09f5638126ca5866c835176ad847cf0b12b9527199c723c21b7af",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/phase2_report/generated/numbers.json",
+      "new": "report/phase2/source/generated/numbers.json",
+      "sha256_before_and_after_move": "e7de25b3a265e4cb53462cb28fcc8b672bb2e7ea93dfcb1b670da3cef5ce2583",
+      "current_sha256": "e7de25b3a265e4cb53462cb28fcc8b672bb2e7ea93dfcb1b670da3cef5ce2583",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/phase2_report/generated/table_ablation.tex",
+      "new": "report/phase2/source/generated/table_ablation.tex",
+      "sha256_before_and_after_move": "ab22b870e7d4f8e91cc9e6d1af5f84e070ebe7a06661898b901dd351182ea790",
+      "current_sha256": "ab22b870e7d4f8e91cc9e6d1af5f84e070ebe7a06661898b901dd351182ea790",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/phase2_report/generated/table_control.tex",
+      "new": "report/phase2/source/generated/table_control.tex",
+      "sha256_before_and_after_move": "e32a3b48e21d9be2fc1aa2bac64e03060215c0d9a9a60fa7cd49da45194fcfc9",
+      "current_sha256": "e32a3b48e21d9be2fc1aa2bac64e03060215c0d9a9a60fa7cd49da45194fcfc9",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/phase2_report/generated/table_cost.tex",
+      "new": "report/phase2/source/generated/table_cost.tex",
+      "sha256_before_and_after_move": "e814c04e533d3b9cc1fc6089275c6343f555273f15a083e49b9d9dbc25f75721",
+      "current_sha256": "e814c04e533d3b9cc1fc6089275c6343f555273f15a083e49b9d9dbc25f75721",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/phase2_report/generated/table_hybrid.tex",
+      "new": "report/phase2/source/generated/table_hybrid.tex",
+      "sha256_before_and_after_move": "f6b150afb1c1a1fdbb421917ebf569a8f7c5e106ccb708572b667527fea2eafe",
+      "current_sha256": "f6b150afb1c1a1fdbb421917ebf569a8f7c5e106ccb708572b667527fea2eafe",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/phase2_report/generated/table_main.tex",
+      "new": "report/phase2/source/generated/table_main.tex",
+      "sha256_before_and_after_move": "62fe6d7861b9626910f6962f651e4d741b63e8d05d798bac0590a67ed84853ae",
+      "current_sha256": "62fe6d7861b9626910f6962f651e4d741b63e8d05d798bac0590a67ed84853ae",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/phase2_report/generated/table_slices.tex",
+      "new": "report/phase2/source/generated/table_slices.tex",
+      "sha256_before_and_after_move": "fd8ad4fe504398c5dd7e61e86a7653bcda2dca19d9b01c2bff15bedadd45cfac",
+      "current_sha256": "fd8ad4fe504398c5dd7e61e86a7653bcda2dca19d9b01c2bff15bedadd45cfac",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/phase2_report/generated/table_tuning.tex",
+      "new": "report/phase2/source/generated/table_tuning.tex",
+      "sha256_before_and_after_move": "cb444bfb50d45d177f88d581335d45cc7a8652c1b4e8940df42fddccf0abde08",
+      "current_sha256": "cb444bfb50d45d177f88d581335d45cc7a8652c1b4e8940df42fddccf0abde08",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/phase2_report/main.tex",
+      "new": "report/phase2/source/main.tex",
+      "sha256_before_and_after_move": "07188ca8f04a31b3afa01357e0a0cb22202140e1160dafb9b039ba43b086cd36",
+      "current_sha256": "07188ca8f04a31b3afa01357e0a0cb22202140e1160dafb9b039ba43b086cd36",
+      "modified_after_move": false
+    },
+    {
+      "old": "report/phase2_report/make_assets.py",
+      "new": "report/phase2/source/make_assets.py",
+      "sha256_before_and_after_move": "756c8ff638f60adff75e6d085b40aaedc7c9c221b3e150a1442332fe21638d4c",
+      "current_sha256": "fff6cf6c19148ce2024c48a8baff59c727e46f58daa53b59b0bd6d9bdcd92be0",
+      "modified_after_move": true
+    },
+    {
+      "old": "report/phase2_report/phase2_report.pdf",
+      "new": "report/phase2/Phase2_Report.pdf",
+      "sha256_before_and_after_move": "3b22cfd103f2e55adfc305a17d4c962574cfaa5b92bdcb677e93d653a36c2530",
+      "current_sha256": "3b22cfd103f2e55adfc305a17d4c962574cfaa5b92bdcb677e93d653a36c2530",
+      "modified_after_move": false
+    },
+    {
+      "old": "slides/final/Traffic_Speed_Forecasting_T072.pdf",
+      "new": "slides/phase1/Phase1_Presentation.pdf",
+      "sha256_before_and_after_move": "dc85c3843b1e9b3887fa353483dfe789f8193bdef850100cb68ca0f33aba1bc2",
+      "current_sha256": "dc85c3843b1e9b3887fa353483dfe789f8193bdef850100cb68ca0f33aba1bc2",
+      "modified_after_move": false
+    },
+    {
+      "old": "slides/final/Traffic_Speed_Forecasting_T072.pptx",
+      "new": "slides/phase1/Phase1_Presentation.pptx",
+      "sha256_before_and_after_move": "6b905a4ea420b4e8db4a81d618d59a66d445c8e0cf16333a4a51219b2f5f78f2",
+      "current_sha256": "6b905a4ea420b4e8db4a81d618d59a66d445c8e0cf16333a4a51219b2f5f78f2",
+      "modified_after_move": false
+    },
+    {
+      "old": "slides/output/phase1-study.pptx",
+      "new": "slides/phase1/archive/Phase1_Prepared_Study.pptx",
+      "sha256_before_and_after_move": "5d1fa9159e0d25eaf7c232db728cb17c329520265fc8e152d8924936657b24ad",
+      "current_sha256": "5d1fa9159e0d25eaf7c232db728cb17c329520265fc8e152d8924936657b24ad",
+      "modified_after_move": false
+    },
+    {
+      "old": "slides/phase2/T072_Phase2.pptx",
+      "new": "slides/phase2/archive/Phase2_Coordinator_6slides_20261116.pptx",
+      "sha256_before_and_after_move": "bd980a52f25e47155be8e9939dbe07645dca8a8abbaa6f5faf9c4aa4293b33db",
+      "current_sha256": "bd980a52f25e47155be8e9939dbe07645dca8a8abbaa6f5faf9c4aa4293b33db",
+      "modified_after_move": false
+    },
+    {
+      "old": "slides/phase2_presentation.pptx",
+      "new": "slides/phase2/archive/Phase2_Rudraksh_original_14slides_20261118.pptx",
+      "sha256_before_and_after_move": "c5138bc0abd10f49dd80f33f6160b005a72252578fa909c8a11ecdc222a7ae0e",
+      "current_sha256": "c5138bc0abd10f49dd80f33f6160b005a72252578fa909c8a11ecdc222a7ae0e",
+      "modified_after_move": false
+    }
+  ],
+  "historical_evidence_paths": "Preserved as recorded; resolve old artifact/source paths through this map. Historical hashes apply to moved original bytes, not new repaired deck.",
+  "repaired_pptx": "slides/phase2/Phase2_Presentation.pptx",
+  "runtime_model_data_or_scores_changed": false,
+  "publication_performed": false
+}

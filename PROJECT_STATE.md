@@ -1,5 +1,9 @@
 # Project state
 
+## Artifact organization and preview — 2026-11-18
+
+PR #14 from Rudraksh is merged at eaa4eee. Latest nine-page report and fourteen-slide deck are grouped under report/phase2/ and slides/phase2/; Phase 1 artifacts live under their corresponding phase1/ directories. Old alternatives/original uploads are archived with exact relocation hashes. Three charts received valid-positive-axis-ID and negligible numeric-cache serialization repairs; slide/notes/workbook content is preserved. An exact repaired-deck PDF preview and local slide viewer are available. No training/score/hybrid project changes or publication. See docs/DELIVERABLES_REVIEW_20261118.md and report/README.md / slides/README.md. The owner approved committing and pushing this reviewed organization on kavya. It is prepared as a scoped branch commit; main changes only through owner-reviewed PR/merge. Older verification/publication-status records below retain their historical meaning.
+
 ## Combined team integration — 2026-11-17
 
 Fetched canonical origin/main at 4dc98e2 after owner-merged PRs #9–#12, preserved all 142 pre-sync local delta files outside the repo, and fast-forwarded kavya. Kept completed member logs and the neural test import/fixture correction. All other incoming source/artifact bytes match the prepared reference. Kavya's package supplies evaluation/inference, CI/environment protections, frozen small evidence and shared documentation, with genuine coordinator review recorded separately.

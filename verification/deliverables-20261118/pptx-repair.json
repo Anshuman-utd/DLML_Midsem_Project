@@ -1,0 +1,44 @@
+{
+  "input": "/Users/kavyakatal/Desktop/DLML_Midsem_Project/slides/phase2_presentation.pptx",
+  "axis_repairs": [
+    {
+      "part": "ppt/charts/chart1.xml",
+      "mapping": {
+        "-2128940872": "100001",
+        "-2129643912": "100002"
+      }
+    },
+    {
+      "part": "ppt/charts/chart4.xml",
+      "mapping": {
+        "-2068027336": "100001",
+        "-2113994440": "100002"
+      }
+    },
+    {
+      "part": "ppt/charts/chart5.xml",
+      "mapping": {
+        "-2068027336": "100001",
+        "-2113994440": "100002"
+      }
+    }
+  ],
+  "precision_only_cache_repairs": [
+    {
+      "part": "ppt/charts/chart1.xml",
+      "precision_only_cache_values_refreshed": 52,
+      "embeddedWorkbookUnchanged": true
+    },
+    {
+      "part": "ppt/charts/chart2.xml",
+      "precision_only_cache_values_refreshed": 18,
+      "embeddedWorkbookUnchanged": true
+    },
+    {
+      "part": "ppt/charts/chart3.xml",
+      "precision_only_cache_values_refreshed": 10,
+      "embeddedWorkbookUnchanged": true
+    }
+  ],
+  "non_chart_parts_unchanged": true
+}

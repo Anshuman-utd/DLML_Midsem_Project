@@ -97,3 +97,9 @@ htmlcov/
 /report/phase2/*.log
 /report/phase2/*.out
 /report/phase2/*.synctex.gz
+
+# Report compiler intermediates after phase-based organization
+/report/**/*.aux
+/report/**/*.log
+/report/**/*.out
+/report/**/*.synctex.gz

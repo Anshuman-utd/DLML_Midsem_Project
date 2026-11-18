@@ -1,3 +1,5 @@
+> Current deck (November 18): [14-slide PowerPoint](../slides/phase2/Phase2_Presentation.pptx), [PDF preview](../slides/phase2/Phase2_Presentation.pdf). It contains per-slide speaker notes. The six-slide speaking plan below is preserved for the archived coordinator deck, not the current deck.
+
 # Final six-slide presentation and viva guide — November16
 
 This is a proposed speaking allocation, not fabricated independent authorship. Prepared implementation and artifacts use substantial owner/AI assistance. Each member must actually demonstrate understanding and record their own review.
