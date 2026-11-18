@@ -55,7 +55,7 @@ We read the sources below for ideas and methods. We did not reproduce their expe
 
 \textbf{Signal control.} Lioris and Varaiya study max-pressure control, in which each junction serves the approach with the largest difference between waiting vehicles upstream and downstream, using only local measurements \cite{lioris}. Our responsive signal agent borrows this idea in a simplified form and claims none of its theoretical guarantees.
 
-\textbf{Training tools and baselines.} We train with the Adam optimiser \cite{adam}, use dropout against over-fitting \cite{dropout} and clip gradients, a standard remedy for unstable recurrent training \cite{pascanu}. The Phase 1 baselines are Random Forest \cite{rf} and XGBoost \cite{xgb}.
+\textbf{The machine-learning baseline.} Chen and Guestrin's XGBoost builds an ensemble of decision trees, each correcting the errors of the previous ones \cite{xgb}. It was our best Phase 1 model. In Phase 2 it is the model the networks are compared with, and the ML half of our hybrid.
 
 \begin{table*}[t]\centering\small
 \caption{Sources and how this project uses them.}\label{tab:lit}
@@ -67,8 +67,7 @@ DCRNN \cite{dcrnn} & Recurrent forecasting on a directed road graph & Source of 
 LWR \cite{lw,richards} & Vehicles are conserved; flow depends on density & Theory behind the simulation\\
 CTM \cite{ctm,ctmoverview} & LWR computed on road cells with send and receive limits & The simulation update rule\\
 Max pressure \cite{lioris} & Serve the approach with the highest local pressure & Idea behind the responsive signal agent\\
-Adam, dropout, clipping \cite{adam,dropout,pascanu} & Stable optimisation and regularisation & Training of both networks\\
-Random Forest, XGBoost \cite{rf,xgb} & Ensembles of decision trees & Phase 1 baselines we compare against\\
+XGBoost \cite{xgb} & Boosted ensemble of decision trees & Best Phase 1 model; ML half of the hybrid\\
 \bottomrule\end{tabular}
 \end{table*}
 
@@ -123,7 +122,7 @@ z_t&=\sigma(W_z x_t+U_z h_{t-1}+b_z),\\
 n_t&=\tanh\bigl(W_n x_t+b_n+r_t\odot(U_n h_{t-1}+c_n)\bigr),\\
 h_t&=(1-z_t)\odot n_t+z_t\odot h_{t-1}.
 \end{align}
-Here $\sigma$ is the sigmoid function, which gives values between 0 and 1, and $\odot$ multiplies element by element \cite{cho,torchgru}. In words: $n_t$ is a proposed new memory. The reset gate $r_t$ decides how much of the old memory is used to form that proposal. The update gate $z_t$ decides how much of the old memory is kept and how much is replaced. After 12 steps the memory $h_i$ is a summary of sensor $i$. One GRU, with one set of weights, is used for all 207 sensors.
+Here $\sigma$ is the sigmoid function, which gives values between 0 and 1, and $\odot$ multiplies element by element \cite{cho}. In words: $n_t$ is a proposed new memory. The reset gate $r_t$ decides how much of the old memory is used to form that proposal. The update gate $z_t$ decides how much of the old memory is kept and how much is replaced. After 12 steps the memory $h_i$ is a summary of sensor $i$. One GRU, with one set of weights, is used for all 207 sensors.
 
 \subsection{Graph attention: listening to neighbours}
 The graph model passes the 207 summaries through one attention layer \cite{gat}. For sensor $i$ and a neighbour $j$,
@@ -155,7 +154,7 @@ Input / output length & 12 / 12 steps (5\,min each)\\
 GRU memory size & 32, one layer\\
 Attention & 2 heads $\times$ 16 numbers\\
 Loss & masked mean absolute error\\
-Optimiser & Adam \cite{adam}, weight decay $10^{-4}$\\
+Optimiser & Adam, weight decay $10^{-4}$\\
 Learning rates tried & $10^{-3}$ (chosen), $3\times10^{-4}$\\
 Batch size & 32 forecast points\\
 Dropout & 0.1\\
@@ -167,9 +166,9 @@ Random seeds & 42, 43, 44\\
 
 Regularisation means methods that stop a model from memorising its training data. We use four.
 \begin{itemize}
-\item \emph{Dropout} \cite{dropout}: during training, 10\% of the values in the sensor summaries and attention weights are randomly set to zero.
+\item \emph{Dropout}: during training, 10\% of the values in the sensor summaries and attention weights are randomly set to zero.
 \item \emph{Weight decay}: a small penalty on large weights.
-\item \emph{Gradient clipping} \cite{pascanu}: very large update steps are scaled down, which keeps recurrent training stable.
+\item \emph{Gradient clipping}: very large update steps are scaled down, which keeps recurrent training stable.
 \item \emph{Early stopping}: training ends when the error on the tuning data has not improved for seven epochs, and the best version is kept.
 \end{itemize}
 Sharing one GRU across all sensors also limits over-fitting, because the same weights must work for every road.
@@ -187,9 +186,11 @@ We tried two learning rates for each model and kept the one with the lower error
 \end{itemize}
 The temporal GRU also has no neighbours, but it is a smaller model. The self-loop model has the same size as GRU+GAT, so it is the fair test of what neighbours add. The two main models and the self-loop model are trained with three seeds; the other two ablations with one.
 
-\textbf{Hybrid.} We also test a blend of the best Phase 1 model with the graph model:
+\textbf{Hybrid approach.} Phase 2 allows a hybrid that combines an ML model with a DL model. Ours combines the best Phase 1 model with the graph network by a weighted average:
 \[\hat y=\lambda\,\hat y_{\mathrm{XGB}}+(1-\lambda)\,\hat y_{\mathrm{GAT}},\qquad \lambda\in\{0,\,0.25,\,0.5,\,0.75,\,1\}.\]
-The idea is that two different kinds of model make different mistakes, so an average could beat both. The weight $\lambda$ is chosen on data kept aside for this purpose and is fixed before the test data are scored. The two pure models ($\lambda=0$ and $\lambda=1$) are among the candidates, so the procedure can also tell us that blending does not help.
+\emph{Why it could help.} The two models learn in different ways. XGBoost has a separate model for every sensor and sees only that sensor. The network shares its weights across sensors and sees the neighbours. Models that differ like this often make different mistakes, and averaging can cancel some of them.
+
+\emph{How we keep it fair.} The weight $\lambda$ is chosen on 1,702 forecast points that were kept aside and used for nothing else. It is fixed before the test data are scored. The two pure models ($\lambda=0$ and $\lambda=1$) are among the candidates, so the procedure can also tell us that blending does not help.
 
 \textbf{Scores.} With error $e_j$ on each of the $n$ scored answers,
 \[\mathrm{MAE}=\frac1n\sum_j|e_j|,\qquad \mathrm{RMSE}=\sqrt{\frac1n\sum_j e_j^2}.\]
@@ -255,7 +256,11 @@ XGBoost share $\lambda$ & GAT share & MAE & Chosen\\\midrule
 \gen{table_hybrid.tex}
 \bottomrule\end{tabular}
 \end{table}
-The error falls with every step towards XGBoost, and the best weight is $\lambda=1$ (Table~\ref{tab:hybrid}). The chosen ``blend'' is therefore XGBoost alone. We built and tested the hybrid as planned, and it showed no benefit, because the graph model is too far behind for its different mistakes to help. We do not claim a hybrid improvement.
+The error falls with every step towards XGBoost, and the best weight is $\lambda=1$ (Table~\ref{tab:hybrid}). The chosen ``blend'' is therefore XGBoost alone, and its test error is the XGBoost row of Table~\ref{tab:main}.
+
+The hybrid was built and tested as planned, but it showed no benefit. A blend helps when its parts are about equally good. Here the graph network is about 1\,mph worse than XGBoost, so mixing it in only raises the error. We do not claim a hybrid improvement.
+
+A stronger hybrid, which we did not build, would let the two models work together instead of averaging them: for example, the network could be trained to predict the errors that XGBoost makes, or could take XGBoost's forecast as an extra input.
 
 \section{Synthetic LWR Study with Two Signal Agents}
 This section is a separate experiment. METR-LA has speed only, with no vehicle counts, densities or signal timings, so a traffic-flow model cannot be fitted to it. The simulation below uses assumed road parameters and invented demand. Its results say nothing about Los Angeles.
@@ -384,11 +389,6 @@ Rudraksh Sharma & LWR simulation and the two signal agents\\
 \bibitem{ctm} C. F. Daganzo, ``The cell transmission model: A dynamic representation of highway traffic consistent with the hydrodynamic theory,'' \emph{Transp. Res. Part B}, vol. 28, no. 4, pp. 269--287, 1994, doi: 10.1016/0191-2615(94)90002-7.
 \bibitem{ctmoverview} A. D. Patire \emph{et al.}, ``Technical overview of the cell transmission model (CTM),'' Connected Corridors I-210 Pilot, California PATH, Univ. California, Berkeley, Jul. 2015. [Online]. Available: \url{https://connected-corridors.berkeley.edu/sites/default/files/ctm_technical_overview.pdf}
 \bibitem{lioris} J. Lioris and P. Varaiya, ``Variants of max pressure control for a network of signalized intersections,'' working paper, Univ. California, Berkeley, 2013. [Online]. Available: \url{https://connected-corridors.berkeley.edu/sites/default/files/Variants%20of%20Max%20Pressure%20Control%20for%20Signalized%20Intersections.pdf}
-\bibitem{adam} D. P. Kingma and J. Ba, ``Adam: A method for stochastic optimization,'' in \emph{Proc. Int. Conf. Learn. Represent. (ICLR)}, 2015. [Online]. Available: \url{https://arxiv.org/abs/1412.6980}
-\bibitem{dropout} N. Srivastava, G. Hinton, A. Krizhevsky, I. Sutskever, and R. Salakhutdinov, ``Dropout: A simple way to prevent neural networks from overfitting,'' \emph{J. Mach. Learn. Res.}, vol. 15, no. 56, pp. 1929--1958, 2014.
-\bibitem{pascanu} R. Pascanu, T. Mikolov, and Y. Bengio, ``On the difficulty of training recurrent neural networks,'' in \emph{Proc. 30th Int. Conf. Mach. Learn. (ICML)}, 2013, pp. 1310--1318.
-\bibitem{rf} L. Breiman, ``Random forests,'' \emph{Mach. Learn.}, vol. 45, no. 1, pp. 5--32, 2001, doi: 10.1023/A:1010933404324.
 \bibitem{xgb} T. Chen and C. Guestrin, ``XGBoost: A scalable tree boosting system,'' in \emph{Proc. 22nd ACM SIGKDD Int. Conf. Knowl. Discovery Data Mining}, 2016, pp. 785--794, doi: 10.1145/2939672.2939785.
-\bibitem{torchgru} PyTorch Contributors, ``torch.nn.GRU,'' PyTorch 2.7 documentation. [Online]. Available: \url{https://docs.pytorch.org/docs/2.7/generated/torch.nn.GRU.html}
 \end{thebibliography}
 \end{document}
