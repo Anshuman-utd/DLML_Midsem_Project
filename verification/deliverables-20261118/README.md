@@ -1,0 +1,7 @@
+# Deliverable review and organization — 2026-11-18
+
+Current files: report/phase1/ and report/phase2/ for reports, slides/phase1/ and slides/phase2/ for presentations. Current Phase 2 is the nine-page Rudraksh report and repaired fourteen-slide deck plus a browser-friendly PDF preview. Older coordinator versions/original uploads are archived under their respective phases. All pre-layout bytes are also backed up privately outside Git. See docs/DELIVERABLES_LAYOUT.json for exact path/hash provenance, and docs/DELIVERABLES_REVIEW_20261118.md for review scope and historical Phase 1 cautions.
+
+The repaired deck passes package/layout, five native-chart workbook checks and first-party import; all exact-final slide render pixels equal the original import. Valid positive chart references and cache/worksheet precision consistency replace invalid XML references and negligible decimal serialization differences only. Native PowerPoint opening is not claimed. All slides, notes, embedded workbook/formula bytes and substantive values are preserved. The preview PDF is a raster slide export.
+
+Fresh 76 tests pass with real data/no skips (3.72s); lint/format pass for52 Python files; new report source compiles after relocation; current navigation resolves. Scientific training source/data/config hashes and scores remain unchanged. The two earlier report builders now target the archived coordinator tree and the current assets builder resolves its new source location. Hybrid research remains separate/private. No commits/pushes.

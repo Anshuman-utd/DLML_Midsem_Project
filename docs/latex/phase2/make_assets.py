@@ -14,7 +14,7 @@ Two figures need local, git-ignored inputs and are skipped when those are absent
 
 Usage (from the repository root):
 
-    python report/phase2_report/make_assets.py [--control-run DIR]
+    python docs/latex/phase2/make_assets.py [--control-run DIR]
 """
 
 from __future__ import annotations
@@ -31,7 +31,7 @@ import numpy as np
 import pandas as pd
 from matplotlib.colors import LinearSegmentedColormap, TwoSlopeNorm
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[3]
 HERE = Path(__file__).resolve().parent
 FORECAST = ROOT / "verification/phase2-20261112"
 CONTROL = ROOT / "verification/phase2-final-20261116/control"

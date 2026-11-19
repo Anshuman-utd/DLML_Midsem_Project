@@ -1,0 +1,46 @@
+{
+  "date": "2026-11-18",
+  "base_commit": "eaa4eee250994729f6c5f2c58a9104522d80a14c",
+  "branch": "kavya",
+  "purpose": "Owner-requested review, phase organization and PPT compatibility/preview",
+  "moves": 55,
+  "all_originals_preserved": true,
+  "phase2_report_pages": 9,
+  "phase2_slides": 14,
+  "phase2_preview_pages": 14,
+  "slide_text_notes_layout_workbooks_preserved": true,
+  "native_chart_count": 5,
+  "negative_chart_axis_ids_fixed_in_three_parts": true,
+  "numeric_cache_roundoff_refresh_below": 1e-12,
+  "exact_repaired_slide_pixels_match_original_import": true,
+  "latex_compiler": "success after source relocation",
+  "pytest": {
+    "passed": 76,
+    "skipped": 0,
+    "seconds": 3.72
+  },
+  "ruff_lint_format": {
+    "passed": true,
+    "files": 52
+  },
+  "navigation_links": "pass",
+  "training_source_data_and_config_hashes": "unchanged",
+  "scientific_results": "unchanged",
+  "hybrid_followups_integrated": false,
+  "native_powerpoint_open_test": false,
+  "staged_committed_pushed": false,
+  "outputs": {
+    "report/phase2/Phase2_Report.pdf": {
+      "bytes": 289985,
+      "sha256": "3b22cfd103f2e55adfc305a17d4c962574cfaa5b92bdcb677e93d653a36c2530"
+    },
+    "slides/phase2/Phase2_Presentation.pptx": {
+      "bytes": 279528,
+      "sha256": "0cb57e55b3438750fb4224a98b992be42d5baace222734b5d15ee82ee89cbb5b"
+    },
+    "slides/phase2/Phase2_Presentation.pdf": {
+      "bytes": 2455665,
+      "sha256": "1ab6074f2f61d901ca871cb68eec47c9a278d0a77565369f3d09a124623d9653"
+    }
+  }
+}

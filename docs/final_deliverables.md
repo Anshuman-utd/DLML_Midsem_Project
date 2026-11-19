@@ -1,12 +1,14 @@
+> File organization update, 2026-11-18: the Phase 1 artifacts below now live under report/phase1/ and slides/phase1/. Recorded old path strings are historical; the exact relocation map is [DELIVERABLES_LAYOUT.json](DELIVERABLES_LAYOUT.json). Current Phase 2 files are listed in [the report index](../report/README.md) and [presentation index](../slides/README.md).
+
 # Owner-supplied Phase 1 report and presentation
 
 Registered: 2026-10-28, Asia/Kolkata. The owner identified these three files as the final report/presentation and authorized adding and pushing them. “Final” records the owner's selected deliverables; it does not certify faculty acceptance or resolve the numerical discrepancies below.
 
 ## Files
 
-- [Report PDF](../report/final/Traffic_Speed_Forecasting_T072.pdf) — 17 A4 pages.
-- [PowerPoint presentation](../slides/final/Traffic_Speed_Forecasting_T072.pptx) — 8 slides.
-- [Presentation PDF](../slides/final/Traffic_Speed_Forecasting_T072.pdf) — 8 landscape pages, supplied compressed export.
+- [Report PDF](../report/phase1/Phase1_Report.pdf) — 17 A4 pages.
+- [PowerPoint presentation](../slides/phase1/Phase1_Presentation.pptx) — 8 slides.
+- [Presentation PDF](../slides/phase1/Phase1_Presentation.pdf) — 8 landscape pages, supplied compressed export.
 
 All three files are byte-identical copies of the supplied Downloads originals. Only their repository filenames were normalized. The 17-page PDF is the report; the compressed 8-page PDF is the presentation export, not a second report.
 
