@@ -57,7 +57,7 @@ def main():
     if not (metrics.groupby(["scenario", "seed"]).arrival_sha256.nunique() == 1).all():
         raise ValueError("paired policies used different arrivals")
     evidence = ROOT / "verification/phase2-final-20261116/control"
-    images = ROOT / "report/phase2/images"
+    images = ROOT / "results/report_drafts/phase2/images"
     evidence.mkdir(parents=True, exist_ok=True)
     grouped = metrics.groupby(["scenario", "policy"])
     rows = []
@@ -181,7 +181,9 @@ def main():
             "are assumed model quantities, not METR-LA measurements.}\\end{figure*}"
         ),
     ]
-    (ROOT / "report/phase2/generated/control_results.tex").write_text("\n".join(lines) + "\n")
+    (ROOT / "results/report_drafts/phase2/generated/control_results.tex").write_text(
+        "\n".join(lines) + "\n"
+    )
     for name in [
         "manifest.json",
         "metrics.csv",

@@ -18,6 +18,8 @@
   "docs/PHASE2_REQUIREMENTS_FINAL_AUDIT.md": "05-kavya-integration",
   "docs/PHASE2_RESULTS.md": "05-kavya-integration",
   "docs/PHASE2_RUNBOOK.md": "05-kavya-integration",
+  "docs/PHASE2_VIVA_GUIDE.md": "rudraksh-phase2-final-docs",
+  "docs/PR15_REVIEW.md": "05-kavya-integration",
   "docs/README.md": "05-kavya-integration",
   "docs/handoffs/phase2/01-rudraksh-control/REVIEW_LOG.md": "01-rudraksh-control",
   "docs/handoffs/phase2/02-vridhi-preprocessing/REVIEW_LOG.md": "02-vridhi-preprocessing",
@@ -144,5 +146,11 @@
   "verification/phase2-integration-20261117/README.md": "05-kavya-integration",
   "verification/phase2-integration-20261117/checks.json": "05-kavya-integration",
   "verification/phase2-integration-20261117/package_check.json": "05-kavya-integration",
-  "verification/phase2-integration-20261117/source_snapshot.json": "05-kavya-integration"
+  "verification/phase2-integration-20261117/source_snapshot.json": "05-kavya-integration",
+  "verification/pr15-review-20261119/README.md": "05-kavya-integration",
+  "verification/pr15-review-20261119/checks.json": "05-kavya-integration",
+  "verification/pr15-review-20261119/deck-wording-corrections.json": "05-kavya-integration",
+  "verification/pr15-review-20261119/pptx-repair.json": "05-kavya-integration",
+  "verification/pr15-review-20261119/pptx-validation.json": "05-kavya-integration",
+  "verification/pr15-review-20261119/source_snapshot.json": "05-kavya-integration"
 }

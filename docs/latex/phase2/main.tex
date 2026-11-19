@@ -21,7 +21,7 @@ Project 4, Phase 2 (Deep Learning) report, November 2026}}
 \maketitle
 
 \begin{abstract}
-In Phase 1 we predicted traffic speed on the METR-LA road sensors with one tree model per sensor. In Phase 2 we ask one deep-learning question: does a neural network forecast better when it can also look at neighbouring sensors on the road network? We train two small networks under the same rules. The first is a gated recurrent unit (GRU) that reads each sensor's own recent speeds. The second adds a graph-attention (GAT) layer that lets each sensor collect information from its neighbours. At 60 minutes ahead the GRU+GAT model has a mean absolute error (MAE) of 4.881\,mph. The same model with neighbours switched off has 4.931\,mph. Neighbours therefore help, but only by about 1\%. Both networks stay behind the Phase 1 XGBoost model (3.874\,mph), and a blend of XGBoost and GRU+GAT gives no gain. In a separate experiment we simulate a small road with the Lighthill--Whitham--Richards (LWR) traffic model and compare two rule-based signal agents with a fixed timetable. That simulation uses made-up traffic and is not connected to the forecasts. All forecasting scores are exploratory, because the test period was already inspected in Phase 1.
+In Phase 1 we predicted traffic speed on the METR-LA road sensors with sensor-specific tree estimators. In Phase 2 we ask one deep-learning question: does a neural network forecast better when it can also look at neighbouring sensors on the road network? We train two small networks under the same rules. The first is a gated recurrent unit (GRU) that reads each sensor's own recent speeds. The second adds a graph-attention (GAT) layer that lets each sensor collect information from its neighbours. At 60 minutes ahead the GRU+GAT model has a mean absolute error (MAE) of 4.881\,mph. The same model with neighbours switched off has 4.931\,mph. Neighbours therefore help, but only by about 1\%. Both networks stay behind the Phase 1 XGBoost model (3.874\,mph), and a blend of XGBoost and GRU+GAT gives no gain. In a separate experiment we simulate a small road with the Lighthill--Whitham--Richards (LWR) traffic model and compare two rule-based signal agents with a fixed timetable. That simulation uses made-up traffic and is not connected to the forecasts. All forecasting scores are exploratory, because the test period was already inspected in Phase 1.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -31,7 +31,7 @@ traffic forecasting, METR-LA, gated recurrent unit, graph attention network, abl
 \section{Introduction}
 Traffic speed at one place depends on two things: what happened there in the last few minutes, and what is happening on the roads connected to it. A queue grows backwards along a road, and released traffic moves forwards. A model that looks at one sensor alone cannot see the second effect.
 
-Our Phase 1 models were of that kind. Random Forest and XGBoost each used 38 features built from a sensor's own last 55 minutes. Phase 2 tests whether a deep model that can also see neighbouring sensors does better. We designed the experiment so that any improvement can be traced to the neighbours and not to some other change.
+Our Phase 1 models were of that kind. Random Forest and XGBoost each used 38 features built from a sensor's own last 55 minutes. Phase 2 tests whether a deep model that can also see neighbouring sensors does better. Matched controls test neighbour access under comparable settings; they do not prove a physical traffic mechanism.
 
 The project title also mentions LWR traffic-flow models and multi-agent control. The dataset contains only speed, so these topics cannot be studied on the real data. We cover them with a small simulation, kept separate from the forecasting.
 
@@ -43,7 +43,7 @@ The work has three parts:
 \end{itemize}
 
 \section{Literature Review}
-We read the sources below for ideas and methods. We did not reproduce their experiments, and we do not compare our scores with theirs, because their data splits and training procedures differ from ours. Table~\ref{tab:lit} summarises how each source is used.
+The sources below provide ideas and methods for the design. We did not reproduce their experiments, and we do not compare our scores with theirs, because their data splits and training procedures differ from ours. Table~\ref{tab:lit} summarises how each source is used.
 
 \textbf{Learning from a sequence.} Cho \emph{et al.} introduced the gated recurrent unit \cite{cho}. It reads a sequence one step at a time and uses two gates to decide what to remember and what to overwrite. We use a GRU to summarise each sensor's recent speeds.
 
@@ -72,7 +72,7 @@ XGBoost \cite{xgb} & Boosted ensemble of decision trees & Best Phase 1 model; ML
 \end{table*}
 
 \section{Dataset and Preparation}
-\textbf{Dataset.} METR-LA has speed readings from 207 loop sensors on Los Angeles highways, taken every five minutes from 1 March to 27 June 2012 \cite{dcrnn}. That gives 34,272 time steps. Speeds are in miles per hour. A missing reading is stored as zero; 8.11\% of all readings are missing. The road graph that comes with the dataset has 1,515 directed links between sensors.
+\textbf{Dataset.} METR-LA has speed readings from 207 loop sensors on Los Angeles highways, taken every five minutes from 1 March to 27 June 2012 \cite{dcrnn}. That gives 34,272 time steps. Speeds are in miles per hour. Zeros and NaNs are treated as missing under the benchmark policy; 8.11\% of readings are missing. The road graph that comes with the dataset has 1,515 directed links between sensors.
 
 \textbf{Task.} The model sees the last 12 readings of every sensor (55 minutes) and predicts the next 12 (5 to 60 minutes ahead). We report results at 15, 30 and 60 minutes.
 
@@ -106,9 +106,9 @@ XGBoost \cite{xgb} & Boosted ensemble of decision trees & Best Phase 1 model; ML
 \draw[->, gat] (gat.east) -| node[pos=0.75, right, text=gat]{neighbour summary} (head.north);
 \draw[->] (head) -- (sum);
 \draw[->] (sum) -- (out);
-\draw[->, ink, dashed] (in.south) -- ++(0,-5mm) -| node[pos=0.25, below, text=ink]{last observed speed} (sum.south);
+\draw[->, ink, dashed] (in.south) -- ++(0,-5mm) -| node[pos=0.25, below, text=ink]{latest filled speed} (sum.south);
 \end{tikzpicture}
-\caption{The two models. The temporal GRU uses the black path only. GRU+GAT adds the blue branch. The network predicts a correction that is added to the last observed speed.}
+\caption{The two models. The temporal GRU uses the black path only. GRU+GAT adds the blue branch. The network predicts a correction that is added to the latest filled speed.}
 \label{fig:arch}
 \end{figure*}
 
@@ -122,7 +122,7 @@ z_t&=\sigma(W_z x_t+U_z h_{t-1}+b_z),\\
 n_t&=\tanh\bigl(W_n x_t+b_n+r_t\odot(U_n h_{t-1}+c_n)\bigr),\\
 h_t&=(1-z_t)\odot n_t+z_t\odot h_{t-1}.
 \end{align}
-Here $\sigma$ is the sigmoid function, which gives values between 0 and 1, and $\odot$ multiplies element by element \cite{cho}. In words: $n_t$ is a proposed new memory. The reset gate $r_t$ decides how much of the old memory is used to form that proposal. The update gate $z_t$ decides how much of the old memory is kept and how much is replaced. After 12 steps the memory $h_i$ is a summary of sensor $i$. One GRU, with one set of weights, is used for all 207 sensors.
+Here $\sigma$ is sigmoid and $\odot$ multiplies element by element; the equations follow the installed PyTorch GRU convention. In words: $n_t$ is a proposed new memory. The reset gate $r_t$ decides how much of the old memory is used to form that proposal. The update gate $z_t$ decides how much of the old memory is kept and how much is replaced. After 12 steps the memory $h_i$ is a summary of sensor $i$. One GRU, with one set of weights, is used for all 207 sensors.
 
 \subsection{Graph attention: listening to neighbours}
 The graph model passes the 207 summaries through one attention layer \cite{gat}. For sensor $i$ and a neighbour $j$,
@@ -131,14 +131,14 @@ e_{ij}&=\operatorname{LeakyReLU}\bigl(a_r^{\top}Wh_i+a_s^{\top}Wh_j\bigr),\\
 \alpha_{ij}&=\frac{\exp(e_{ij})}{\sum_{k\in\mathcal N_i}\exp(e_{ik})},\\
 g_i&=\operatorname{ELU}\Bigl(\sum_{j\in\mathcal N_i}\alpha_{ij}\,Wh_j\Bigr).
 \end{align}
-The score $e_{ij}$ says how useful neighbour $j$ looks to sensor $i$. The second line turns the scores into weights $\alpha_{ij}$ that are positive and add up to one. The third line is a weighted average of the neighbours' summaries. The set $\mathcal N_i$ contains sensor $i$ itself and the sensors with a road-graph link into $i$. The graph only decides who counts as a neighbour; the weights are learned. We use two such attention heads of 16 numbers each and join their outputs.
+The score $e_{ij}$ is a learned compatibility score for sender $j$ and receiver $i$. The second line turns the scores into weights $\alpha_{ij}$ that sum to one before dropout and at evaluation. The third line is a weighted average of the neighbours' summaries. The set $\mathcal N_i$ contains sensor $i$ itself and the sensors with a road-graph link into $i$. The graph only decides who counts as a neighbour; the weights are learned. We use two such attention heads of 16 numbers each and join their outputs.
 
 \subsection{Output: a correction to the last speed}
-The output layer takes the sensor's own summary, the neighbour summary (graph model only) and the calendar values, and produces 12 numbers. These are added to the sensor's last observed speed:
+The output layer takes the sensor's own summary, the neighbour summary (graph model only) and the calendar values, and produces 12 numbers. These are added to the sensor's latest causally filled speed:
 \begin{equation}
 \hat y_{i}=\text{last speed}_i+W_o\,[h_i;g_i;c_t]+b_o .
 \end{equation}
-The output weights start at zero. An untrained model therefore predicts ``the speed stays as it is'', which is the persistence forecast, and training only has to learn how to improve on that.
+The output weights start at zero, so the initial forecast repeats the latest filled speed. An entirely missing history uses a training median; the Phase 1 persistence reference instead falls back to historical average.
 
 \subsection{Why the model is small}
 The temporal GRU has 3,912 parameters and GRU+GAT has 5,384. A small model trains in roughly 15 to 25 minutes on a laptop CPU. This let us repeat training with three random seeds and run several ablations, and it keeps the comparison between variants clean. The price is accuracy, as Section VII shows.
@@ -164,11 +164,11 @@ Random seeds & 42, 43, 44\\
 \bottomrule\end{tabular}
 \end{table}
 
-Regularisation means methods that stop a model from memorising its training data. We use four.
+Regularisation limits over-fitting; the following controls also support stable training.
 \begin{itemize}
 \item \emph{Dropout}: during training, 10\% of the values in the sensor summaries and attention weights are randomly set to zero.
 \item \emph{Weight decay}: a small penalty on large weights.
-\item \emph{Gradient clipping}: very large update steps are scaled down, which keeps recurrent training stable.
+\item \emph{Gradient clipping}: the gradient norm is limited before the optimiser update, supporting stable training.
 \item \emph{Early stopping}: training ends when the error on the tuning data has not improved for seven epochs, and the best version is kept.
 \end{itemize}
 Sharing one GRU across all sensors also limits over-fitting, because the same weights must work for every road.
@@ -180,7 +180,7 @@ We tried two learning rates for each model and kept the one with the lower error
 
 \textbf{Ablations.} An ablation removes one part of a model to see how much that part matters. We run three, each changing one thing in GRU+GAT:
 \begin{itemize}
-\item \emph{Self-loop only}: every sensor may look only at itself. The attention layer and its parameters stay. Only the neighbours are removed.
+\item \emph{Self-loop only}: every sensor may look only at itself. The layer and stored parameters stay; self-only attention makes some score parameters inactive. Only neighbour access is removed.
 \item \emph{Uniform neighbours}: neighbours are averaged with equal weights, so the learned weighting is removed.
 \item \emph{No dropout}: dropout is switched off.
 \end{itemize}
@@ -190,7 +190,7 @@ The temporal GRU also has no neighbours, but it is a smaller model. The self-loo
 \[\hat y=\lambda\,\hat y_{\mathrm{XGB}}+(1-\lambda)\,\hat y_{\mathrm{GAT}},\qquad \lambda\in\{0,\,0.25,\,0.5,\,0.75,\,1\}.\]
 \emph{Why it could help.} The two models learn in different ways. XGBoost has a separate model for every sensor and sees only that sensor. The network shares its weights across sensors and sees the neighbours. Models that differ like this often make different mistakes, and averaging can cancel some of them.
 
-\emph{How we keep it fair.} The weight $\lambda$ is chosen on 1,702 forecast points that were kept aside and used for nothing else. It is fixed before the test data are scored. The two pure models ($\lambda=0$ and $\lambda=1$) are among the candidates, so the procedure can also tell us that blending does not help.
+\emph{How we keep it fair.} In the original protocol, $\lambda$ is chosen on 1,702 reserved-validation origins not used to fit or tune the base models. It is fixed before the test data are scored. The two pure models ($\lambda=0$ and $\lambda=1$) are among the candidates, so the procedure can also tell us that blending does not help.
 
 \textbf{Scores.} With error $e_j$ on each of the $n$ scored answers,
 \[\mathrm{MAE}=\frac1n\sum_j|e_j|,\qquad \mathrm{RMSE}=\sqrt{\frac1n\sum_j e_j^2}.\]
@@ -234,23 +234,23 @@ Variant & 15\,min & 30\,min & 60\,min & Change\\\midrule
 
 \begin{figure}[t]\centering
 \includegraphics[width=\columnwidth]{ablation.pdf}
-\caption{60-minute test MAE of every trained variant. Each circle is one training run. The whole axis covers only 0.09\,mph.}\label{fig:abl}
+\caption{60-minute test MAE of every trained variant. Each circle is one training run. The displayed axis covers a narrow range around 4.85--4.94\,mph.}\label{fig:abl}
 \end{figure}
 
 Yes, slightly. Averaged over three seeds, the full model has a 60-minute MAE of 4.881\,mph and the self-loop model 4.931\,mph (Table~\ref{tab:abl}). The difference is 0.050\,mph, about 1\%. It appears in all three seeds (Fig.~\ref{fig:abl}) and it grows with the horizon, from 0.011\,mph at 5 minutes to 0.050\,mph at 60 minutes. Three seeds show how much results vary between runs. They are not a statistical significance test.
 
 The other comparisons add detail.
 \begin{itemize}
-\item The self-loop model and the temporal GRU score almost the same (4.931 and 4.929\,mph). The extra layer alone brings nothing; the gain comes from the neighbours.
+\item The self-loop model and the temporal GRU score almost the same (4.931 and 4.929\,mph). This matched comparison supports a small neighbour-access benefit, not a general claim about extra layers.
 \item With equal weights the error is 4.891\,mph. Most of the gain is already there with a plain average of the neighbours; learning the weights adds 0.014\,mph (one seed).
-\item Without dropout the error is 4.847\,mph, which is better. A model this small does not over-fit, so dropout was not needed. We kept the setting we had fixed in advance and did not retune after seeing a test result (one seed).
+\item Without dropout the error is 4.847\,mph, which is better. This single-seed result does not prove an absence of over-fitting or that dropout is generally unnecessary. We kept the setting we had fixed in advance and did not retune after seeing a test result (one seed).
 \item Looking at sensors one by one (seed 42), the full model is better than the self-loop model at 168 of 207 sensors.
 \end{itemize}
 Every method is much worse in rush hours. For GRU+GAT the 60-minute MAE is 7.691\,mph in peak periods and 4.174\,mph outside them.
 
 \subsection{Hybrid result}
 \begin{table}[t]\centering\small
-\caption{Choosing the blend weight on the data kept aside. MAE is the mean over 15, 30 and 60 minutes, in mph.}\label{tab:hybrid}
+\caption{Choosing the blend weight on the data kept aside. MAE pools valid targets at 15, 30 and 60 minutes, in mph.}\label{tab:hybrid}
 \begin{tabular}{@{}rrrc@{}}\toprule
 XGBoost share $\lambda$ & GAT share & MAE & Chosen\\\midrule
 \gen{table_hybrid.tex}
@@ -258,9 +258,9 @@ XGBoost share $\lambda$ & GAT share & MAE & Chosen\\\midrule
 \end{table}
 The error falls with every step towards XGBoost, and the best weight is $\lambda=1$ (Table~\ref{tab:hybrid}). The chosen ``blend'' is therefore XGBoost alone, and its test error is the XGBoost row of Table~\ref{tab:main}.
 
-The hybrid was built and tested as planned, but it showed no benefit. A blend helps when its parts are about equally good. Here the graph network is about 1\,mph worse than XGBoost, so mixing it in only raises the error. We do not claim a hybrid improvement.
+The hybrid was built and tested as planned, but it showed no benefit. A blend needs complementary errors; unequal model quality alone does not rule out a gain. In our five validation candidates, adding the graph forecast never beat pure XGBoost. We do not claim a hybrid improvement.
 
-A stronger hybrid, which we did not build, would let the two models work together instead of averaging them: for example, the network could be trained to predict the errors that XGBoost makes, or could take XGBoost's forecast as an extra input.
+A stronger integrated hybrid, not used in this submission, would let the two models work together instead of averaging them: for example, the network could be trained to predict the errors that XGBoost makes, or could take XGBoost's forecast as an extra input.
 
 \section{Synthetic LWR Study with Two Signal Agents}
 This section is a separate experiment. METR-LA has speed only, with no vehicle counts, densities or signal timings, so a traffic-flow model cannot be fitted to it. The simulation below uses assumed road parameters and invented demand. Its results say nothing about Los Angeles.
@@ -309,7 +309,7 @@ Fig.~\ref{fig:corridor} shows the road. Vehicles that cannot enter a full cell w
 
 The \emph{fixed-time} agents follow a timetable: 40\,s green for the main road, 5\,s all-red, 40\,s green for the side road, 5\,s all-red. They ignore traffic.
 
-The \emph{responsive} agents look only at their own junction. For each approach an agent computes a pressure: the number of vehicles on the approach minus the number in the cell after the junction. After at least 20\,s of green it switches if the other approach has more pressure by over two vehicles, or if its own approach is empty while the other is not. It must switch after 60\,s. This follows the local-pressure idea of \cite{lioris} in a simplified form.
+The \emph{responsive} agents look only at their own junction. For each approach, pressure is the approach count minus the downstream count, clipped at zero. After at least 20\,s of green it switches if the other approach has more pressure by over two vehicles, or if its own approach is empty while the other is not. It must switch after 60\,s. This follows the local-pressure idea of \cite{lioris} in a simplified form.
 
 Both kinds of agent are written by hand as rules. Nothing is trained, so this is not reinforcement learning. The two agents send no messages to each other; they affect each other only through the traffic between them. No forecast from the neural models enters a signal decision.
 
@@ -330,9 +330,9 @@ Demand pattern & Fixed time & Responsive & Reduction (\%) & Fixed time & Respons
 \caption{System time for each demand pattern. Bars are means; circles are the five seeds.}\label{fig:bars}
 \end{figure}
 
-The responsive agents gave a lower system time in all 20 cases (Table~\ref{tab:control}, Fig.~\ref{fig:bars}). The size of the gap needs a careful reading. Under the fixed timetable each approach has green for 40 of every 90 seconds, so it can pass at most $2250\times40/90=1000$ vehicles per hour. The main-road peak sends 1100 per hour, so the fixed timetable cannot keep up and its queue keeps growing. A timetable with a longer main green would do far better. Ours was a simple equal split.
+The responsive agents gave a lower system time in all 20 cases (Table~\ref{tab:control}, Fig.~\ref{fig:bars}). The size of the gap needs a careful reading. Under the fixed timetable each approach has green for 40 of every 90 seconds, so it can pass at most $2250\times40/90=1000$ vehicles per hour. The main-road peak sends 1100 per hour, so the fixed timetable cannot keep up and its queue keeps growing. A better-timed fixed plan could improve this comparison, but was not tested. Ours was a simple equal split.
 
-In all 40 runs the vehicle count balanced to within $3\times10^{-12}$ vehicles and no cell exceeded its jam density. Under the exit limit, the fixed timetable still had about four vehicles on the road when the simulation ended; they are kept in the totals.
+In all 40 runs the vehicle count balanced to within $3.1\times10^{-12}$ vehicles and no cell exceeded its jam density. Under the exit limit, the fixed timetable still had about four vehicles on the road when the simulation ended; they are kept in the totals.
 
 The experiment shows that the traffic model conserves vehicles, that queues spill backwards, and that two local agents can work on the same road. It does not show a benefit in a real city, an optimal controller, multi-agent reinforcement learning, or control driven by our forecasts.
 
@@ -357,9 +357,9 @@ The experiment shows that the traffic model conserves vehicles, that queues spil
 \end{itemize}
 
 \section{Conclusion}
-Letting a small recurrent network see its road-graph neighbours lowered the 60-minute error from 4.931 to 4.881\,mph. A same-size model without neighbours shows that the neighbours are the reason. The gain is about 1\% and most of it comes from a plain average of the neighbours. It does not close the 1\,mph gap to XGBoost, and blending the two models gives no gain. On this dataset, and at this model size, one tree model per sensor is the better forecaster.
+Letting a small recurrent network see its road-graph neighbours lowered the 60-minute error from 4.931 to 4.881\,mph. The matched self-loop control supports an observed benefit from neighbour access in these runs. The gain is about 1\% and most of it comes from a plain average of the neighbours. It does not close the 1\,mph gap to XGBoost, and blending the two models gives no gain. On this dataset, and at this model size, one tree model per sensor is the better forecaster.
 
-Separately, an LWR cell simulation conserved vehicles exactly and showed two local rule-based agents outperforming an equal-split timetable, mainly because that timetable was too weak for the main road.
+Separately, an LWR cell simulation conserved vehicles to numerical precision and showed two local rule-based agents outperforming an equal-split timetable, mainly because that timetable was too weak for the main road.
 
 Useful next steps are to tell the network which sensor it is looking at, to give it a longer history, to test on a period nobody has seen, and, if density or flow data become available, to fit the simulation to real roads.
 

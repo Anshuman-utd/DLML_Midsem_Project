@@ -3,3 +3,5 @@
 *.py text eol=lf
 *.toml text eol=lf
 .gitkeep text eol=lf
+# Preserve PDF bytes; do not treat ASCII-encoded PDF streams as text.
+*.pdf binary

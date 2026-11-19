@@ -1,0 +1,59 @@
+{
+  "date": "2026-11-19",
+  "pr": 15,
+  "original_head": "2b493b0b6f961b13bda613f2ae8de311fb1255f8",
+  "main_base": "e262867",
+  "pytest": {
+    "passed": 76,
+    "failed": 0,
+    "skipped": 0,
+    "seconds": 2.96
+  },
+  "ruff_lint_format": {
+    "passed": true,
+    "files": 52
+  },
+  "scientific_identity": {
+    "phase1_source": 31,
+    "raw_data": 5,
+    "neural_training_source": 5,
+    "control_source": 7
+  },
+  "evaluated_checkpoints_unchanged": 11,
+  "forecast_metrics_sha256": "52fc1d4f0d037d9c17cad8b8baf7413f8614bb0230a0bbf8f173effada001d1c",
+  "all_four_generated_tables_and_numbers_json_match_original_pr": true,
+  "report": {
+    "pages": 7,
+    "built_in_compile": "success",
+    "tectonic_version": "0.15.0",
+    "full_pages_rendered_reviewed": true,
+    "overfull_boxes": 0,
+    "minor_underfull_warning": true
+  },
+  "presentation": {
+    "slides": 14,
+    "all_final_slides_rendered_reviewed": true,
+    "notes_all_slides": true,
+    "native_charts": 2,
+    "native_tables": 2,
+    "package_layout_native_workbook_import_validation": "pass",
+    "native_powerpoint_opened": false
+  },
+  "runtime_models_data_or_scores_changed": false,
+  "private_hybrid_models_integrated": false,
+  "ci": "fresh head checks must pass before merge; see GitHub PR",
+  "outputs": {
+    "report/phase2/Phase2_Report.pdf": {
+      "bytes": 168505,
+      "sha256": "04db6319a37783de0e499576f74f9ba356ed50706d0ee2960222ba21034b5c61"
+    },
+    "slides/phase2/Phase2_Presentation.pptx": {
+      "bytes": 89152,
+      "sha256": "e1b346a2d61b8d0b0ad40354fabacd13fece706a42dc8382a5e8bc402f71ea58"
+    },
+    "slides/phase2/Phase2_Presentation.pdf": {
+      "bytes": 2807102,
+      "sha256": "2d5b997870bcfa445d2dba8b5d3e874e14a46202e914aa56db6ee3d51ceec3e9"
+    }
+  }
+}

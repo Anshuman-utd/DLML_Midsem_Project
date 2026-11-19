@@ -1,6 +1,6 @@
 # Phase 2 viva guide for Team T072
 
-This guide goes with the final Phase 2 report (`report/phase2/T072_Phase2_Report.pdf`) and the 14-slide deck (`slides/phase2/T072_Phase2.pptx`). It explains the whole project, each member's module, the results, and every reference, in plain language.
+This guide goes with the final Phase 2 report (`report/phase2/Phase2_Report.pdf`) and the 14-slide deck (`slides/phase2/Phase2_Presentation.pptx`). It explains the whole project, each member's module, the results, and every reference, in plain language.
 
 Read sections 1 to 4 and 8 to 10 whatever your module is. The viva is individual, and anyone can be asked about any part.
 
@@ -63,7 +63,7 @@ The rubric gives extra marks for a hybrid only when it shows value. Ours did not
 | RMSE | Root mean squared error: like MAE but large errors count more. |
 | Persistence | The simplest forecast: "the speed stays as it is now". |
 | Historical average | The usual speed for that sensor at that time of the week, from training data. |
-| Training / tuning / test data | Training data teach the model. Tuning (validation) data are used to choose settings. Test data are used once at the end to report scores. |
+| Training / tuning / test data | Training data teach the model. Tuning (validation) data are used to choose settings. A fresh test should be held until final evaluation; ours was previously inspected, so its scores are exploratory. |
 | Leakage | Information from the future or from the test data slipping into training. It makes results look better than they are. |
 | Epoch | One pass over the training data. |
 | Seed | The starting number for the random generator. Different seeds give slightly different trained models. We used 42, 43 and 44. |
@@ -77,9 +77,9 @@ The rubric gives extra marks for a hybrid only when it shows value. Ours did not
 
 1. **Input.** For every sensor: the last 12 readings (55 minutes). Each reading is two numbers: the scaled speed, and a flag that says whether the reading was missing.
 2. **GRU.** A recurrent network reads the 12 readings in order and keeps a memory of 32 numbers. It has two gates. The *reset gate* decides how much old memory is used to form a new proposal. The *update gate* decides how much old memory is kept and how much is replaced. After 12 steps the memory is a summary of that sensor. One GRU, with one set of weights, is used for all 207 sensors.
-3. **Graph attention (only in GRU + GAT).** Each sensor looks at the summaries of its neighbours on the road graph. It gives each neighbour a score, turns the scores into weights that add up to one (softmax), and takes the weighted average. The weights are learned. The road graph only decides who is a neighbour. We use two attention heads of 16 numbers each.
+3. **Graph attention (only in GRU + GAT).** Each sensor looks at the summaries of its neighbours on the road graph. It gives each neighbour a score, turns the scores into weights that add up to one (softmax), and takes the weighted average. The weights sum to one before dropout and at evaluation; training dropout may change that sum. The road graph only decides who is a neighbour. We use two attention heads of 16 numbers each.
 4. **Output layer.** Takes the sensor's own summary, the neighbour summary (graph model only) and five calendar values. It outputs 12 numbers: a correction for each of the next 12 steps.
-5. **Add the last speed.** The corrections are added to the last observed speed. The output weights start at zero, so before training the model says "no change", which is the persistence forecast.
+5. **Add the latest filled speed.** The output weights start at zero, so the initial forecast repeats that speed. An all-missing history uses the training median; the Phase 1 persistence baseline instead uses historical average.
 
 Sizes: 3,912 parameters for the GRU, 5,384 for GRU + GAT. Small on purpose, so that training takes 15 to 25 minutes on a laptop and we could afford three seeds and several ablations.
 
@@ -133,14 +133,14 @@ The two attention heads are **not** the two signal agents of the simulation. Hea
 **Likely questions.**
 
 - *What do the GRU gates do?* The reset gate controls how much old memory enters the new proposal. The update gate controls how much old memory is kept.
-- *Why a GRU and not an LSTM?* A GRU has fewer parameters and is simpler. We did not compare the two, so we do not claim it is better.
-- *What is attention here?* A learned weighted average of the neighbours' summaries. The weights come from a small scoring function followed by softmax.
-- *What does softmax do?* It turns a list of scores into positive weights that add up to one.
+- *Why a GRU and not an LSTM?* We chose a compact GRU for a clear temporal baseline and a bounded training budget. We did not compare LSTM or Transformer, so we do not claim GRU is better.
+- *What is attention here?* A learned weighted average of the neighbours' summaries. The weights come from a small scoring function followed by softmax; they sum to one before training dropout, and at evaluation.
+- *What does softmax do?* Across permitted neighbours it turns scores into weights that sum to one before dropout. Masked edges have zero weight.
 - *Why predict a correction and not the speed itself?* "No change" is already a reasonable forecast. The network only has to learn the improvement.
 - *What is dropout?* During training, a random 10% of values are set to zero so the network cannot rely on any single value.
-- *What is gradient clipping?* If an update step is too large, it is scaled down. This keeps recurrent networks from becoming unstable.
-- *Why is the self-loop model the fair comparison?* It has exactly the same layers and number of parameters as GRU + GAT. Only the neighbours are removed. The plain GRU is smaller, so comparing with it mixes two changes.
-- *Why did removing dropout help?* The model is very small and does not over-fit, so dropout only removed useful information. We kept our planned setting anyway, because changing it after seeing a test score would be tuning on the test data.
+- *What is gradient clipping?* The gradient norm is limited before Adam updates the weights. This supports stability; it does not directly bound the final parameter-update size.
+- *Why is the self-loop model the fair comparison?* It retains the same stored layer/parameter structure as GRU + GAT. Some attention-score parameters become inactive in the self-only control; we do not claim identical effective capacity. The plain GRU is smaller, so comparing with it mixes two changes.
+- *Why did removing dropout help?* It improved one seed in our experiment. This may reflect excessive regularisation for this small model, but it does not prove an absence of over-fitting or a general rule. We kept our planned setting anyway, because changing it after seeing a test score would be tuning on the test data.
 
 ### 5.3 Kavya Katal: evaluating fairly, hybrid, checks and coordination
 
@@ -153,20 +153,20 @@ The two attention heads are **not** the two signal agents of the simulation. Hea
 1. All six methods (four from Phase 1, two networks) are scored on identical test answers with MAE and RMSE.
 2. Hybrid: `blend = w x XGBoost + (1 - w) x GRU+GAT`, with `w` from 0, 0.25, 0.5, 0.75, 1. The weight is chosen on data kept aside for this, then frozen before the test data are scored.
 3. `predict_phase2.py` loads a trained network and forecasts the next 12 steps from a history file of 12 rows.
-4. 76 automated tests run on GitHub for every pull request.
+4. CI runs the test suite for pull requests, with supported skips when raw data or optional PyTorch are absent.
 
-**Numbers.** About 1.25 million scored answers at each horizon. Blend error on the kept-aside data: 3.779 (pure GRU + GAT), 3.585, 3.438, 3.336, 3.288 (pure XGBoost). Chosen weight: 1.00. All 76 tests pass with the dataset present. On GitHub, 65 pass and 11 are skipped because the dataset is not uploaded there.
+**Numbers.** About 1.25 million scored answers at each horizon. Blend error on the kept-aside data: 3.779 (pure GRU + GAT), 3.585, 3.438, 3.336, 3.288 (pure XGBoost). Chosen weight: 1.00. All 76 tests pass with the dataset present. CI outcomes depend on the job: the base job lacks PyTorch and raw data; the DL job installs PyTorch but still lacks raw data. Record each current job accurately rather than calling skipped checks passes.
 
 **Likely questions.**
 
 - *What exactly is your hybrid?* A weighted average: `w x XGBoost forecast + (1 - w) x GRU+GAT forecast`. XGBoost is the ML part, GRU + GAT is the DL part.
 - *Why is that a meaningful combination?* The two models are very different. XGBoost has one model per sensor and never sees a neighbour. The network shares its weights and does see neighbours. Different models often make different mistakes, and averaging can cancel some.
-- *Why did the hybrid fail?* A blend helps when both models are about equally good. Here GRU + GAT is about 1 mph worse, so adding it only pulls XGBoost down.
+- *Why did the hybrid fail?* A blend needs complementary errors; it can sometimes help even if one model is weaker. Here none of our five validation weights beat pure XGBoost.
 - *Then why report it?* Phase 2 allows a hybrid, and we tested one properly. Reporting a negative result is more honest than leaving it out.
 - *Do you claim the extra hybrid marks?* We claim that we implemented and tested a justified hybrid. We do not claim that it showed value.
-- *What would be a better hybrid?* Let the two models work together instead of averaging: train the network to predict XGBoost's errors, or feed XGBoost's forecast into the network. We did not build that.
+- *What would be a better hybrid?* Let the two models work together instead of averaging: train the network to predict XGBoost's errors, or feed XGBoost's forecast into the network. That design is not used in the submitted pipeline; separate private follow-up trials did not justify adoption.
 - *Why choose the blend weight on separate data?* If we chose it on the test data, the test score would be biased in our favour.
-- *MAE or RMSE, which matters more?* They answer different questions. XGBoost has the lowest MAE. Random Forest has the lowest RMSE, so it makes fewer very large errors.
+- *MAE or RMSE, which matters more?* They answer different questions. XGBoost has the lowest MAE. Random Forest has the lowest RMSE, so it has a lower overall squared-error penalty; this alone does not count outliers.
 - *Is this accuracy?* No. This is regression. We report errors in mph, not classification accuracy.
 - *Why are the scores called exploratory?* The test period was already examined in Phase 1, so it is no longer an untouched test.
 
@@ -207,23 +207,27 @@ Section 7 below explains every reference.
 3. **Flow rule (cell transmission model).** A cell can send only what it holds and receive only what it has room for. The flow between two cells is the smaller of the two. On red the flow is zero.
 4. **Queues.** Arrivals that do not fit wait in a queue at the entrance. No vehicle is lost.
 5. **Time step.** 5 seconds. In one step a vehicle moves 83 m, less than one cell. This is the CFL stability condition.
-6. **Agents.** One at each junction. The *fixed* agent follows a timetable: 40 s main green, 5 s all-red, 40 s side green, 5 s all-red. The *responsive* agent computes a pressure for each approach (vehicles on the approach minus vehicles just after the junction) and switches to the busier approach, with at least 20 s and at most 60 s of green.
+6. **Agents.** One at each junction. The *fixed* agent follows a timetable: 40 s main green, 5 s all-red, 40 s side green, 5 s all-red. The *responsive* agent computes a pressure for each approach (max(approach vehicles minus downstream vehicles, 0)) and switches to the busier approach, with at least 20 s and at most 60 s of green.
 7. **Experiment.** Four demand patterns, five seeds, two kinds of agent: 40 runs. Both kinds get exactly the same arriving traffic in each case.
 
-**Numbers.** Total vehicle-minutes on the road, fixed against responsive: balanced 3,263 and 2,213; main-road peak 10,851 and 2,840; side-road peak 6,435 and 3,174; exit limit 14,309 and 6,004. The responsive agents were better in all 20 cases. Vehicle count balanced to within 0.000000000003 vehicles.
+**Numbers.** Total vehicle-minutes on the road, fixed against responsive: balanced 3,263 and 2,213; main-road peak 10,851 and 2,840; side-road peak 6,435 and 3,174; exit limit 14,309 and 6,004. The responsive agents were better in all 20 cases. Maximum vehicle-count residual was below 0.0000000000031 vehicles (numerical precision).
 
-**One update worked by hand.** Cell 1 holds 10 vehicles, which is 40 per km, so it can send 2250 per hour. Cell 2 holds 30 vehicles, which is 120 per km, so it can receive only 20 x (150 - 120) = 600 per hour. On green the flow is 600 per hour, which is 600 x 5 / 3600 = 0.83 vehicles in one step.
+**One update worked by hand.** Cell 1 holds 10 vehicles, which is 40 per km, so it can send 2250 per hour. Cell 2 holds 30 vehicles, which is 120 per km, so it can receive only 20 x (150 - 120) = 600 per hour. On green the flow rate is 600 vehicles per hour, which is 600 x 5 / 3600 = 0.83 vehicles in one step.
 
 **Likely questions.**
 
 - *What does LWR stand for?* Lighthill, Whitham and Richards. Their model treats traffic like a fluid in which vehicles are conserved.
 - *Why can a cell hold a fraction of a vehicle?* The model works with density, not individual cars.
-- *Why is the gap between the two agents so large?* The fixed timetable gives the main road green for 40 of every 90 seconds, so at most 2250 x 40 / 90 = 1000 vehicles per hour can pass. The main-road peak sends 1100. The fixed plan is overloaded and its queue keeps growing. A better-timed fixed plan would be much closer.
+- *Why is the gap between the two agents so large?* The fixed timetable gives the main road green for 40 of every 90 seconds, so at most 2250 x 40 / 90 = 1000 vehicles per hour can pass. The main-road peak sends 1100. The fixed plan is overloaded and its queue keeps growing. The fixed plan is not demand-optimized; a tuned fixed-plan comparison was not tested.
 - *Is this multi-agent reinforcement learning?* No. Both agents are hand-written rules. Nothing is trained.
 - *Do the agents talk to each other?* No. They affect each other only through the traffic between them.
 - *Do the forecasts control the signals?* No. The two parts are separate.
 - *Is this Los Angeles traffic?* No. The road, the parameters and the demand are invented.
 - *What is spillback?* When a cell is full, the cell before it cannot send, so the queue grows backwards.
+
+### Counting methods and fitted estimators
+
+There are six main comparison methods, not six fitted objects: four Phase 1 methods and two neural architectures. RF fits one forest per sensor (207); XGBoost fits one direct regressor per sensor and horizon (207×12 = 2,484). A neural fit shares one set of weights across all207 sensors. Eleven selected/ablation neural fits were evaluated; two unselected learning-rate candidates make13 completed unique fits. Three-seed scores are averages of measured scores, not a forecast ensemble.
 
 ## 6. Results to know by heart
 
@@ -264,7 +268,7 @@ All nine references were checked against arXiv, Crossref or the publisher pages.
 
 ## 8. Questions any of us may get
 
-- **What is the difference between Phase 1 and Phase 2?** Phase 1 used machine learning: one tree model per sensor on hand-made features. Phase 2 uses deep learning: one neural network for all sensors that learns its own features and can use the road graph.
+- **What is the difference between Phase 1 and Phase 2?** Phase 1 used sensor-specific tree estimators on engineered features: one RF forest per sensor and one XGBoost regressor per sensor and horizon. Phase 2 uses deep learning: one neural network for all sensors that learns its own features and can use the road graph.
 - **What is your main finding?** Neighbours help a small network by about 1% at 60 minutes, but the per-sensor tree models from Phase 1 are still better.
 - **Is that a failure?** It is an honest result. The experiment was designed to answer a question, and it did. A negative result that is measured carefully is still a result.
 - **How do you know the gain is from neighbours?** The self-loop model has the same size and training, with only the neighbours removed, and it is worse in all three seeds.
@@ -301,7 +305,7 @@ OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 pytest -q
 PYTHONPATH=src python scripts/run_control.py --run-dir results/runs/control-demo
 
 # rebuild the report's tables and figures from the saved results
-python report/phase2/make_assets.py
+python docs/latex/phase2/make_assets.py
 ```
 
 Forecasting with a saved network needs the trained model files, which are not in Git. The steps are in `docs/PHASE2_RUNBOOK.md`.

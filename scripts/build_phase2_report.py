@@ -55,8 +55,8 @@ def main():
     run = args.run_dir
     metrics = pd.read_csv(run / "evaluation/all_metrics.csv")
     evidence = ROOT / "verification/phase2-20261112"
-    generated = ROOT / "report/phase2/generated"
-    figures = ROOT / "report/phase2/images"
+    generated = ROOT / "results/report_drafts/phase2/generated"
+    figures = ROOT / "results/report_drafts/phase2/images"
     for folder in [evidence, generated, figures]:
         folder.mkdir(parents=True, exist_ok=True)
     cfg = load_config()

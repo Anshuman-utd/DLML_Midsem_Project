@@ -1,3 +1,6 @@
+- [Simple final Phase 2 viva guide](PHASE2_VIVA_GUIDE.md)
+- [PR #15 detailed review](PR15_REVIEW.md)
+
 # Documentation index
 
 - [Final Phase 2 requirements audit](PHASE2_REQUIREMENTS_FINAL_AUDIT.md)
@@ -6,14 +9,17 @@
 - [LWR/control learning notes](PHASE2_CONTROL_NOTES.md)
 - [Final local verification](../verification/phase2-final-20261116/README.md)
 - [Phase 2 measured results](PHASE2_RESULTS.md)
-- [Phase 2 report PDF](../report/phase2/T072_Phase2_Report.pdf)
-- [Phase 2 14-slide presentation](../slides/phase2/T072_Phase2.pptx)
-- [Phase 2 viva guide](PHASE2_VIVA_GUIDE.md)
+- [Phase 2 report PDF](../report/phase2/Phase2_Report.pdf)
+- [Current Phase 2 14-slide PPT](../slides/phase2/Phase2_Presentation.pptx)
+- [Current Phase 2 PDF preview](../slides/phase2/Phase2_Presentation.pdf)
+- [Report directory](../report/README.md) and [presentation directory](../slides/README.md)
+- [November 18 deliverable review](DELIVERABLES_REVIEW_20261118.md)
 - [Phase 2 verification evidence](../verification/phase2-20261112/README.md)
 - [Phase 2 completion plan](PHASE2_COMPLETION_PLAN.md)
 - [Prospective Phase 2 protocol](PHASE2_PROTOCOL.md)
 - [Phase 2 runbook](PHASE2_RUNBOOK.md)
 - [Phase 2 learning notes](PHASE2_LEARNING_NOTES.md)
+- [Phase 2 whole-team viva guide](PHASE2_VIVA_GUIDE.md)
 - [Phase 2 literature and inspected sources](PHASE2_LITERATURE.md)
 
 Both forecasting phases live at the repository root. Initial placeholder research documents are preserved in the separate sibling archive, not presented as completed requirements mapping.
