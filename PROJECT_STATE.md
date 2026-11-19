@@ -1,5 +1,9 @@
 # Project state
 
+## Simpler final documents — PR #15 reviewed 2026-11-19
+
+The owner requested retaining Rudraksh’s simpler report/deck/viva approach, resolving conflicts on his PR branch, committing on top and merging after checks. Kept the clean main layout from PR#16, while using his seven-page IEEE report, fourteen-slide module-based deck and whole-team viva guide. Fixed chart compatibility and unsupported explanations; preserved Kavya coordination/first author, all member history and assistance disclosure. No runtime model, data, scores or private hybrid adoption changed. Fresh checks:76 real-data tests/no skips, lint/format52 files, frozen-source/data/checkpoint identities, four exact generated tables/number JSON, full report/slide visual review and native chart/table import checks. Current evidence: verification/pr15-review-20261119/; detailed review: docs/PR15_REVIEW.md. The authorized publication flow commits to the original maintainer-editable PR head and merges only that reviewed head after CI; no direct-main/force push. Older artifact records below remain historical.
+
 ## Submission-folder simplification — 2026-11-19
 
 The owner found multiple report/deck versions confusing. Retired Phase 1/2 report/deck alternatives were byte-verified and moved completely outside the repository. Current LaTeX build inputs are under docs/latex/phase2/. report/phase2/ now contains only one report PDF and README; slides/phase2/ contains one PPTX and its PDF preview plus README. No model, scores or final submission bytes changed. Historical draft generators now use ignored results/report_drafts/phase2/, preventing retired folders from being recreated.

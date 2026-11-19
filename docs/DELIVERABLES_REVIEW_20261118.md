@@ -1,3 +1,5 @@
+> Superseded by the simpler reviewed PR #15 report/deck on2026-11-19. Canonical paths remain the same; use docs/PR15_REVIEW.md and verification/pr15-review-20261119/ for current content/checks. This dated document describes the earlier artifact version.
+
 > Superseded folder layout, 2026-11-19: old artifact versions are now archived outside the repo, not in report/slides archive subfolders. Current report source is docs/latex/phase2/. Submission PDF/PPTX bytes remain unchanged. See report/README.md, slides/README.md and DELIVERABLES_LAYOUT.json for current locations; the dated review below preserves the November 18 activity.
 
 # Deliverable review and organization — 2026-11-18

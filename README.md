@@ -1,6 +1,6 @@
 # Traffic speed forecasting — Team T072
 
-## Phase 2 submission artifacts — organized 2026-11-18
+## Simple Phase 2 submission and viva guide — reviewed 2026-11-19
 
 Two separate studies are implemented and verified locally:
 
@@ -9,10 +9,10 @@ Two separate studies are implemented and verified locally:
 
 The simulation is not calibrated from METR-LA, not MARL and not GAT-driven control. The studies do not demonstrate real-world signal benefits. The original faculty technical brief remains unlocated; the [requirements audit](docs/PHASE2_REQUIREMENTS_FINAL_AUDIT.md) distinguishes verified requirements from this conservative completion choice.
 
-- [Current Phase 2 report — nine pages](report/phase2/Phase2_Report.pdf), [LaTeX source](docs/latex/phase2/main.tex), [14-slide PowerPoint](slides/phase2/Phase2_Presentation.pptx) and [viewable presentation PDF](slides/phase2/Phase2_Presentation.pdf)
+- [Current Phase 2 report — simple final version](report/phase2/Phase2_Report.pdf), [LaTeX source](docs/latex/phase2/main.tex), [14-slide PowerPoint](slides/phase2/Phase2_Presentation.pptx) and [viewable presentation PDF](slides/phase2/Phase2_Presentation.pdf)
 - [Reports by phase](report/README.md), [presentations by phase](slides/README.md) and [review / preservation notes](docs/DELIVERABLES_REVIEW_20261118.md)
 - [Forecast results](docs/PHASE2_RESULTS.md), [synthetic control results](docs/PHASE2_CONTROL_RESULTS.md) and [final verification](verification/phase2-final-20261116/README.md)
-- [Simple forecasting notes](docs/PHASE2_LEARNING_NOTES.md), [LWR/agent notes](docs/PHASE2_CONTROL_NOTES.md), [speaking/viva guide](docs/PHASE2_PRESENTATION_GUIDE.md) and [runbook](docs/PHASE2_RUNBOOK.md)
+- [Simple forecasting notes](docs/PHASE2_LEARNING_NOTES.md), [LWR/agent notes](docs/PHASE2_CONTROL_NOTES.md), [whole-team viva guide](docs/PHASE2_VIVA_GUIDE.md) and [runbook](docs/PHASE2_RUNBOOK.md)
 - [Forecast protocol](docs/PHASE2_PROTOCOL.md), [control protocol](docs/PHASE2_CONTROL_PROTOCOL.md) and [literature](docs/PHASE2_LITERATURE.md)
 
 Forecast results are unchanged: 60-minute MAE is 4.881 mph for graph GRU versus 4.931 for self-only (three-seed means), and 3.874 for frozen XGBoost. Trees remain stronger; RF has the best main-method RMSE. Blend validation selected pure XGBoost. These are exploratory errors on a previously exposed interval, not accuracy.
@@ -21,7 +21,7 @@ In the separate synthetic experiment, responsive signals lower total system vehi
 
 Local checks: **76 tests passed with real data available and no skips**, Ruff lint/format and integration checks are recorded in the dated verification files, rebuilt wheel imports neural/control modules outside the checkout, saved-model CSV inference works, and all synthetic runs pass per-step conservation/bounds/flow checks. Prior forecasting checkpoints/scores and original Phase 1 source/data are unchanged. Report pages and exact-final-file slides were rendered/inspected; both artifacts are below 10 MB. Native PowerPoint opening and remote CI are not claimed.
 
-PRs #9–#14 are merged into canonical main, including the coordinated Phase 2 implementation and Rudraksh’s latest report/deck. The owner approved publishing the reviewed November 18 file organization and PPT compatibility repair on the kavya branch. Their completed review logs and neural test corrections are preserved. Kavya’s remaining evaluation/inference, CI, evidence and shared docs are integrated locally on `kavya`; see [fresh combined verification](verification/phase2-integration-20261117/README.md). No push, PR, merge or form submission was performed. Five local Phase 2 member handoffs and their common prompt are documented in [the handoff guide](docs/handoffs/phase2/README.md). Owner/faculty-scope review, genuine individual understanding/rehearsal and later handoffs/publication remain owner-managed. Prepared source/analysis preserves substantial AI-assistance and teammate-prototype provenance.
+PRs #9–#16 establish the implementation and clean layout. The reviewed PR #15 replaces the narrative/deck with a simpler final write-up and whole-team viva guide, while retaining one submission set per phase. The owner authorized resolving, committing to and merging PR #15 after verification; no direct-main push is used. The completed member review logs and neural test corrections are preserved. Kavya’s remaining evaluation/inference, CI, evidence and shared docs are integrated locally on `kavya`; see [fresh combined verification](verification/phase2-integration-20261117/README.md). That 17-Nov integration pass performed no push, PR, merge or form submission; later publication and this PR review are recorded separately. Five local Phase 2 member handoffs and their common prompt are documented in [the handoff guide](docs/handoffs/phase2/README.md). Owner/faculty-scope review, genuine individual understanding/rehearsal and later handoffs/publication remain owner-managed. Prepared source/analysis preserves substantial AI-assistance and teammate-prototype provenance.
 
 ## Preserved Phase 1 study
 
@@ -117,7 +117,7 @@ This prints forecasts 15, 30 and 60 minutes after the dataset's last observation
 
 `report/phase1/results.md` and `metrics.tex` are generated from actual completed outputs. The Phase 1 owner report is preserved as a historical PDF; earlier alternative sources are archived outside the repository. Current Phase 2 LaTeX source is under `docs/latex/phase2/`. Presentation material is under `slides/`.
 
-Key limitations: prior test exposure; provisional clock timezone/DST and peak windows; missing-target selection bias in multi-output RF; strided training; a small pilot search; a single region/period; low-speed MAPE instability. The graph is verified but not a prediction input. Multi-seed stability, graph learning, calibrated LWR physics and signal simulation remain future work.
+Key limitations: prior test exposure; provisional clock timezone/DST and peak windows; missing-target selection bias in multi-output RF; strided training; a small pilot search; a single region/period; low-speed MAPE instability. The graph is verified but not a prediction input. For Phase 1, multi-seed stability, graph learning, calibrated LWR physics and signal simulation were future work. Phase 2 now adds the first two and a separate synthetic signal simulation; calibrated METR-LA physics remains unimplemented.
 
 ## Integrity and ownership
 

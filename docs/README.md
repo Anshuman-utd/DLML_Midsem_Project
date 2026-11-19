@@ -1,3 +1,6 @@
+- [Simple final Phase 2 viva guide](PHASE2_VIVA_GUIDE.md)
+- [PR #15 detailed review](PR15_REVIEW.md)
+
 # Documentation index
 
 - [Final Phase 2 requirements audit](PHASE2_REQUIREMENTS_FINAL_AUDIT.md)
@@ -16,7 +19,7 @@
 - [Prospective Phase 2 protocol](PHASE2_PROTOCOL.md)
 - [Phase 2 runbook](PHASE2_RUNBOOK.md)
 - [Phase 2 learning notes](PHASE2_LEARNING_NOTES.md)
-- [Phase 2 speaking order and viva guide](PHASE2_PRESENTATION_GUIDE.md)
+- [Phase 2 whole-team viva guide](PHASE2_VIVA_GUIDE.md)
 - [Phase 2 literature and inspected sources](PHASE2_LITERATURE.md)
 
 Both forecasting phases live at the repository root. Initial placeholder research documents are preserved in the separate sibling archive, not presented as completed requirements mapping.

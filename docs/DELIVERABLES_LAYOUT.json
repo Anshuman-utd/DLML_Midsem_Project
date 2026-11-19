@@ -656,5 +656,18 @@
     ],
     "retrieval": "Archived originals are preserved locally under Deliverable_Archive_20261119 and remain retrievable from Git history at fa7da95 using former_repo_path.",
     "final_submission_bytes_changed": false
+  },
+  "pr15_review_20261119": {
+    "original_pr_head": "2b493b0b6f961b13bda613f2ae8de311fb1255f8",
+    "merged_main_base": "e262867",
+    "canonical_paths": [
+      "report/phase2/Phase2_Report.pdf",
+      "docs/latex/phase2/main.tex",
+      "slides/phase2/Phase2_Presentation.pptx",
+      "slides/phase2/Phase2_Presentation.pdf",
+      "docs/PHASE2_VIVA_GUIDE.md"
+    ],
+    "supersedes": "nine-page report and earlier14-slide deck; archived externally and retained at fa7da95/fc06746 in Git history",
+    "historical_hashes": "Do not treat November16/18 artifact hashes as the active version; use verification/pr15-review-20261119/checks.json."
   }
 }

@@ -1,0 +1,119 @@
+{
+  "input": "/Users/kavyakatal/.codex/visualizations/2026/10/22/01a162ca-3da5-7542-866c-c2a0b84e8065/PR15_Review_20261119/original-pr/slides/phase2/T072_Phase2.pptx",
+  "axis_repairs": [
+    {
+      "part": "ppt/charts/chart1.xml",
+      "mapping": {
+        "-2068027336": "100001",
+        "-2113994440": "100002"
+      }
+    },
+    {
+      "part": "ppt/charts/chart2.xml",
+      "mapping": {
+        "-2068027336": "100001",
+        "-2113994440": "100002"
+      }
+    }
+  ],
+  "precision_only_cache_repairs": [],
+  "slide_wording_corrections": [
+    {
+      "part": "ppt/slides/slide2.xml",
+      "old": "one tree model for each sensor",
+      "new": "sensor-specific tree models",
+      "count": 1
+    },
+    {
+      "part": "ppt/slides/slide2.xml",
+      "old": "Task: use the last hour of speeds to predict the next hour",
+      "new": "Task: use 12 observed readings to predict the next 12 steps",
+      "count": 1
+    },
+    {
+      "part": "ppt/slides/slide3.xml",
+      "old": "Each member integrated, reviewed and presents one module.",
+      "new": "Each member integrated and reviewed one module; understanding must be demonstrated.",
+      "count": 1
+    },
+    {
+      "part": "ppt/slides/slide4.xml",
+      "old": "Last hour of speeds",
+      "new": "Last 12 speed readings",
+      "count": 1
+    },
+    {
+      "part": "ppt/slides/slide4.xml",
+      "old": "+ last observed speed",
+      "new": "+ latest filled speed",
+      "count": 1
+    },
+    {
+      "part": "ppt/slides/slide5.xml",
+      "old": "the sensor's usual training speed.",
+      "new": "the sensor's training median.",
+      "count": 1
+    },
+    {
+      "part": "ppt/slides/slide5.xml",
+      "old": "8.11% of readings missing",
+      "new": "8.11% zero/NaN missing",
+      "count": 1
+    },
+    {
+      "part": "ppt/slides/slide5.xml",
+      "old": "Nothing from the future, and nothing from the test period, is used to prepare an input.",
+      "new": "No future reading or test-fitted statistic is used to prepare an input.",
+      "count": 1
+    },
+    {
+      "part": "ppt/slides/slide7.xml",
+      "old": "76 tests run on every pull request. All five modules are combined and verified.",
+      "new": "Local real-data suite: 76 tests pass. CI reports any skipped checks.",
+      "count": 1
+    },
+    {
+      "part": "ppt/slides/slide9.xml",
+      "old": "error below 0.000000000003 vehicles",
+      "new": "maximum residual below 3.1e-12 vehicles",
+      "count": 1
+    },
+    {
+      "part": "ppt/slides/slide10.xml",
+      "old": "Phase 1 trains a separate model for every sensor, so it learns each road's daily pattern.",
+      "new": "Phase 1 uses sensor-specific estimators; sensor identity may help, but this explanation was not tested.",
+      "count": 1
+    },
+    {
+      "part": "ppt/slides/slide11.xml",
+      "old": "Removing dropout helped: a model this small does not over-fit.",
+      "new": "Removing dropout helped one seed; this does not prove no over-fitting.",
+      "count": 1
+    },
+    {
+      "part": "ppt/slides/slide12.xml",
+      "old": "GRU + GAT is about 1 mph worse than XGBoost, so mixing it in only raises the error.",
+      "new": "None of the five blends beat XGBoost alone. Different models do not guarantee complementary errors.",
+      "count": 1
+    },
+    {
+      "part": "ppt/slides/slide12.xml",
+      "old": "A stronger hybrid we did not build: train the network to correct XGBoost's errors, or give it XGBoost's forecast as an input.",
+      "new": "A possible integrated hybrid, not used in this submission: a network correcting XGBoost errors.",
+      "count": 1
+    },
+    {
+      "part": "ppt/slides/slide13.xml",
+      "old": "A better-timed fixed plan would be much closer.",
+      "new": "A tuned fixed-plan comparison was not tested.",
+      "count": 1
+    },
+    {
+      "part": "ppt/slides/slide14.xml",
+      "old": "The improvement comes from the neighbours, not from the extra layer",
+      "new": "Matched controls support a small observed benefit from neighbour access",
+      "count": 1
+    }
+  ],
+  "embedded_workbooks_unchanged": true
+}
