@@ -9,7 +9,7 @@ Two separate studies are implemented and verified locally:
 
 The simulation is not calibrated from METR-LA, not MARL and not GAT-driven control. The studies do not demonstrate real-world signal benefits. The original faculty technical brief remains unlocated; the [requirements audit](docs/PHASE2_REQUIREMENTS_FINAL_AUDIT.md) distinguishes verified requirements from this conservative completion choice.
 
-- [Current Phase 2 report — nine pages](report/phase2/Phase2_Report.pdf), [LaTeX source](report/phase2/source/main.tex), [14-slide PowerPoint](slides/phase2/Phase2_Presentation.pptx) and [viewable presentation PDF](slides/phase2/Phase2_Presentation.pdf)
+- [Current Phase 2 report — nine pages](report/phase2/Phase2_Report.pdf), [LaTeX source](docs/latex/phase2/main.tex), [14-slide PowerPoint](slides/phase2/Phase2_Presentation.pptx) and [viewable presentation PDF](slides/phase2/Phase2_Presentation.pdf)
 - [Reports by phase](report/README.md), [presentations by phase](slides/README.md) and [review / preservation notes](docs/DELIVERABLES_REVIEW_20261118.md)
 - [Forecast results](docs/PHASE2_RESULTS.md), [synthetic control results](docs/PHASE2_CONTROL_RESULTS.md) and [final verification](verification/phase2-final-20261116/README.md)
 - [Simple forecasting notes](docs/PHASE2_LEARNING_NOTES.md), [LWR/agent notes](docs/PHASE2_CONTROL_NOTES.md), [speaking/viva guide](docs/PHASE2_PRESENTATION_GUIDE.md) and [runbook](docs/PHASE2_RUNBOOK.md)
@@ -115,7 +115,7 @@ This prints forecasts 15, 30 and 60 minutes after the dataset's last observation
 
 ## Explain and report
 
-`report/phase1/results.md` and `metrics.tex` are generated from actual completed outputs. `report/phase1/source/main.tex` is the IEEE-style report source. Copy the generated metrics table and selected run images into its project directory before recompiling, as documented in `report/phase1/source/README.md`. Presentation material is under `slides/`.
+`report/phase1/results.md` and `metrics.tex` are generated from actual completed outputs. The Phase 1 owner report is preserved as a historical PDF; earlier alternative sources are archived outside the repository. Current Phase 2 LaTeX source is under `docs/latex/phase2/`. Presentation material is under `slides/`.
 
 Key limitations: prior test exposure; provisional clock timezone/DST and peak windows; missing-target selection bias in multi-output RF; strided training; a small pilot search; a single region/period; low-speed MAPE instability. The graph is verified but not a prediction input. Multi-seed stability, graph learning, calibrated LWR physics and signal simulation remain future work.
 

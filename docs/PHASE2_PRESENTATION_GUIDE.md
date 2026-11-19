@@ -1,4 +1,4 @@
-> Current deck (November 18): [14-slide PowerPoint](../slides/phase2/Phase2_Presentation.pptx), [PDF preview](../slides/phase2/Phase2_Presentation.pdf). It contains per-slide speaker notes. The six-slide speaking plan below is preserved for the archived coordinator deck, not the current deck.
+> Current deck (November 18): [14-slide PowerPoint](../slides/phase2/Phase2_Presentation.pptx), [PDF preview](../slides/phase2/Phase2_Presentation.pdf). It contains per-slide speaker notes. The six-slide speaking plan below is historical; that earlier deck is archived outside the repository, not offered as a current submission.
 
 # Final six-slide presentation and viva guide — November16
 

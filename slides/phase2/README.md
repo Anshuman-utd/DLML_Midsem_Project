@@ -1,3 +1,3 @@
-# Phase 2 presentation
+# Phase 2 submission presentation
 
-Use **Phase2_Presentation.pptx** (14 slides), or **Phase2_Presentation.pdf** for easy viewing. The repaired PPTX preserves original content, notes, charts and embedded workbooks. Only invalid chart axis references and negligible cache-serialization roundoff were repaired. archive/ holds the unmodified uploaded deck and the earlier six-slide alternative. See ../../docs/DELIVERABLES_REVIEW_20261118.md.
+**Phase2_Presentation.pptx** is the only current deck (14 slides). **Phase2_Presentation.pdf** is its viewable PDF, not another version. Old six-slide/original-unrepaired decks are archived outside this repo. The repaired PPTX retains editable charts and speaker notes.

@@ -14,7 +14,7 @@ Two figures need local, git-ignored inputs and are skipped when those are absent
 
 Usage (from the repository root):
 
-    python report/phase2/source/make_assets.py [--control-run DIR]
+    python docs/latex/phase2/make_assets.py [--control-run DIR]
 """
 
 from __future__ import annotations

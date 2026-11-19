@@ -103,3 +103,15 @@ htmlcov/
 /report/**/*.log
 /report/**/*.out
 /report/**/*.synctex.gz
+
+# Keep retired artifact versions and draft builds out of submission folders
+/report/**/archive/
+/slides/**/archive/
+/results/report_drafts/
+/docs/latex/**/*.aux
+/docs/latex/**/*.log
+/docs/latex/**/*.out
+/docs/latex/**/*.synctex.gz
+
+# A compiled source-side main.pdf is a private draft, not another submission report
+/docs/latex/**/main.pdf

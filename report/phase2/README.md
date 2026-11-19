@@ -1,3 +1,3 @@
-# Phase 2 report
+# Phase 2 submission report
 
-Use **Phase2_Report.pdf** (nine pages). Editable LaTeX and build inputs are in source/. The earlier seven-page coordinator version is preserved under archive/coordinator-20261116/. No runtime source, scores or hybrid experiments were changed by this organization.
+The only report here is **Phase2_Report.pdf** (nine pages). Its [editable LaTeX source](../../docs/latex/phase2/main.tex), tables and figures are under docs/latex/phase2/. No archive or alternative report is kept in this folder.

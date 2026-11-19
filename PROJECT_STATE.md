@@ -1,5 +1,11 @@
 # Project state
 
+## Submission-folder simplification — 2026-11-19
+
+The owner found multiple report/deck versions confusing. Retired Phase 1/2 report/deck alternatives were byte-verified and moved completely outside the repository. Current LaTeX build inputs are under docs/latex/phase2/. report/phase2/ now contains only one report PDF and README; slides/phase2/ contains one PPTX and its PDF preview plus README. No model, scores or final submission bytes changed. Historical draft generators now use ignored results/report_drafts/phase2/, preventing retired folders from being recreated.
+
+Previous cleanup commit fa7da95 is on origin/kavya but was still not merged into origin/main when checked; GitHub’s default branch therefore still shows the older layout. The owner approved committing and pushing this further simplification to kavya on November 19. Main remains unchanged until the owner merges the PR. See docs/DELIVERABLES_LAYOUT.json for the archive/relocation chain.
+
 ## Artifact organization and preview — 2026-11-18
 
 PR #14 from Rudraksh is merged at eaa4eee. Latest nine-page report and fourteen-slide deck are grouped under report/phase2/ and slides/phase2/; Phase 1 artifacts live under their corresponding phase1/ directories. Old alternatives/original uploads are archived with exact relocation hashes. Three charts received valid-positive-axis-ID and negligible numeric-cache serialization repairs; slide/notes/workbook content is preserved. An exact repaired-deck PDF preview and local slide viewer are available. No training/score/hybrid project changes or publication. See docs/DELIVERABLES_REVIEW_20261118.md and report/README.md / slides/README.md. The owner approved committing and pushing this reviewed organization on kavya. It is prepared as a scoped branch commit; main changes only through owner-reviewed PR/merge. Older verification/publication-status records below retain their historical meaning.

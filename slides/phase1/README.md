@@ -1,3 +1,3 @@
 # Phase 1 presentation
 
-Historical owner-supplied eight-slide PPTX and compressed PDF are here. See ../README.md for known content/file-size cautions. archive/ contains the earlier prepared study deck.
+One historical eight-slide presentation, provided as PPTX and PDF. Earlier alternatives are archived outside the repository. See ../README.md for Phase 1 historical size/content cautions.

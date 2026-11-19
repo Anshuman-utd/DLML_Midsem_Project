@@ -1,8 +1,10 @@
-# Reports by phase
+# Submission reports — one per phase
 
-| Phase | Report PDF | Source | Status |
-| --- | --- | --- | --- |
-| Phase 1 — traditional ML | [Phase1_Report.pdf](phase1/Phase1_Report.pdf) | [Preserved earlier IEEE source](phase1/source/README.md) | Owner-supplied historical 17-page report; unchanged |
-| Phase 2 — deep learning + separate synthetic control | [Phase2_Report.pdf](phase2/Phase2_Report.pdf) | [Current LaTeX source](phase2/source/main.tex) | Latest nine-page Rudraksh write-up of frozen evidence |
+| Phase | Only submission report | LaTeX source |
+| --- | --- | --- |
+| Phase 1 | [Phase1_Report.pdf](phase1/Phase1_Report.pdf) | Historical owner-supplied report; earlier alternative sources archived outside this repository |
+| Phase 2 | [Phase2_Report.pdf](phase2/Phase2_Report.pdf) | [Current main.tex](../docs/latex/phase2/main.tex) |
 
-Phase 2's earlier seven-page version and its sources are under phase2/archive/coordinator-20261116/. Do not submit archive/ or figure PDFs as extra reports. Historical manifests retain original paths; see docs/DELIVERABLES_LAYOUT.json from the repository root.
+There are no alternative report PDFs or archive folders under report/. Phase 1 metrics.tex, results.md and run_reference.json are small experiment summaries, not alternative reports. Phase 2 figures and generated tables belong to docs/latex/phase2/; their figure PDFs are LaTeX build inputs, not submission reports.
+
+Old report/deck versions are preserved outside this repository and in Git history. See docs/DELIVERABLES_LAYOUT.json from the repository root for recorded locations/hashes.
